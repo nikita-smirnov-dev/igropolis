@@ -1,0 +1,71 @@
+@use "../mixins/disable-mob-hover" as *;
+@use "../mixins/breakpoint.scss" as *;
+
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  padding: var(--gap) 0;
+  width: 100%;
+  background: #121212;
+  transition: background 0.3s;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+  }
+
+  &__search {
+    flex-grow: 1;
+  }
+
+  &__logo {
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 32px;
+    text-decoration: none;
+    line-height: 120%;
+    color: #f0f0f0;
+    transition: color 0.3s;
+
+    &[href] {
+      @include hover {
+        color: var(--accent);
+      }
+
+      &:active {
+        color: var(--accent-active);
+      }
+    }
+  }
+
+  &__btns {
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+  }
+
+  &__btn {
+    display: inline-flex;
+    border-radius: 16px;
+    padding: 12px;
+    background: #1e1e1e;
+    transition: background 0.3s;
+
+    svg {
+      width: 20px;
+      height: 20px;
+      fill: #f0f0f0;
+    }
+
+    @include hover {
+      background: #2a2a2a;
+    }
+
+    &:active {
+      background: #333;
+    }
+  }
+}

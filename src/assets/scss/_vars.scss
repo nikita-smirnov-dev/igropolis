@@ -9,7 +9,7 @@
   --second-family: "Russo One", sans-serif;
   --third-family: "Consolas", sans-serif;
 
-  --content-width: 1290px;
+  --content-width: 1920px;
   --container-offset: 40px;
   --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
 
@@ -30,6 +30,9 @@
   --bg-elevated-active: #464646;
   --text-primary: #f0f0f0;
   --text-secondary: #9d9d9d;
+
+  // gap
+  --gap: 24px;
 }
 
 [data-theme="light"] {
