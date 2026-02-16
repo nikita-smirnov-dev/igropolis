@@ -1,0 +1,5 @@
+@use "./mixins/font-face" as *;
+
+@include font-face("Nunito Sans", "NunitoSansRegular", 400, normal);
+@include font-face("Nunito Sans", "NunitoSansItalic", 400, italic);
+@include font-face("Russo one", "RussoOneRegular", 400, normal);
