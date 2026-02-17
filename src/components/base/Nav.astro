@@ -1,1 +1,17 @@
-<nav class="nav"></nav>
+---
+// @ts-nocheck
+const {class: extraClass = '', menu = [], label = 'Главная навигация', ...restProps} = Astro.props
+---
+
+<nav class={`nav ${extraClass}`} aria-label={label} data-menu {...restProps}>
+  <ul class="nav__list list-reset">
+    {
+      menu.map((item) => (
+
+      <li class="nav__item">
+        <a href={item.href} class="nav__link">{item.label}</a>
+      </li>
+      ))
+    }
+  </ul>
+</nav>

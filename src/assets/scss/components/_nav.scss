@@ -1,0 +1,28 @@
+@use "../mixins/disable-mob-hover" as *;
+@use "../mixins/breakpoint.scss" as *;
+
+.nav {
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__link {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.2;
+    text-decoration: none;
+    color: #f0f0f0;
+    transition: color 0.3s;
+
+    @include hover {
+      color: var(--accent);
+    }
+
+    &:active {
+      color: var(--accent-active);
+    }
+  }
+}
