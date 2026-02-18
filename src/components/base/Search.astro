@@ -1,5 +1,47 @@
 ---
-const {class: extraClass = ''} = Astro.props
+import { Icon } from 'astro-icon/components';
+
+const { class: extraClass = '' } = Astro.props;
 ---
 
-<form action="#" class={`search ${extraClass}`}></form>
+<form action="#" class={`search ${extraClass}`} data-search>
+  <label class="search_label sr-only" for="search-field">Поиск</label>
+  <button
+    class="search__reset btn-reset"
+    type="button"
+    aria-label="Очистить поиск"
+    title="Очистить поиск"
+    data-search-reset
+  >
+    <Icon name="cross" aria-hidden="true" />
+  </button>
+  <input
+    class="search__field input-reset"
+    id="search__field"
+    placeholder="Искать среди 675 253 игр"
+    type="search"
+    name="search"
+    role="combobox"
+    aria-autocomplete="list"
+    aria-keyshortcuts="Alt+Enter"
+    autocomplete="off"
+    aria-expanded="false"
+    aria-controls="search-dropdown"
+    data-search-input
+  />
+  <Icon class="search__icon" name="search" aria-hidden="true" />
+  <div class="search__hotkeys">
+    <kbd class="search__hotkey">alt</kbd>
+    +
+    <kbd class="search__hotkey">enter</kbd>
+  </div>
+  <div
+    class="search__dropdown"
+    id="search-dropdown"
+    role="listbox"
+    aria-label="результаты поиска"
+    data-simplebar
+  >
+    123
+  </div>
+</form>

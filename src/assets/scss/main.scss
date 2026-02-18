@@ -7,3 +7,5 @@
 // подключения компонентов страницы
 @use "./components/header" as *;
 @use "./components/nav" as *;
+@use "./components/burger" as *;
+@use "./components/search" as *;

@@ -1,11 +1,12 @@
 ---
-import Search from '@/components/base/Search.astro'
-import Nav from '@/components/base/Nav.astro'
-import ThemeSelect from '@/components/base/ThemeSelect.astro'
-import {Icon} from 'astro-icon/components'
-import {menu} from '@/data/data'
+import Search from '@/components/base/Search.astro';
+import Nav from '@/components/base/Nav.astro';
+import ThemeSelect from '@/components/base/ThemeSelect.astro';
+import Burger from '@/components/base/Burger.astro';
+import { Icon } from 'astro-icon/components';
+import { menu } from '@/data/data';
 
-const isHome = Astro.url.pathname === '/'
+const isHome = Astro.url.pathname === '/';
 ---
 
 <header class="header fix-block" data-header>
@@ -15,18 +16,25 @@ const isHome = Astro.url.pathname === '/'
         isHome ? (
           <span class="header__logo">ИгроПолис</span>
         ) : (
-          <a href="/" class="header__logo">ИгроПолис</a>
+          <a href="/" class="header__logo">
+            ИгроПолис
+          </a>
         )
       }
-      <Search class="header__search"/>
-      <Nav class="header__nav" menu={menu}/>
+      <Search class="header__search" />
+      <Nav class="header__nav" menu={menu} data-menu id="main-menu" />
 
       <div class="header__btns">
-        <ThemeSelect/>
-        <button class="header__btn btn-reset" aria-label="открыть окно для входа" title="открыть окно для входа">
-          <Icon name="profile" aria-hidden="true"/>
+        <ThemeSelect />
+        <button
+          class="header__btn btn-reset"
+          aria-label="открыть окно для входа"
+          title="открыть окно для входа"
+        >
+          <Icon name="profile" aria-hidden="true" />
         </button>
       </div>
+      <Burger />
     </div>
   </div>
 </header>

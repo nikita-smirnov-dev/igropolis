@@ -1,0 +1,155 @@
+.search {
+  position: relative;
+
+  &__field {
+    border-radius: 100px;
+    padding: 12px 44px;
+    padding-right: 120px;
+    width: 100%;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 14px;
+    color: #9d9d9d;
+    background: #1e1e1e;
+    transition:
+      background 0.3s,
+      color 0.3s;
+
+    &::placeholder {
+      color: #9d9d9d;
+      transition: color 0.3s;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    translate: 0 -50%;
+    width: 20px;
+    height: 20px;
+    fill: #9d9d9d;
+    transition: fill 0.3s;
+  }
+
+  &__hotkeys {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    translate: 0 -50%;
+    font-family: var(--third-family);
+    font-weight: 400;
+    font-size: 14px;
+    color: #9d9d9d;
+    transition: color 0.3s opacity 0.3s visibility 0.3s;
+    pointer-events: none;
+  }
+
+  &__hotkey {
+    border: 1px solid currentColor;
+    border-radius: 4px;
+    padding: 0 4px;
+  }
+  &__reset {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    translate: 0 -50%;
+    width: 20px;
+    height: 20px;
+    color: #121212;
+    opacity: 0;
+    visibility: hidden;
+    transition: color 0.3s opacity 0.3s visibility 0.3s;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      fill: currentcolor;
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    left: 0;
+    top: calc(100% + 12px);
+    border-radius: 16px;
+    width: 100%;
+    max-height: calc(100vh - var(--header-height));
+    box-shadow: 4px 4px 20px 0 rgba(18, 18, 18, 0.25);
+    background: #1e1e1e;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s visibility 0.3s;
+  }
+
+  &--hover {
+    .search__field {
+      color: #121212;
+      background-color: #f0f0f0;
+
+      &::placeholder {
+        color: #121212;
+      }
+    }
+
+    .search__hotkeys {
+      color: #121212;
+    }
+
+    .search__icon {
+      fill: #121212;
+    }
+  }
+
+  &--focus {
+    .search__field {
+      color: #121212;
+      background-color: #f0f0f0;
+
+      &::placeholder {
+        color: #121212;
+      }
+    }
+
+    .search__hotkeys {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .search__icon {
+      fill: #121212;
+    }
+  }
+
+  &--input {
+    .search__field {
+      color: #121212;
+      background-color: #f0f0f0;
+
+      &::placeholder {
+        color: #121212;
+      }
+    }
+
+    .search__hotkeys {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .search__icon {
+      fill: #121212;
+    }
+
+    .search__reset {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .search__dropdown {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
