@@ -1,0 +1,39 @@
+---
+// @ts-nocheck
+import { Icon } from 'astro-icon/components';
+
+const { platforms, size = 'small' } = Astro.props;
+
+const platformIcons = {
+  PS: 'playstation',
+  XBOXSX: 'xbox',
+  PC: 'pc',
+  Switch: 'switch',
+};
+
+const normalizedPlatforms = new Set(
+  platforms.map((plat) => {
+    if (plat === 'PS4' || plat === 'PS5') return 'PS';
+    return plat;
+  }),
+);
+
+const iconStyle =
+  size === 'small'
+    ? 'height:  12px; width: auto;'
+    : 'width: 16px; height:  16px;';
+---
+
+<div class="game-platforms">
+  {
+    Array.from(normalizedPlatforms).map((plat) => (
+      <Icon
+        class="game-platforms__icon"
+        name={platformIcons[plat]}
+        aria-label={platformIcons[plat]}
+        title={platformIcons[plat]}
+        style={iconStyle}
+      />
+    ))
+  }
+</div>

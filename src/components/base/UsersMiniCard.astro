@@ -1,0 +1,27 @@
+---
+// @ts-nocheck
+
+import { Image } from 'astro:assets';
+import { avatarsImages } from '@/data/images.js';
+import { Icon } from 'astro-icon/components';
+// import { pluralize } from '@/assets/helpers/pluralize';
+
+// import GamePlatforms from '@/components/base/GamePlatforms.astro';
+
+const { avatar, login, profileUrl, collections } = Astro.props;
+
+const avatarImage = avatarsImages[`/src/assets${avatar}`]?.default;
+---
+
+<article class="users-card-mini">
+  <Image src={avatarImage} alt={login} class="users-card-mini__pic" />
+  <div class="users-card-mini__text">
+    <div class="users-card-mini__name">
+      <a class="users-card-mini__link" href={profileUrl}>{login}</a>
+    </div>
+    <div class="users-card-mini__collections">
+      <Icon name="folder" aria-hidden="true" />
+      {collections}
+    </div>
+  </div>
+</article>

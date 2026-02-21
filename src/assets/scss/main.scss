@@ -4,8 +4,18 @@
 @use "fonts" as *;
 @use "settings" as *;
 
+@use "../../../node_modules/simplebar/dist/simplebar.min.css" as *;
+
 // подключения компонентов страницы
 @use "./components/header" as *;
 @use "./components/nav" as *;
 @use "./components/burger" as *;
 @use "./components/search" as *;
+@use "./components/game-platforms" as *;
+@use "./components/search-results" as *;
+
+//cards
+
+@use "./components/games-card-mini" as *;
+@use "./components/collections-card-mini" as *;
+@use "./components/users-card-mini" as *;

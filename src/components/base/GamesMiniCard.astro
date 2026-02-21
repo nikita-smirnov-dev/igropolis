@@ -1,0 +1,23 @@
+---
+// @ts-nocheck
+
+import { Image } from 'astro:assets';
+import { gamesImages } from '@/data/images.js';
+import { Icon } from 'astro-icon/components';
+
+import GamePlatforms from '@/components/base/GamePlatforms.astro';
+
+const { miniCover, title, platforms, url } = Astro.props;
+
+const coverImage = gamesImages[`/src/assets${miniCover}`]?.default;
+---
+
+<article class="games-card-mini">
+  <Image src={coverImage} alt={title} class="games-card-mini__pic" />
+  <div class="games-card-mini__text">
+    <GamePlatforms platforms={platforms} />
+    <h3 class="games-card-mini__title">
+      <a class="games-card-mini__link" href={url}>{title}</a>
+    </h3>
+  </div>
+</article>

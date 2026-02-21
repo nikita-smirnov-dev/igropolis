@@ -1,0 +1,35 @@
+.search-results {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 16px var(--gap);
+    gap: 4px;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    color: #f0f0f0;
+  }
+
+  &__quantity {
+    position: relative;
+    top: 1px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: #9d9d9d;
+  }
+
+  &__list {
+    padding-bottom: 8px;
+
+    &:not(:last-of-type) {
+      border-bottom: 1px solid #343434;
+    }
+  }
+}

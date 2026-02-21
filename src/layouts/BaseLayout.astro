@@ -1,17 +1,24 @@
 ---
-import Head from "@/components/base/Head.astro";
-import Header from "@/components/base/Header.astro";
+import { Icon } from 'astro-icon/components';
 
-const { title = "Название сайта", description = "Описание сайта" } =
+import Head from '@/components/base/Head.astro';
+import Header from '@/components/base/Header.astro';
+
+const { title = 'Название сайта', description = 'Описание сайта' } =
   Astro.props;
 ---
 
 <html lang="ru" class="page">
   <Head title={title} description={description} />
 
-  <body
-    class="page__body">
-    <Header/>
+  <body class="page__body">
+    <div class="page__icons">
+      <Icon name="playstation" aria-hidden="true" />
+      <Icon name="pc" aria-hidden="true" />
+      <Icon name="xbox" aria-hidden="true" />
+      <Icon name="switch" aria-hidden="true" />
+    </div>
+    <Header />
     <div class="site-container">
       <main class="main">
         <slot />

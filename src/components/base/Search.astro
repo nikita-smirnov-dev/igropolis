@@ -1,5 +1,6 @@
 ---
 import { Icon } from 'astro-icon/components';
+import SearchResults from '@/components/base/SearchResults.astro';
 
 const { class: extraClass = '' } = Astro.props;
 ---
@@ -42,6 +43,6 @@ const { class: extraClass = '' } = Astro.props;
     aria-label="результаты поиска"
     data-simplebar
   >
-    123
+    <SearchResults />
   </div>
 </form>

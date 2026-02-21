@@ -1,0 +1,32 @@
+---
+// @ts-nocheck
+
+import { Image } from 'astro:assets';
+import { collectionsImages } from '@/data/images.js';
+import { pluralize } from '@/assets/helpers/pluralize';
+
+// import GamePlatforms from '@/components/base/GamePlatforms.astro';
+
+const { miniCover, title, url, gamesCount, author } = Astro.props;
+
+const coverImage = collectionsImages[`/src/assets${miniCover}`]?.default;
+---
+
+<article class="collections-card-mini">
+  <Image src={coverImage} alt={title} class="collections-card-mini__pic" />
+  <div class="collections-card-mini__text">
+    <h3 class="collections-card-mini__title">
+      <a class="collections-card-mini__link" href={url}>{title}</a>
+    </h3>
+    <div class="collections-card-mini__bottom">
+      <a class="collections-card-mini__author" href={author.profileUrl}
+        >{author.login}</a
+      >
+      <div class="collections-card-mini__games">
+        <span>•</span>
+        {gamesCount}
+        {pluralize(gamesCount, ['игра', 'игры', 'игр'])}
+      </div>
+    </div>
+  </div>
+</article>

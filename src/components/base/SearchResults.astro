@@ -1,0 +1,57 @@
+---
+import { games, collections, users } from '@/data/data';
+import GamesMiniCard from '@/components/base/GamesMiniCard.astro';
+import CollectionsMiniCard from '@/components/base/CollectionsMiniCard.astro';
+import UsersMiniCard from '@/components/base/UsersMiniCard.astro';
+
+const collectionsWidthAuthors = collections.map((item) => ({
+  ...item,
+  author: users.find((u) => u.id === item.authorId),
+}));
+
+const visibleGames = 7;
+const visibleCollections = 3;
+const visibleUsers = 2;
+---
+
+<div class="search-results">
+  <h2 class="search-results__title">
+    Игры
+    <span class="search-results__quantity">{visibleGames}</span>
+  </h2>
+  <ul class="search-results__list list-reset">
+    {
+      games.slice(0, visibleGames).map((item) => (
+        <li class="search-results__item" role="option">
+          <GamesMiniCard {...item} />
+        </li>
+      ))
+    }
+  </ul>
+  <h2 class="search-results__title">
+    Подборки
+    <span class="search-results__quantity">{visibleCollections}</span>
+  </h2>
+  <ul class="search-results__list list-reset">
+    {
+      collectionsWidthAuthors.slice(0, visibleCollections).map((item) => (
+        <li class="search-results__item" role="option">
+          <CollectionsMiniCard {...item} />
+        </li>
+      ))
+    }
+  </ul>
+  <h2 class="search-results__title">
+    Пользователи
+    <span class="search-results__quantity">{visibleUsers}</span>
+  </h2>
+  <ul class="search-results__list list-reset">
+    {
+      users.slice(0, visibleUsers).map((item) => (
+        <li class="search-results__item" role="option">
+          <UsersMiniCard {...item} />
+        </li>
+      ))
+    }
+  </ul>
+</div>
