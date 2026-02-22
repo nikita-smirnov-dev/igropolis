@@ -1,1 +1,78 @@
-<div class="theme-select"></div>
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<div class="theme-select" data-theme-select>
+  <button
+    class="header__btn theme-select__button btn-reset"
+    type="button"
+    aria-haspopup="true"
+    aria-controls="theme-menu"
+    aria-expanded="false"
+    aria-label="Открыть меню с выбором темы"
+    title="Открыть меню с выбором темы"
+    data-theme-select-button
+  >
+    <span class="theme-select__button-inner">
+      <Icon
+        class="theme-select__button-icon theme-select__button-icon--dark"
+        name="dark"
+        aria-hidden="true"
+      />
+      <Icon
+        class="theme-select__button-icon theme-select__button-icon--light"
+        name="light"
+        aria-hidden="true"
+      />
+      <Icon
+        class="theme-select__button-icon theme-select__button-icon--system"
+        name="system"
+        aria-hidden="true"
+      />
+    </span>
+  </button>
+  <ul class="theme-select__list list-reset" id="theme-menu">
+    <li class="theme-select__item">
+      <button
+        class="theme-select__option btn-reset"
+        aria-pressed="false"
+        data-theme="light"
+      >
+        <Icon
+          class="theme-select__icon theme-select__icon--light"
+          name="light"
+          aria-hidden="true"
+        />
+        Светлая тема
+      </button>
+    </li>
+    <li class="theme-select__item">
+      <button
+        class="theme-select__option btn-reset"
+        aria-pressed="true"
+        data-theme="dark"
+      >
+        <Icon
+          class="theme-select__icon theme-select__icon--dark"
+          name="dark"
+          aria-hidden="true"
+        />
+        Темная тема
+      </button>
+    </li>
+    <li class="theme-select__item">
+      <button
+        class="theme-select__option btn-reset"
+        aria-pressed="false"
+        data-theme="system"
+      >
+        <Icon
+          class="theme-select__icon theme-select__icon--system"
+          name="system"
+          aria-hidden="true"
+        />
+        Системная
+      </button>
+    </li>
+  </ul>
+</div>

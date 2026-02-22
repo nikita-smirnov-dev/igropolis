@@ -1,0 +1,121 @@
+@use "../mixins/disable-mob-hover" as *;
+
+.theme-select {
+  position: relative;
+
+  &__button {
+    &-inner {
+      position: relative;
+      width: 20px;
+      height: 20px;
+    }
+
+    &-icon {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.3s;
+
+      &--dark {
+        fill: #5c5eee !important;
+      }
+
+      &--light {
+        fill: #f2e14c !important;
+      }
+
+      &--system {
+        fill: #f0f0f0 !important;
+      }
+
+      &--active {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__list {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 12px);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 177px;
+    border-radius: 16px;
+    padding: 16px;
+    translate: -50% 0;
+    box-shadow: 4px 4px 20px 0 rgba(18, 18, 18, 0.25);
+    background: #1e1e1e;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.3s,
+      visibility 0.3s;
+
+    &--open {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__item {
+    position: relative;
+    width: 100%;
+  }
+
+  &__option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    padding: 8px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    white-space: nowrap;
+    color: #9d9d9d;
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &[aria-pressed="true"] {
+      color: #f0f0f0;
+
+      .theme-select__icon--light {
+        fill: #f2e14c;
+      }
+
+      .theme-select__icon--dark {
+        fill: #5c5eee;
+      }
+
+      .theme-select__icon--system {
+        fill: #f0f0f0;
+      }
+    }
+
+    @include hover {
+      color: #f0f0f0;
+
+      .theme-select__icon--light {
+        fill: #f2e14c;
+      }
+
+      .theme-select__icon--dark {
+        fill: #5c5eee;
+      }
+
+      .theme-select__icon--system {
+        fill: #f0f0f0;
+      }
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    fill: #9d9d9d;
+    transition: fill 0.3s;
+  }
+}
