@@ -5,8 +5,10 @@
 @use "settings" as *;
 
 @use "../../../node_modules/simplebar/dist/simplebar.min.css" as *;
+@use "../../../node_modules/graph-modal/dist/graph-modal.min.css" as *;
 
 // подключения компонентов страницы
+@use "./components/input" as *;
 @use "./components/header" as *;
 @use "./components/nav" as *;
 @use "./components/burger" as *;
@@ -14,6 +16,7 @@
 @use "./components/game-platforms" as *;
 @use "./components/search-results" as *;
 @use "./components/theme-select" as *;
+@use "./components/site-modal" as *;
 
 //cards
 

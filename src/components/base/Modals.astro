@@ -1,0 +1,36 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<div class="graph-modal site-modal">
+  <div
+    class="graph-modal__container site-modal__container"
+    role="dialog"
+    aria-modal="true"
+    data-graph-target="enter-modal"
+  >
+    <button
+      class="btn-reset graph-modal__close js-modal-close site-modal__close"
+      aria-label="Закрыть модальное окно"
+      title="Закрыть модальное окно"
+    >
+      <Icon name="cross" aria-hidden="true" />
+    </button>
+    <div class="graph-modal__content site-modal__content">
+      <h2 class="site-modal__title">Вход на ИгроПолис</h2>
+      <form action="#" class="site-modal__form" data-enter-modal-form>
+        <label class="site-modal__label">
+          <span class="sr-only">Введите Email</span>
+          <input
+            class="site-modal__input input input-reset"
+            type="email"
+            placeholder="E-mail"
+            data-email-input
+          />
+        </label>
+
+        <button class="site-modal__btn" type="submit">Войти</button>
+      </form>
+    </div>
+  </div>
+</div>
