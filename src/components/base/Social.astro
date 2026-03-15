@@ -1,0 +1,23 @@
+---
+// @ts-nocheck
+import { Icon } from 'astro-icon/components';
+
+const { social = [] } = Astro.props;
+---
+
+<ul class="social list-reset">
+  {
+    social.map((item) => (
+      <li class="social__item">
+        <a
+          class="social__link"
+          href={item.href}
+          aria-label={item.label}
+          title={item.label}
+        >
+          <Icon name={item.icon} aria-hidden="true" />
+        </a>
+      </li>
+    ))
+  }
+</ul>

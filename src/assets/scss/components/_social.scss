@@ -1,0 +1,34 @@
+@use "../mixins/disable-mob-hover" as *;
+
+.social {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 16px;
+    width: 44px;
+    height: 44px;
+    color: var(--text-secondary);
+    background: var(--bg-surface);
+    transition: background 0.3s;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      fill: currentcolor;
+    }
+
+    @include hover {
+      background: var(--bg-surface-hover);
+    }
+
+    &:active {
+      background: var(--bg-surface-active);
+    }
+  }
+}

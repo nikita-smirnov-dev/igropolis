@@ -1,0 +1,30 @@
+.footer {
+  display: none;
+  padding-top: var(--gap);
+  border-top: 1px solid var(--bg-elevated);
+
+  &__top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 36px;
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 12px;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: right;
+    color: var(--text-secondary);
+  }
+
+  &__bottom {
+    border-top: 1px solid var(--bg-elevated);
+    padding: var(--gap) 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--text-secondary);
+  }
+}

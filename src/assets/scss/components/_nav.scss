@@ -25,4 +25,15 @@
       color: var(--accent-active);
     }
   }
+
+  &--footer {
+    .nav__list {
+      flex-direction: column;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      width: max-content;
+      max-height: 126px;
+      gap: 16px 48px;
+    }
+  }
 }

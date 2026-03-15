@@ -1,6 +1,26 @@
 ---
+import { menu, secondMenu, social } from '@/data/data.js';
+
 import Modals from '@/components/base/Modals.astro';
+import Nav from '@/components/base/Nav.astro';
+import Social from '@/components/base/Social.astro';
+
+const currentYear = new Date().getFullYear();
+const footerMenu = [...menu, ...secondMenu];
 ---
 
 <Modals />
-<footer class="footer"></footer>
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <Nav menu={footerMenu} class="nav--footer" />
+      <div class="footer__social">
+        <h3 class="footer__title">Социальные сети</h3>
+        <Social social={social} />
+      </div>
+    </div>
+    <div class="footer__bottom">
+      © {currentYear} ИгроПолис. Все права защищены.
+    </div>
+  </div>
+</footer>
