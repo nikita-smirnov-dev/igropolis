@@ -8,6 +8,7 @@
 @use "../../../node_modules/graph-modal/dist/graph-modal.min.css" as *;
 
 // подключения компонентов страницы
+@use "./components/btn" as *;
 @use "./components/input" as *;
 @use "./components/header" as *;
 @use "./components/footer" as *;

@@ -1,0 +1,44 @@
+@use "../mixins/disable-mob-hover" as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--accent);
+  border-radius: 100px;
+  padding: 12px 22px;
+  font-weight: 400;
+  font-size: 16px;
+  text-decoration: none;
+  color: #f0f0f0;
+  transition:
+    border-color 0.3s,
+    background 0.3s;
+  cursor: pointer;
+
+  svg {
+    display: block;
+    fill: currentcolor;
+  }
+
+  &--primary {
+    background: var(--accent);
+  }
+
+  &--secondary {
+    color: var(--text-primary);
+    background: transparent;
+  }
+
+  @include hover {
+    border-color: var(--accent-hover);
+    color: #f0f0f0;
+    background: var(--accent-hover);
+  }
+
+  &:active {
+    border-color: var(--accent-active);
+    color: #f0f0f0;
+    background: var(--accent-active);
+  }
+}
