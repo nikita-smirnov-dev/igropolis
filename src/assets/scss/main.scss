@@ -6,6 +6,7 @@
 
 @use "../../../node_modules/simplebar/dist/simplebar.min.css" as *;
 @use "../../../node_modules/graph-modal/dist/graph-modal.min.css" as *;
+@use "../../../node_modules/swiper//swiper-bundle.min.css" as *;
 
 // подключения компонентов страницы
 @use "./components/btn" as *;
@@ -19,6 +20,7 @@
 @use "./components/game-platforms" as *;
 @use "./components/search-results" as *;
 @use "./components/theme-select" as *;
+@use "./components/main-hero" as *;
 @use "./components/site-modal" as *;
 
 //cards

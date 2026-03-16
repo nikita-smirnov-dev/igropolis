@@ -1,0 +1,141 @@
+---
+import Button from '@/components/base/Button.astro';
+import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import slideImageBg1 from '@/assets/img/slide-1-bg.jpg';
+import slideImageBg2 from '@/assets/img/slide-2-bg.jpg';
+import slideImageBg3 from '@/assets/img/slide-3-bg.jpg';
+---
+
+<section class="main-hero section-offset">
+  <div class="container">
+    <div class="content-wrapper">
+      <h1 class="sr-only">ИгроПолис - Ваш гид в мире игр</h1>
+      <div class="main-hero__content">
+        <div class="main-hero__slider-btns">
+          <button
+            class="btn-reset main-hero__slider-btn main-hero__slider-btn--prev"
+            aria-label="Листать назад"
+            title="Листать назад"
+            aria-control="main-hero-slider"
+          >
+            <Icon
+              name="slider-prev"
+              aria-hidden="true"
+              class="main-hero__slider-icon"
+            />
+          </button>
+          <button
+            class="btn-reset main-hero__slider-btn main-hero__slider-btn--next"
+            aria-label="Листать вперед"
+            title="Листать вперед"
+            aria-control="main-hero-slider"
+          >
+            <Icon
+              name="slider-next"
+              aria-hidden="true"
+              class="main-hero__slider-icon"
+            />
+          </button>
+        </div>
+        <div class="swiper" data-main-hero-slider id="main-hero-slider">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="main-hero__slide">
+                <div class="main-hero__bg">
+                  <Image
+                    src={slideImageBg1}
+                    alt=""
+                    loading="eager"
+                    aria-hidden="true"
+                    class="main-hero__pic"
+                  />
+                </div>
+                <div class="main-hero__text">
+                  <h2 class="main-hero__title">Alan Wake 2</h2>
+                  <p class="main-hero__descr">
+                    Помогите Алану Уэйку избавиться от удушающих объятий тьмы в
+                    долгожданном продолжении культотвой саги
+                  </p>
+                  <div class="main-hero__btns">
+                    <Button
+                      href="/game"
+                      variant="primary"
+                      class="main-hero__btn"
+                      >Смотреть детали
+                    </Button>
+                    <Button variant="secondary" class="main-hero__btn"
+                      >Добавить в коллекцию</Button
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="main-hero__slide">
+                <div class="main-hero__bg">
+                  <Image
+                    src={slideImageBg2}
+                    alt=""
+                    loading="eager"
+                    aria-hidden="true"
+                    class="main-hero__pic"
+                  />
+                </div>
+                <div class="main-hero__text">
+                  <h2 class="main-hero__title">Death Stranding 2</h2>
+                  <p class="main-hero__descr">
+                    Сэм Бриджес возвращается в новом путешествии, полоном
+                    опасностей и загадок.
+                  </p>
+                  <div class="main-hero__btns">
+                    <Button
+                      href="/game"
+                      variant="primary"
+                      class="main-hero__btn"
+                      >Смотреть детали
+                    </Button>
+                    <Button variant="secondary" class="main-hero__btn"
+                      >Добавить в коллекцию</Button
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="main-hero__slide">
+                <div class="main-hero__bg">
+                  <Image
+                    src={slideImageBg3}
+                    alt=""
+                    loading="eager"
+                    aria-hidden="true"
+                    class="main-hero__pic"
+                  />
+                </div>
+                <div class="main-hero__text">
+                  <h2 class="main-hero__title">Kingdom Come: Deliverance 2</h2>
+                  <p class="main-hero__descr">
+                    Жить в средневековой Европе было непросто, и оценить это с
+                    полным погружением позволяет новая игра от Warhorse.
+                  </p>
+                  <div class="main-hero__btns">
+                    <Button
+                      href="/game"
+                      variant="primary"
+                      class="main-hero__btn"
+                      >Смотреть детали
+                    </Button>
+                    <Button variant="secondary" class="main-hero__btn"
+                      >Добавить в коллекцию</Button
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
