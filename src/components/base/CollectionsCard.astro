@@ -1,0 +1,74 @@
+---
+//@ts-nocheck
+import { Image } from 'astro:assets';
+import { collectionsImages, avatarsImages } from '@/data/images.js';
+import { Icon } from 'astro-icon/components';
+
+const {
+  cover,
+  title,
+  description,
+  gamesCount,
+  commentsCount,
+  likesCount,
+  url,
+  author,
+  class: extraClass,
+} = Astro.props;
+const coverImage = collectionsImages[`/src/assets${cover}`]?.default;
+
+const avatarImage = avatarsImages[`/src/assets${author.avatar}`]?.default;
+---
+
+<article class={`collections-card ${extraClass}`}>
+  <Image src={coverImage} alt={title} class="collections-card__pic" />
+  <div class="collections-card__text">
+    <div class="collections-card__top">
+      <div class="collections-card__info">
+        <div class="collections-card__info-item">
+          <Icon
+            name="games"
+            aria-hidden="true"
+            class="collections-card__info-icon"
+          />
+          {gamesCount}
+        </div>
+        <div class="collections-card__info-item">
+          <Icon
+            name="comments"
+            aria-hidden="true"
+            class="collections-card__info-icon"
+          />
+          {commentsCount}
+        </div>
+        <div class="collections-card__info-item">
+          <Icon
+            name="likes"
+            aria-hidden="true"
+            class="collections-card__info-icon"
+          />
+          {likesCount}
+        </div>
+      </div>
+      <button
+        class="btn-reset collections-card__fav"
+        aria-label="Добавить в избранное"
+        title="Добавить в избранное"
+      >
+        <Icon name="fav" aria-hidden="true" />
+      </button>
+    </div>
+    <a href={author.profileUrl} class="collections-card__author">
+      <Image
+        src={avatarImage}
+        alt={author.login}
+        class="collections-card__author-pic"
+      />
+      {author.login}
+    </a>
+    <h3 class="collections-card__title">
+      <a href={url} class="collections-card__link">{title}</a>
+    </h3>
+    <p class="collections-card__descr">{description}</p>
+  </div>
+</article>

@@ -1,0 +1,154 @@
+@use "../mixins/disable-mob-hover" as *;
+
+.collections-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background: var(--bg-surface);
+
+  &__pic {
+    display: block;
+    border-radius: 12px;
+    width: 320px;
+    height: 197px;
+    object-fit: cover;
+    background: var(--text-secondary);
+  }
+
+  &__text {
+    flex-grow: 1;
+    padding: 16px 0;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    &-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 120%;
+      color: var(--text-secondary);
+
+      svg {
+        display: block;
+        width: 16px;
+        height: 16px;
+        fill: currentcolor;
+      }
+    }
+  }
+
+  &__fav {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    border-radius: 16px;
+    color: var(--text-secondary);
+    background: var(--bg-elevated);
+    z-index: 2;
+    transition: background 0.3s;
+
+    svg {
+      display: block;
+      width: 16px;
+      height: 16px;
+      fill: currentcolor;
+    }
+
+    @include hover {
+      background: var(--bg-elevated-hover);
+    }
+
+    &:active {
+      background: var(--bg-elevated-active);
+    }
+  }
+
+  &__author {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: color 0.3s;
+    z-index: 2;
+
+    &-pic {
+      display: block;
+      border-radius: 100%;
+      width: 24px;
+      height: 24px;
+      object-fit: cover;
+    }
+
+    @include hover {
+      color: var(--accent);
+    }
+
+    &:active {
+      color: var(--accent-active);
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 12px;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 120%;
+    color: var(--text-primary);
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
+
+    @include hover {
+      color: var(--accent);
+    }
+
+    &:active {
+      color: var(--accent-active);
+    }
+  }
+
+  &__descr {
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: var(--text-secondary);
+  }
+}

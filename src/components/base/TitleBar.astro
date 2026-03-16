@@ -1,0 +1,8 @@
+---
+const { title, variant = 'normal' } = Astro.props;
+---
+
+<header class={`title-bar title-bar--${variant}`}>
+  <h2 class="title-bar__title">{title}</h2>
+  <slot />
+</header>

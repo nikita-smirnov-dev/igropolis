@@ -1,0 +1,38 @@
+@use "../mixins/disable-mob-hover" as *;
+
+.title-bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding-bottom: 28px;
+
+  &__title {
+    margin: 0;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 120%;
+    color: var(--text-primary);
+  }
+
+  &__link {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.2;
+    text-decoration: underline;
+    color: var(--accent);
+    transition:
+      color 0.3s,
+      text-decoration-color 0.3s;
+    text-decoration-skip-ink: none;
+    text-underline-offset: 3px;
+
+    @include hover {
+      text-decoration-color: transparent;
+      color: var(--accent-hover);
+    }
+    &:active {
+      color: var(--accent-active);
+    }
+  }
+}

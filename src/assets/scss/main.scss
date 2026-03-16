@@ -17,10 +17,13 @@
 @use "./components/nav" as *;
 @use "./components/burger" as *;
 @use "./components/search" as *;
+@use "./components/section-offset" as *;
+@use "./components/title-bar" as *;
 @use "./components/game-platforms" as *;
 @use "./components/search-results" as *;
 @use "./components/theme-select" as *;
 @use "./components/main-hero" as *;
+@use "./components/main-collections" as *;
 @use "./components/site-modal" as *;
 
 //cards
@@ -28,3 +31,4 @@
 @use "./components/games-card-mini" as *;
 @use "./components/collections-card-mini" as *;
 @use "./components/users-card-mini" as *;
+@use "./components/collections-card" as *;

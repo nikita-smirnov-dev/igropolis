@@ -1,0 +1,64 @@
+---
+import TitleBar from '@/components/base/TitleBar.astro';
+import CollectionsCard from '@/components/base/CollectionsCard.astro';
+
+import { Icon } from 'astro-icon/components';
+
+import { collections, users } from '@/data/data.js';
+
+const collectionsWidthAuthors = collections.map((item) => ({
+  ...item,
+  author: users.find((u) => u.id === item.authorId),
+}));
+---
+
+<section class="main-collections section-offset">
+  <div class="container">
+    <div class="content-wrapper">
+      <TitleBar title="Подборки сообщества">
+        <a href="#" class="title-bar__link">все подборки</a>
+      </TitleBar>
+      <div class="main-collections__content">
+        <button
+          class="btn-reset main-collections__slider-btn main-collections__slider-btn--prev"
+          aria-label="Листать назад"
+          title="Листать назад"
+          aria-control="main-collections-slider"
+        >
+          <Icon
+            name="slider-prev"
+            aria-hidden="true"
+            class="main-collections__slider-icon"
+          />
+        </button>
+        <button
+          class="btn-reset main-collections__slider-btn main-collections__slider-btn--next"
+          aria-label="Листать вперед"
+          title="Листать вперед"
+          aria-control="main-collections-slider"
+        >
+          <Icon
+            name="slider-next"
+            aria-hidden="true"
+            class="main-collections__slider-icon"
+          />
+        </button>
+        <div
+          class="main-collection__slider swiper"
+          data-main-collections-slider
+          id="main-collections-slider"
+        >
+          <div class="swiper-wrapper">
+            {
+              collectionsWidthAuthors.map((item) => (
+                <div class="swiper-slide">
+                  <CollectionsCard {...item} />
+                </div>
+              ))
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

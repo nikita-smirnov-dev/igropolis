@@ -1,0 +1,50 @@
+@use "../mixins/disable-mob-hover" as *;
+
+.main-collections {
+  &__content {
+    position: relative;
+  }
+
+  &__slider-btn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    translate: 0 -50%;
+    border-radius: 100%;
+    width: 44px;
+    height: 44px;
+    color: var(--text-primary);
+    background: var(--bg-elevated);
+    transition: background 0.3s;
+    z-index: 5;
+
+    &--prev {
+      left: -56px;
+    }
+
+    &--next {
+      right: -56px;
+    }
+
+    @include hover {
+      background: var(--bg-elevated-hover);
+    }
+
+    &:active {
+      background: var(--bg-elevated-active);
+    }
+  }
+
+  &__slider-icon {
+    display: block;
+    width: 9px;
+    height: 19px;
+    fill: currentcolor;
+  }
+
+  .swiper-slide {
+    height: auto;
+  }
+}
