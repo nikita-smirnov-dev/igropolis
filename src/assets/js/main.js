@@ -7,6 +7,8 @@ import "@/assets/js/components/validate-enter-modal-form";
 import "@/assets/js/components/main-hero-slider";
 import "@/assets/js/components/main-collections-slider";
 import "@/assets/js/components/expandable-text";
+import "@/assets/js/components/back-to-top";
+import "@/assets/js/components/cookie-block";
 
 import "@/assets/js/utils/modal";
 

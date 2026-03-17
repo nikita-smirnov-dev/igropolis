@@ -1,0 +1,39 @@
+@use "../mixins/disable-mob-hover" as *;
+
+.back-to-top {
+  position: fixed;
+  right: 40px;
+  bottom: 40px;
+  border-radius: 4px;
+  padding: 8px;
+  z-index: 100;
+  box-shadow: 4px 4px 20px 0 rgba(18, 18, 18, 0.25);
+  background: var(--bg-elevated);
+  transition:
+    opacity 0.3s,
+    visibility 0.3s,
+    background 0.3s;
+  opacity: 0;
+  visibility: hidden;
+
+  svg {
+    display: block;
+    width: 24px;
+    height: 24px;
+    fill: var(--text-primary);
+    object-fit: cover;
+  }
+
+  &--visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  @include hover {
+    background: var(--bg-elevated-hover);
+  }
+
+  &:active {
+    background: var(--bg-elevated-active);
+  }
+}

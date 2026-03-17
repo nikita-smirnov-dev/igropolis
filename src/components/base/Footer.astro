@@ -4,11 +4,15 @@ import { menu, secondMenu, social } from '@/data/data.js';
 import Modals from '@/components/base/Modals.astro';
 import Nav from '@/components/base/Nav.astro';
 import Social from '@/components/base/Social.astro';
+import BackToTop from '@/components/base/BackToTop.astro';
+import CookieBlock from '@/components/base/CookieBlock.astro';
 
 const currentYear = new Date().getFullYear();
 const footerMenu = [...menu, ...secondMenu];
 ---
 
+<CookieBlock />
+<BackToTop />
 <Modals />
 <footer class="footer">
   <div class="container">
