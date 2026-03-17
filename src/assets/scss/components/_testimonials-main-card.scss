@@ -1,0 +1,124 @@
+@use "../mixins/disable-mob-hover" as *;
+
+.testimonials-main-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 221px;
+  padding: 20px;
+  border-radius: 16px;
+  background: var(--bg-surface);
+
+  &__game {
+    display: inline-flex;
+    margin-bottom: 12px;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 120%;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-skip-ink: none;
+    color: var(--text-primary);
+    transition:
+      color 0.3s,
+      text-decoration-color 0.3s;
+
+    @include hover {
+      text-decoration-color: transparent;
+      color: var(--accent);
+    }
+
+    &:active {
+      text-decoration-color: transparent;
+      color: var(--accent-active);
+    }
+  }
+
+  &__descr {
+    display: -webkit-box;
+    overflow: hidden;
+    margin: 0;
+    margin-bottom: 16px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: var(--text-secondary);
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-top: auto;
+    width: 100%;
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &__avatar {
+    display: block;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  &__author {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: color 0.3s;
+
+    @include hover {
+      color: var(--accent);
+    }
+
+    &:active {
+      color: var(--accent-active);
+    }
+  }
+
+  &__date {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    color: var(--text-secondary);
+  }
+
+  .expand-btn {
+    margin-top: -12px;
+  }
+
+  &__likes {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--text-secondary);
+
+    svg {
+      display: block;
+      width: 16px;
+      height: 16px;
+      fill: currentcolor;
+    }
+  }
+}

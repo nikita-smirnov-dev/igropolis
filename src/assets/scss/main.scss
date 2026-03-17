@@ -22,9 +22,11 @@
 @use "./components/game-platforms" as *;
 @use "./components/search-results" as *;
 @use "./components/theme-select" as *;
+@use "./components/site-modal" as *;
 @use "./components/main-hero" as *;
 @use "./components/main-collections" as *;
-@use "./components/site-modal" as *;
+@use "./components/main-testimonials" as *;
+@use "./components/expand-btn" as *;
 
 //cards
 
@@ -32,3 +34,4 @@
 @use "./components/collections-card-mini" as *;
 @use "./components/users-card-mini" as *;
 @use "./components/collections-card" as *;
+@use "./components/testimonials-main-card" as *;

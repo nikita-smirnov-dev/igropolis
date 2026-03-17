@@ -1,0 +1,44 @@
+---
+//@ts-nocheck
+import { Image } from 'astro:assets';
+import { avatarsImages } from '@/data/images.js';
+import { Icon } from 'astro-icon/components';
+import { formatDate } from '@/assets/helpers/format-date';
+
+const { text, likes, game, author, date } = Astro.props;
+
+const avatarImage = avatarsImages[`/src/assets${author.avatar}`]?.default;
+---
+
+<article class="testimonials-main-card">
+  <a href={game.url} class="testimonials-main-card__game">{game.title}</a>
+  <p
+    class="testimonials-main-card__descr"
+    data-descr
+    data-expand-action="modal"
+    data-max-lines="3"
+  >
+    {text}
+  </p>
+  <div class="testimonials-main-card__bottom">
+    <div class="testimonials-main-card__info">
+      <Image
+        src={avatarImage}
+        alt={author.login}
+        class="testimonials-main-card__avatar"
+      />
+      <div class="testimonials-main-card__text">
+        <a href={author.profileUrl} class="testimonials-main-card__author"
+          >{author.login}</a
+        >
+        <time datetime={date} class="testimonials-main-card__date"
+          >{formatDate(date)}</time
+        >
+      </div>
+    </div>
+    <div class="testimonials-main-card__likes">
+      <Icon name="likes" aria-hidden="true" />
+      {likes}
+    </div>
+  </div>
+</article>

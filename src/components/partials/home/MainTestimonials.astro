@@ -1,0 +1,38 @@
+---
+//@ts-nocheck
+
+import TitleBar from '@/components/base/TitleBar.astro';
+import TestimonialsMainCard from '@/components/base/TestimonialsMainCard.astro';
+
+import { games, users, testimonials } from '@/data/data.js';
+import { isRenderTemplateResult } from 'astro/runtime/server/render/astro/render-template.js';
+
+const testimopnialsWithUsersGames = testimonials.map((item) => ({
+  ...item,
+  author: users.find((u) => u.id === item.authorId),
+  game: games.find((g) => g.id === item.gameId),
+}));
+
+const visibleTestimonials = 6;
+---
+
+<section class="main-testimonials section-offset">
+  <div class="container">
+    <div class="content-wrapper">
+      <TitleBar title="Отзывы игроков">
+        <a href="#" class="title-bar__link">Все отзывы</a>
+      </TitleBar>
+      <ul class="main-testimonials__list list-reset grid">
+        {
+          testimopnialsWithUsersGames
+            .slice(0, visibleTestimonials)
+            .map((item) => (
+              <li class="main-testimonials__item">
+                <TestimonialsMainCard {...item} />
+              </li>
+            ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

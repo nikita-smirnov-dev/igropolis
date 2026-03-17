@@ -35,4 +35,22 @@ import Button from '@/components/base/Button.astro';
       </form>
     </div>
   </div>
+  <div
+    class="graph-modal__container site-modal__container"
+    role="dialog"
+    aria-modal="true"
+    data-graph-target="testimonial"
+  >
+    <button
+      class="btn-reset graph-modal__close js-modal-close site-modal__close"
+      aria-label="Закрыть модальное окно"
+      title="Закрыть модальное окно"
+    >
+      <Icon name="cross" aria-hidden="true" />
+    </button>
+    <div class="graph-modal__content site-modal__content">
+      <h2 class="site-modal__title">Полный отзыв</h2>
+      <p class="site-modal__text" data-full-testimonial-text></p>
+    </div>
+  </div>
 </div>

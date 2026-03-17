@@ -1,0 +1,28 @@
+@use "../mixins/disable-mob-hover" as *;
+
+.expand-btn {
+  border: none;
+  padding: 0;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 120%;
+  text-decoration: underline;
+  color: var(--accent);
+  background: transparent;
+  transition:
+    color 0.3s,
+    text-decoration-color 0.3s;
+  cursor: pointer;
+  text-decoration-skip-ink: none;
+  text-underline-offset: 3px;
+
+  @include hover {
+    text-decoration-color: transparent;
+    color: var(--accent-hover);
+  }
+
+  &:active {
+    text-decoration-color: transparent;
+    color: var(--accent-active);
+  }
+}
