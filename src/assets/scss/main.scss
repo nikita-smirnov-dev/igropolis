@@ -27,6 +27,7 @@
 @use "./components/main-collections" as *;
 @use "./components/main-testimonials" as *;
 @use "./components/expand-btn" as *;
+@use "./components/main-articles" as *;
 
 //cards
 
@@ -35,3 +36,4 @@
 @use "./components/users-card-mini" as *;
 @use "./components/collections-card" as *;
 @use "./components/testimonials-main-card" as *;
+@use "./components/articles-card" as *;

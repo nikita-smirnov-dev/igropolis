@@ -1,0 +1,32 @@
+---
+import TitleBar from '@/components/base/TitleBar.astro';
+import ArticlesCard from '@/components/base/ArticlesCard.astro';
+
+import { articles } from '@/data/data.js';
+
+const visibleArticles = 3;
+---
+
+<section class="main-articles section-offset">
+  <div class="container">
+    <div class="content-wrapper">
+      <TitleBar title="Статьи">
+        <a href="/articles/" class="title-bar__link">Все статьи</a>
+      </TitleBar>
+      <ul class="main-articles__list list-reset grid">
+        {
+          articles.slice(0, visibleArticles).map((item, index) => (
+            <li
+              class={`main-articles__item ${index === 0 ? 'main-articles__item--big' : ''}`}
+            >
+              <ArticlesCard
+                {...item}
+                class={index === 0 ? 'articles-card--big' : ''}
+              />
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,13 @@
+.main-articles {
+  &__list {
+    grid-template-rows: repeat(2, 228px);
+  }
+
+  &__item {
+    grid-column: 6 span;
+
+    &--big {
+      grid-row: 2 span;
+    }
+  }
+}

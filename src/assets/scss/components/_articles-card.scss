@@ -1,0 +1,210 @@
+@use "../mixins/disable-mob-hover" as *;
+
+.articles-card {
+  position: relative;
+  display: flex;
+  gap: 20px;
+  height: 100%;
+  border-radius: 16px;
+  padding: 20px;
+  background: var(--bg-surface);
+
+  &__pic {
+    display: block;
+    border-radius: 12px;
+    width: 240px;
+    height: 188px;
+    object-fit: cover;
+  }
+
+  &__text {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  &__category {
+    position: relative;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    text-decoration: underline;
+    color: var(--text-primary);
+    text-decoration-skip-ink: none;
+    z-index: 2;
+    transition:
+      color 0.3s,
+      text-decoration-color 0.3s;
+    text-underline-offset: 3px;
+
+    @include hover {
+      text-decoration-color: transparent;
+      color: var(--accent) !important;
+    }
+
+    &:active {
+      color: var(--accent-active) !important;
+    }
+  }
+
+  &__bookmark {
+    position: relative;
+    display: block;
+    width: 16px;
+    height: 16px;
+    color: var(--text-primary);
+    transition: color 0.3s;
+    z-index: 2;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      fill: currentcolor;
+      object-fit: cover;
+    }
+
+    @include hover {
+      color: var(--accent) !important;
+    }
+
+    &:active {
+      color: var(--accent-active) !important;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 12px;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 120%;
+    color: var(--text-primary);
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
+
+    @include hover {
+      color: var(--accent) !important;
+    }
+
+    &:active {
+      color: var(--accent-active) !important;
+    }
+  }
+
+  &__descr {
+    display: none;
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: var(--text-secondary);
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: auto;
+  }
+
+  &__date {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    color: var(--text-secondary);
+  }
+
+  &__comments {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--text-secondary);
+
+    svg {
+      position: relative;
+      top: -2px;
+      display: block;
+      width: 16px;
+      height: 16px;
+      fill: currentcolor;
+      object-fit: cover;
+    }
+  }
+
+  &--big {
+    padding: 0;
+
+    .articles-card__pic {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      width: 100%;
+      height: 100%;
+    }
+
+    .articles-card__text {
+      position: relative;
+      justify-content: flex-end;
+      padding: var(--gap);
+      border-radius: inherit;
+      z-index: 2;
+      background: linear-gradient(0deg, #1e1e1e 0%, rgba(30, 30, 30, 0) 100%);
+    }
+
+    .articles-card__category {
+      color: #f0f0f0;
+    }
+
+    .articles-card__bookmark {
+      color: #f0f0f0;
+    }
+
+    .articles-card__title {
+      color: #f0f0f0;
+    }
+
+    .articles-card__descr {
+      display: block;
+      color: #9d9d9d;
+    }
+
+    .articles-card__bottom {
+      margin-top: 24px;
+    }
+
+    .articles-card__date {
+      color: #9d9d9d;
+    }
+
+    .articles-card__comments {
+      color: #9d9d9d;
+    }
+  }
+}

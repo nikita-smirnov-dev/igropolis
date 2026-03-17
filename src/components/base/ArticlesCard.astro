@@ -1,0 +1,48 @@
+---
+//@ts-nocheck
+import { Image } from 'astro:assets';
+import { articlesImages } from '@/data/images.js';
+import { Icon } from 'astro-icon/components';
+import { formatDate } from '@/assets/helpers/format-date';
+
+const {
+  cover,
+  category,
+  url,
+  title,
+  commentsCount,
+  description,
+  date,
+  class: extraClass = '',
+} = Astro.props;
+
+const articleImage = articlesImages[`/src/assets${cover}`]?.default;
+---
+
+<article class={`articles-card ${extraClass}`}>
+  <Image src={articleImage} alt={title} class="articles-card__pic" />
+  <div class="articles-card__text">
+    <div class="articles-card__top">
+      <a href={category.url} class="articles-card__category">{category.name}</a>
+      <button
+        class="articles-card__bookmark btn-reset"
+        aria-label="Добавить в закладки"
+        title="Добавить в закладки"
+      >
+        <Icon name="bookmark" aria-hidden="true" />
+      </button>
+    </div>
+    <h3 class="articles-card__title">
+      <a href={url} class="articles-card__link">{title}</a>
+    </h3>
+    <p class="articles-card__descr">{description}</p>
+    <div class="articles-card__bottom">
+      <time datetime={date} class="articles-card__date">{formatDate(date)}</time
+      >
+      <div class="articles-card__comments">
+        <Icon name="comments" aria-hidden="true" />
+        {commentsCount}
+      </div>
+    </div>
+  </div>
+</article>
