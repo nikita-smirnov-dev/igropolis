@@ -1,0 +1,31 @@
+---
+import Breadcrumbs from '@/components/base/Breadcrumbs.astro';
+import { pluralize } from '@/assets/helpers/pluralize';
+import { games } from '@/data/data';
+
+const items = [
+  {
+    href: '/',
+    label: 'Главная',
+  },
+  {
+    href: '/games/',
+    label: 'Каталог',
+  },
+];
+---
+
+<section class="hero catalog-hero">
+  <div class="container">
+    <div class="content-wrapper">
+      <Breadcrumbs items={items} />
+      <h1 class="hero__title">
+        Каталог
+        <span class="hero__games-count"
+          >{games.length}
+          {pluralize(games.length, ['игра', 'игры', 'игр'])}</span
+        >
+      </h1>
+    </div>
+  </div>
+</section>

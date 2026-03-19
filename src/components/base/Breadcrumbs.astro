@@ -1,0 +1,28 @@
+---
+//@ts-nocheck
+
+const { items = [] } = Astro.props;
+---
+
+<nav aria-label="Хлебные крошки">
+  <ul class="breadcrumbs list-reset">
+    {
+      items.map((item, index) => {
+        const isLast = index === items.length - 1;
+        return (
+          <li class="breadcrumbs__item">
+            {isLast ? (
+              <span class="breadcrumbs__link" aria-current="page">
+                {item.label}
+              </span>
+            ) : (
+              <a href={item.href} class="breadcrumbs__link">
+                {item.label}
+              </a>
+            )}
+          </li>
+        );
+      })
+    }
+  </ul>
+</nav>

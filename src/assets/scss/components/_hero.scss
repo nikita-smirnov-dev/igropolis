@@ -1,0 +1,28 @@
+@use "../mixins/disable-mob-hover" as *;
+
+.hero {
+  position: relative;
+  padding-top: calc(var(--header-height) + var(--gap));
+  padding-bottom: 36px;
+
+  &__title {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin: 0;
+    margin-top: 40px;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 120%;
+    color: var(--text-primary);
+  }
+
+  &__games-count {
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--accent);
+  }
+}
