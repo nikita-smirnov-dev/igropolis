@@ -9,6 +9,7 @@ import "@/assets/js/components/main-collections-slider";
 import "@/assets/js/components/expandable-text";
 import "@/assets/js/components/back-to-top";
 import "@/assets/js/components/cookie-block";
+import "@/assets/js/components/grid-toggle";
 
 import "@/assets/js/utils/modal";
 

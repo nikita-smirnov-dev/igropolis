@@ -42,6 +42,7 @@
 
     &[href] {
       color: var(--text-primary);
+
       &:focus-visible {
         outline: none;
         color: var(--accent);

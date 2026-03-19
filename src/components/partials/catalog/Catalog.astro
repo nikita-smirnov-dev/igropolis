@@ -1,0 +1,32 @@
+---
+import { Icon } from 'astro-icon/components';
+import { games } from '@/data/data';
+import GridToggle from '@/components/base/GridToggle.astro';
+
+const visibleGames = 8;
+---
+
+<section class="catalog section-offset">
+  <div class="container">
+    <div class="content-wrapper">
+      <div class="catalog__top">
+        <button class="btn-reset catalog__filter-btn" data-filters-open>
+          <Icon name="filter" aria-hidden="true" />
+          Фильтры
+          <span
+            class="catalog__filter-btn-count catalog__filter-btn-count--hidden"
+            data-filters-count></span>
+        </button>
+        <div class="catalog__actions">
+          <GridToggle />
+        </div>
+      </div>
+      <ul class="list-reset grid catalog__list" data-games-list>
+        <li class="catalog__item">1</li>
+        <li class="catalog__item">2</li>
+        <li class="catalog__item">3</li>
+        <li class="catalog__item">4</li>
+      </ul>
+    </div>
+  </div>
+</section>

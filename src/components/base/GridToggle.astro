@@ -1,0 +1,22 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<div class="grid-toggle" data-grid-toggle>
+  <button
+    class="btn-reset grid-toggle__btn"
+    data-toggle-type="small"
+    aria-pressed="true"
+    aria-label="Переключить на небольшие карточки"
+  >
+    <Icon name="mini-grid" aria-hidden="true" />
+  </button>
+  <button
+    class="btn-reset grid-toggle__btn"
+    data-toggle-type="big"
+    aria-pressed="false"
+    aria-label="Переключить на большие карточки"
+  >
+    <Icon name="grid" aria-hidden="true" />
+  </button>
+</div>

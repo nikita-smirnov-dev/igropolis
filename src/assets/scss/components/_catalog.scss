@@ -1,0 +1,61 @@
+@use "../mixins/disable-mob-hover" as *;
+
+.catalog {
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+  }
+
+  &__filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--text-primary);
+    transition: color 0.3s;
+
+    svg {
+      display: block;
+      width: 20px;
+      height: 20px;
+      fill: currentcolor;
+      object-fit: cover;
+    }
+
+    &-count {
+      &--hidden {
+        display: none;
+      }
+    }
+
+    @include hover {
+      color: var(--accent);
+    }
+
+    &:active {
+      color: var(--accent-active);
+    }
+  }
+
+  &__actions {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--gap);
+  }
+
+  &__item {
+    grid-column: 3 span;
+  }
+
+  &__list {
+    &--big {
+      .catalog__item {
+        grid-column: 4 span;
+      }
+    }
+  }
+}
