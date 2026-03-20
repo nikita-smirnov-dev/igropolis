@@ -1,0 +1,65 @@
+@use "../mixins/disable-mob-hover" as *;
+
+.custom-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+
+  &__input {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    border: 1px solid var(--text-primary);
+    appearance: none;
+    background: transparent;
+
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      background-image: url("./img/check.svg");
+      background-position: center;
+      background-size: 8px 8px;
+      background-repeat: no-repeat;
+      background-color: var(--accent);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      pointer-events: none;
+      user-select: none;
+
+      & + .custom-checkbox__text {
+        opacity: 0.4;
+        pointer-events: none;
+        user-select: none;
+      }
+    }
+
+    &:checked {
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--text-primary);
+    transition: color 0.3s;
+    user-select: none;
+  }
+
+  @include hover {
+    .custom-checkbox__text {
+      color: var(--accent);
+    }
+  }
+}

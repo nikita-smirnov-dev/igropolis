@@ -1,0 +1,89 @@
+---
+import { Icon } from 'astro-icon/components';
+import Button from '@/components/base/Button.astro';
+import Filter from '@/components/base/Filter.astro';
+
+const dataItems = [
+  '2027',
+  '2026',
+  '2025',
+  '2024',
+  '2023',
+  '2022',
+  '2021',
+  '2020',
+  '2019',
+  '2018',
+  '2017',
+  '2016',
+  '2015',
+];
+
+const platformItems = ['PC', 'PS5', 'PS4', 'Xbox One', 'MacOs', 'Switch'];
+---
+
+<div class="filters" data-filters role="dialog" aria-modal="true">
+  <div class="filters__top">
+    <h2 class="filters__title">Фильтры</h2>
+    <button
+      class="filters__close btn-reset"
+      aria-label="Закрыть фильтры"
+      data-filtres-close
+    >
+      <Icon name="cross" aria-hidden="true" />
+    </button>
+  </div>
+  <div class="filters__content" data-simplebar>
+    <div class="filters__item">
+      <Filter id="date" title="Дата выхода" items={dataItems} />
+    </div>
+    <div class="filters__item">
+      <Filter id="platform" title="Платформа" items={platformItems} />
+    </div>
+    <div class="filters__item">
+      <div class="filter" data-filter id="156">
+        <button
+          class="filter__trigger btn-reset"
+          data-filter-trigger
+          aria-expanded="false"
+          aria-controls={156 + '-panel'}
+          id={156 + '-button'}
+        >
+          Рейтинг
+          <span
+            class="filter__trigger-value filter__trigger-value--empty"
+            data-filter-trigger-value></span>
+          <span
+            class="filter__trigger-count filter__trigger-count--hidden"
+            data-filter-trigger-count></span>
+        </button>
+        <div
+          class="filter__panel"
+          id={156 + '-panel'}
+          role="region"
+          aria-labelledby={156 + '-button'}
+        >
+          <div class="filter__range range__slider" data-filter-range-slider>
+            <div class="filter__range-values">
+              <span>0</span>
+              <span>1</span>
+              <span>2</span>
+              <span>3</span>
+              <span>4</span>
+              <span>5</span>
+            </div>
+            <input
+              class="filter__range-range-input"
+              type="text"
+              data-filter-range-input
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="filters__bottom">
+    <Button class="filters__show" variant="primary">Показать 125 132 игр</Button
+    >
+  </div>
+</div>

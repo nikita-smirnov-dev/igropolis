@@ -1,0 +1,67 @@
+---
+//@ts-nocheck
+
+import { Icon } from 'astro-icon/components';
+import CustomCheckbox from '@/components/base/CustomCheckbox.astro';
+
+const { id, title, items = [] } = Astro.props;
+---
+
+<div class="filter" data-filter id={id}>
+  <button
+    class="filter__trigger btn-reset"
+    data-filter-trigger
+    aria-expanded="false"
+    aria-controls={id + '-panel'}
+    id={id + '-button'}
+  >
+    {title}
+    <span
+      class="filter__trigger-value filter__trigger-value--empty"
+      data-filter-trigger-value></span>
+    <span
+      class="filter__trigger-count filter__trigger-count--hidden"
+      data-filter-trigger-count></span>
+  </button>
+  <div
+    class="filter__panel"
+    id={id + '-panel'}
+    role="region"
+    aria-labelledby={id + '-button'}
+  >
+    <div class="filter__container" data-state="collapsed" data-filter-container>
+      <div class="filter__search-wrapper" data-filter-wrapper>
+        <input
+          type="search"
+          class="filter__search input-reset"
+          placeholder="Найти"
+          data-filter-search
+        />
+        <button
+          class="filter__clear filter__clear--hidden btn-reset"
+          data-filter-clear
+          aria-label="Очистить поиск"
+          type="button"
+        >
+          <Icon name="cross" aria-hidden="true" />
+        </button>
+      </div>
+      <ul class="filter__list list-reset" data-filter-list data-simplebar>
+        {
+          items.map((item, i) => (
+            <li class="filter__item" data-index={i}>
+              <CustomCheckbox data-filter-checkbox id={id} text={item} />
+            </li>
+          ))
+        }
+      </ul>
+
+      <div class="filter__empty filter__empty--hidden" data-filter-empty>
+        Ничего не найдено
+      </div>
+      <button class="filter__toggle btn-reset" data-filter-toggle
+        >Показать все</button
+      >
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+---
+const { id, text, ...restProps } = Astro.props;
+---
+
+<label class="custom-checkbox">
+  <input
+    type="checkbox"
+    class="custom-checkbox__input"
+    name={id}
+    value={text}
+    {...restProps}
+  />
+  <span class="custom-checkbox__text">{text}</span>
+</label>

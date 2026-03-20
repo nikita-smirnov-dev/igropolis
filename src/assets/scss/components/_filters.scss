@@ -1,0 +1,277 @@
+@use "../mixins/disable-mob-hover" as *;
+
+.filters {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  width: 480px;
+  height: 100vh;
+  z-index: 105;
+  border-radius: 0 16px 16px 0;
+  box-shadow: 4px 4px 20px 0 rgba(18, 18, 18, 0.25);
+  background: var(--bg-surface);
+
+  &__top {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 32px 24px;
+    z-index: 2;
+  }
+
+  &__content {
+    flex-grow: 1;
+    min-height: 0;
+    padding: 12px 24px;
+  }
+
+  &__bottom {
+    position: relative;
+    padding: 32px 24px;
+    z-index: 2;
+  }
+
+  &__show {
+    width: 100%;
+  }
+
+  &__title {
+    margin: 0;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 120%;
+    color: var(--text-primary);
+  }
+
+  &__close {
+    width: 20px;
+    height: 20px;
+    color: var(--text-primary);
+    transition: color 0.3s;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      fill: currentcolor;
+      object-fit: cover;
+    }
+
+    @include hover {
+      color: var(--accent);
+    }
+
+    &:active {
+      color: var(--accent-active);
+    }
+  }
+
+  &__item {
+    padding: 12px 0;
+  }
+
+  &--open {
+    visibility: visible;
+    translate: 0;
+  }
+}
+
+.filter {
+  &__trigger {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding-left: 24px;
+    min-height: 20px;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--text-primary);
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 8px;
+      width: 16px;
+      height: 2px;
+      border-radius: 100px;
+      background-color: currentcolor;
+      transition: opacity 0.3s;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 7px;
+      top: 1px;
+      width: 2px;
+      height: 16px;
+      border-radius: 100px;
+      background-color: currentcolor;
+      transition: opacity 0.3s;
+    }
+
+    &-count {
+      border-radius: 100px;
+      min-width: 20px;
+      height: 20px;
+      padding: 3px;
+      font-family: var(--font-family);
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 120%;
+      text-align: center;
+      color: #f0f0f0;
+      background: var(--accent);
+
+      &--hidden {
+        display: none;
+      }
+    }
+
+    &-value {
+      font-family: var(--font-family);
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 120%;
+      color: var(--accent);
+
+      &--empty {
+        display: none;
+      }
+    }
+  }
+
+  &__panel {
+    display: none;
+    padding-top: 16px;
+    padding-left: 24px;
+  }
+
+  &__list {
+    max-height: 235px;
+
+    .simplebar-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__item {
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__empty {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--text-primary);
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &__toggle {
+    margin-top: 16px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 120%;
+    color: var(--text-secondary);
+    transition: color 0.3s;
+
+    @include hover {
+      color: var(--accent);
+    }
+
+    &::active {
+      color: var(--accent-active);
+    }
+  }
+
+  &__search-wrapper {
+    position: relative;
+    display: none;
+  }
+
+  &__search {
+    margin-bottom: 16px;
+    padding-right: 20px;
+    width: 100%;
+    height: 35px;
+    border-bottom: 1px solid var(--bg-elevated);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--text-secondary);
+    background-image: url("/img/search.svg");
+    background-position: right center;
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+  }
+
+  &__clear {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 34px;
+    color: var(--text-secondary);
+    background-color: var(--bg-surface);
+    transition: color 0.3s;
+
+    svg {
+      display: block;
+      width: 16px;
+      height: 16px;
+      fill: currentcolor;
+      object-fit: cover;
+    }
+
+    @include hover {
+      color: var(--accent);
+    }
+
+    &:active {
+      color: var(--accent-active);
+    }
+
+    &--hidden {
+      display: none;
+    }
+  }
+
+  &--open {
+    .filter__trigger {
+      &::after {
+        opacity: 0;
+      }
+    }
+
+    .filter__panel {
+      display: block;
+    }
+  }
+
+  &--expanded {
+    .filter__search-wrapper {
+      display: block;
+    }
+  }
+}
