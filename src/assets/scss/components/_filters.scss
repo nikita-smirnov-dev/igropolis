@@ -150,9 +150,48 @@
   }
 
   &__panel {
-    display: none;
+    // display: none;
     padding-top: 16px;
     padding-left: 24px;
+  }
+
+  &__range {
+    &-values {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 8px;
+      margin-left: calc(-1 * var(--gap));
+      width: calc(100% + var(--gap));
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 120%;
+      color: var(--text-secondary);
+
+      span {
+        position: relative;
+
+        &:nth-child(2) {
+          left: 1px;
+        }
+
+        &:last-child {
+          left: -2px;
+        }
+
+        &:nth-last-child(2) {
+          left: -2px;
+        }
+
+        &:nth-last-child(3) {
+          left: -1px;
+        }
+      }
+    }
+
+    &-input {
+      display: none;
+    }
   }
 
   &__list {

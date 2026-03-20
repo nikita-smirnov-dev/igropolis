@@ -1,0 +1,45 @@
+.range__slider {
+  height: 2px;
+
+  &.noUi-target {
+    margin-left: -12px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    background: var(--bg-elevated);
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -12px;
+      top: 0;
+      width: 12px;
+      height: 2px;
+      background-color: var(--accent);
+    }
+  }
+
+  .noUi-handle {
+    width: 12px;
+    height: 12px;
+    top: -5px;
+    border: 2px solid var(--accent);
+    border-radius: 100%;
+    box-shadow: none;
+    background: var(--bg-elevated);
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      display: none;
+    }
+  }
+
+  .noUi-connect {
+    background: var(--accent);
+  }
+
+  .noUi-handle-lower {
+    right: 0;
+  }
+}

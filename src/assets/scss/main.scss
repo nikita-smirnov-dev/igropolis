@@ -6,6 +6,7 @@
 
 @use "../../../node_modules/simplebar/dist/simplebar.min.css" as *;
 @use "../../../node_modules/graph-modal/dist/graph-modal.min.css" as *;
+@use "../../../node_modules/nouislider/dist/nouislider.min.css" as *;
 @use "../../../node_modules/swiper//swiper-bundle.min.css" as *;
 
 // подключения компонентов страницы
@@ -36,6 +37,7 @@
 @use "./components/catalog" as *;
 @use "./components/filters" as *;
 @use "./components/custom-checkbox" as *;
+@use "./components/range-slider" as *;
 
 //cards
 
