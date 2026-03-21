@@ -11,6 +11,7 @@ import "@/assets/js/components/back-to-top";
 import "@/assets/js/components/cookie-block";
 import "@/assets/js/components/grid-toggle";
 import "@/assets/js/components/range-slider";
+import "@/assets/js/components/filter";
 
 import "@/assets/js/utils/modal";
 

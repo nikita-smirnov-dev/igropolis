@@ -19,6 +19,8 @@ const initRangeSlider = () => {
   rangeElement.noUiSlider.on("update", (values, handle) => {
     const value = parseFloat(values[handle]);
     input.value = value;
+
+    input.dispatchEvent(new Event("input", { bubbles: true }));
   });
 };
 

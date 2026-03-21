@@ -12,6 +12,11 @@
   border-radius: 0 16px 16px 0;
   box-shadow: 4px 4px 20px 0 rgba(18, 18, 18, 0.25);
   background: var(--bg-surface);
+  visibility: hidden;
+  transition:
+    visibility 0.3s,
+    translate 0.3s;
+  translate: -100% 0;
 
   &__top {
     position: relative;
@@ -150,7 +155,7 @@
   }
 
   &__panel {
-    // display: none;
+    display: none;
     padding-top: 16px;
     padding-left: 24px;
   }
@@ -239,7 +244,7 @@
       color: var(--accent);
     }
 
-    &::active {
+    &:active {
       color: var(--accent-active);
     }
   }
