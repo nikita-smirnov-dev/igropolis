@@ -2,6 +2,15 @@
 import { Icon } from 'astro-icon/components';
 import { games } from '@/data/data';
 import GridToggle from '@/components/base/GridToggle.astro';
+import CustomSelect from '@/components/base/CustomSelect.astro';
+
+const sortOptions = [
+  { label: 'По рейтингу', value: 'rating' },
+  { label: 'По популярности', value: 'popularity' },
+  { label: 'Сначала новые', value: 'newest' },
+  { label: 'Сначала старые', value: 'oldest' },
+  { label: 'По алфавиту', value: 'alphabetical' },
+];
 
 const visibleGames = 8;
 ---
@@ -18,6 +27,7 @@ const visibleGames = 8;
             data-filters-count></span>
         </button>
         <div class="catalog__actions">
+          <CustomSelect options={sortOptions} label="Сортировка игр" id="1" />
           <GridToggle />
         </div>
       </div>

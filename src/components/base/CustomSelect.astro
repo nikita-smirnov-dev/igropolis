@@ -1,0 +1,57 @@
+---
+//@ts-nocheck
+
+import { Icon } from 'astro-icon/components';
+
+const { options = [], id, name = 'sort', label = 'Сортировка' } = Astro.props;
+---
+
+<div class="custom-select" data-custom-select>
+  <input
+    type="hidden"
+    name={name}
+    value={options[0]?.value}
+    data-select-hidden
+  />
+
+  <span class="custom-select__label sr-only" id={`combo${id}-label`}
+    >{label}</span
+  >
+  <div
+    class="custom-select__trigger"
+    id={`combo${id}`}
+    aria-controls={`listbox${id}`}
+    aria-expanded="false"
+    aria-haspopup="listbox"
+    aria-labelledby={`combo${id}-label`}
+    role="combobox"
+    aria-activedescendant=""
+    tabindex="0"
+  >
+    <span>{options[0]?.label}</span>
+    <Icon name="angle" aria-hidden="true" />
+  </div>
+  <div
+    class="custom-select__listbox"
+    id={`listbox${id}`}
+    role="listbox"
+    aria-labelledby={`combo${id}-label`}
+    tabindex="-1"
+    data-select-listbox
+  >
+    {
+      options.map((opt, index) => (
+        <div
+          role="option"
+          id={`combo${id}-${index}`}
+          class={`custom-select__option ${index === 0 ? 'custom-select__option--current' : ''}`}
+          aria-selected={index === 0 ? 'true' : 'false'}
+          data-value={opt.value}
+          data-select-option
+        >
+          {opt.label}
+        </div>
+      ))
+    }
+  </div>
+</div>

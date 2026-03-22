@@ -1,0 +1,85 @@
+@use "../mixins/disable-mob-hover" as *;
+
+.custom-select {
+  position: relative;
+  z-index: 2;
+
+  &__trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: color 0.3s;
+
+    svg {
+      display: block;
+      width: 16px;
+      height: 16px;
+      fill: currentcolor;
+      object-fit: cover;
+      transition: rotate 0.3s;
+    }
+
+    @include hover {
+      color: var(--accent);
+    }
+
+    &:active {
+      color: var(--accent-active);
+    }
+  }
+
+  &__listbox {
+    display: none;
+    position: absolute;
+    right: 0;
+    top: calc(100% + 12px);
+    width: 300px;
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 4px 4px 20px 0 rgba(18, 18, 18, 0.25);
+    background: var(--bg-surface);
+  }
+
+  &__option {
+    width: 100%;
+    padding: 8px 24px;
+    text-align: left;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &[aria-selected="true"] {
+      color: var(--accent);
+    }
+
+    &--current {
+      color: var(--accent);
+    }
+
+    @include hover {
+      color: var(--accent);
+    }
+
+    &:active {
+      color: var(--accent-active);
+    }
+  }
+
+  &--open {
+    .custom-select__trigger svg {
+      rotate: 180deg;
+    }
+
+    .custom-select__listbox {
+      display: block;
+    }
+  }
+}
