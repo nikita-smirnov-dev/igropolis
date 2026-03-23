@@ -1,0 +1,26 @@
+.digital-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 24px;
+  padding: 4px;
+  border-radius: 4px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 120%;
+  text-align: center;
+  color: #f0f0f0;
+
+  &--green {
+    background: var(--green-color);
+  }
+
+  &--yellow {
+    background: var(--yellow-color);
+  }
+
+  &--red {
+    background: var(--red-color);
+  }
+}

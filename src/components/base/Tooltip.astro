@@ -1,0 +1,16 @@
+---
+const { id, text } = Astro.props;
+---
+
+<div class="tooltip" data-tooltip-container>
+  <slot />
+  <div
+    class="tooltip__elem tooltip__elem--hidden"
+    data-tooltip-element
+    role="tooltip"
+    data-position-vert="top"
+    data-position-hor="right"
+  >
+    {text}
+  </div>
+</div>

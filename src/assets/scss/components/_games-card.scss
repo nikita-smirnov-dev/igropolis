@@ -1,0 +1,110 @@
+@use "../mixins/disable-mob-hover" as *;
+
+.games-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--bg-elevated);
+  border-radius: 16px;
+  min-height: 487px;
+  background: var(--bg-surface);
+
+  &__pic {
+    display: block;
+    max-width: 100%;
+    height: 240px;
+    border-top-left-radius: 16px;
+    border-top-right-radius: 16px;
+    object-fit: cover;
+  }
+
+  &__text {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+  }
+
+  .game-platforms {
+    gap: 8px;
+
+    &__icon {
+      fill: var(--text-primary);
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 8px;
+    margin-left: -8px;
+    padding: 4px 0;
+    padding-left: 8px;
+    overflow: hidden;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 120%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: var(--text-primary);
+  }
+
+  &__link {
+    display: inline-flex;
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+
+    @include hover {
+      color: var(--accent);
+    }
+
+    &:active {
+      color: var(--accent-active);
+    }
+  }
+
+  &__genres {
+    margin-bottom: 8px;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &__date {
+    margin-bottom: 8px;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--text-secondary);
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: auto;
+  }
+
+  &__more {
+    flex-grow: 1;
+  }
+
+  &__add {
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    padding: 10px;
+    border: 2px solid var(--accent);
+    border-radius: 100px;
+  }
+}

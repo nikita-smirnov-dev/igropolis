@@ -1,0 +1,21 @@
+---
+//@ts-nocheck
+
+import { Icon } from 'astro-icon/components';
+
+const { value = 0 } = Astro.props;
+
+let colorClass = '';
+
+if (value >= 4) {
+  colorClass = 'digital-rating--green';
+} else if (value >= 2) {
+  colorClass = 'digital-rating--yellow';
+} else {
+  colorClass = 'digital-rating--red';
+}
+---
+
+<span class={`digital-rating ${colorClass}`}>
+  {value.toFixed(1)}
+</span>

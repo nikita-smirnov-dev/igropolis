@@ -3,6 +3,8 @@ import { Icon } from 'astro-icon/components';
 import { games } from '@/data/data';
 import GridToggle from '@/components/base/GridToggle.astro';
 import CustomSelect from '@/components/base/CustomSelect.astro';
+import GamesCard from '@/components/base/GamesCard.astro';
+import Button from '@/components/base/Button.astro';
 
 const sortOptions = [
   { label: 'По рейтингу', value: 'rating' },
@@ -32,11 +34,19 @@ const visibleGames = 8;
         </div>
       </div>
       <ul class="list-reset grid catalog__list" data-games-list>
-        <li class="catalog__item">1</li>
-        <li class="catalog__item">2</li>
-        <li class="catalog__item">3</li>
-        <li class="catalog__item">4</li>
+        {
+          games.slice(0, visibleGames).map((item) => (
+            <li class="catalog__item">
+              <GamesCard {...item} />
+            </li>
+          ))
+        }
       </ul>
+      <div class="catalog__center">
+        <Button class="catalog__more" variant="secondary">
+          Загрузить ещё
+        </Button>
+      </div>
     </div>
   </div>
 </section>

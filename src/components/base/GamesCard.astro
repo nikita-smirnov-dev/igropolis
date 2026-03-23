@@ -1,0 +1,51 @@
+---
+//@ts-nocheck
+
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import { gamesImages } from '@/data/images';
+import { formatDate } from '@/assets/helpers/format-date';
+
+import GamePlatforms from '@/components/base/GamePlatforms.astro';
+import Button from '@/components/base/Button.astro';
+import DigitalRating from '@/components/base/DigitalRating.astro';
+import Tooltip from '@/components/base/Tooltip.astro';
+
+const { id, cover, title, platforms, url, genres, rating, releaseDate } =
+  Astro.props;
+
+const genreString = genres.map((g) => g.name).join(', ');
+const coverImage = gamesImages[`/src/assets${cover}`]?.default;
+---
+
+<article class="games-card" data-tooltip-parent>
+  <Image src={coverImage} alt={title} class="games-card__pic" />
+  <div class="games-card__text">
+    <div class="games-card__top">
+      <GamePlatforms platforms={platforms} size="big" />
+      <DigitalRating value={rating} />
+    </div>
+    <h3 class="games-card__title">
+      <a href={url} class="games-card__link">{title}</a>
+    </h3>
+    <div class="games-card__genres">{genreString}</div>
+    <time datetime={releaseDate} class="fgames-card__date"
+      >{formatDate(releaseDate)}</time
+    >
+    <div class="games-card__bottom">
+      <Button class="games-card__more" href={url} variant="primary"
+        >Подробнее</Button
+      >
+      <Tooltip id={`tooltip-${id}`} text="Добавить в коллекцию">
+        <Button
+          class="games-card__add"
+          variant="secondary"
+          aria-label="Добавить в коллекцию"
+          data-tooltip-btn
+          aria-describedby={`tooltip-${id}`}
+          ><Icon name="plus" aria-hidden="true" /></Button
+        >
+      </Tooltip>
+    </div>
+  </div>
+</article>
