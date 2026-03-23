@@ -1,0 +1,44 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const {
+  initialRating = 0,
+  max = 5,
+  class: extraClass = '',
+  ratingDisplay = '',
+} = Astro.props;
+---
+
+<div
+  class={`rating-choice ${extraClass}`}
+  role="slider"
+  aria-valunow={initialRating}
+  aria-valuemin="0"
+  aria-valuemax={max}
+  aria-label="Рейтинг игры"
+  tabindex="0"
+  data-rating-container
+  data-rating-display={ratingDisplay}
+>
+  {
+    Array.from({ length: max }).map((_, i) => (
+      <span
+        class="rating-choice__star"
+        data-star={i + 1}
+        aria-label={`${i + 1} звезд`}
+      >
+        <Icon name="star" class="rating-choice__star-base" aria-hidden="true" />
+        <span
+          class="rating-choice__star-fill-container"
+          data-star-fill-container
+        >
+          <Icon
+            name="star"
+            class="rating-choice__star-fill"
+            aria-hidden="true"
+          />
+        </span>
+      </span>
+    ))
+  }
+</div>

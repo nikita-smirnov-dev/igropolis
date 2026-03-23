@@ -1,0 +1,46 @@
+---
+import Image from 'astro/components/Image.astro';
+import { Icon } from 'astro-icon/components';
+import gameInfoCover from '@/assets/img/game-info-cover.png';
+import Button from '@/components/base/Button.astro';
+import RatingChoice from '@/components/base/RatingChoice.astro';
+
+const { class: extraClass = '' } = Astro.props;
+
+// const coverImage = collectionsImages[`/src/assets${cover}`]?.default;
+---
+
+<article class={`game-info ${extraClass}`}>
+  <Image
+    class="game-info__cover"
+    src={gameInfoCover}
+    alt="Обложка игры Alan Wake 2"
+  />
+  <div class="game-info__rating-wrapper">
+    <div class="game-info__rating-inner">
+      <RatingChoice initialRating={4.5} ratingDisplay="#game1-score" />
+      <div class="game-info__rating-text">на основе 2325 отзывов</div>
+    </div>
+    <div class="game-info__rating-value" id="game1-score"></div>
+  </div>
+  <div class="game-info__btns">
+    <Button
+      class="game-info__add-testimonial"
+      variant="primary"
+      data-graph-path="add-testimonial"
+      >Написать отзыв
+    </Button>
+    <Button
+      class="game-info__add-status"
+      variant="secondary"
+      data-graph-path="add-status">Твой статус</Button
+    >
+    <Button
+      class="game-info__add-game"
+      variant="secondary"
+      aria-label="Добавить в коллекцию"
+    >
+      <Icon name="plus" aria-hidden="true" />
+    </Button>
+  </div>
+</article>

@@ -1,0 +1,21 @@
+@use "../mixins/disable-mob-hover" as *;
+
+.game-content {
+  position: relative;
+  margin-top: -24px;
+  padding-top: 80px;
+  border-radius: 16px 16px 0 0;
+  z-index: 2;
+  background: var(--bg-primary);
+
+  &__wrapper {
+    grid-column: 8 span;
+    border-radius: 16px;
+    padding: var(--gap);
+    background: var(--bg-surface);
+  }
+
+  &__info {
+    grid-column: 4 span;
+  }
+}

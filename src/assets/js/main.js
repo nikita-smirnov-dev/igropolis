@@ -14,6 +14,7 @@ import "@/assets/js/components/range-slider";
 import "@/assets/js/components/filter";
 import "@/assets/js/components/custom-select";
 import "@/assets/js/components/tooltip";
+import "@/assets/js/components/rating-choice";
 
 import "@/assets/js/utils/modal";
 

@@ -42,6 +42,7 @@
 @use "./components/games-card" as *;
 @use "./components/digital-rating" as *;
 @use "./components/tooltip" as *;
+@use "./components/rating-choice" as *;
 
 //cards
 
@@ -55,3 +56,5 @@
 //game
 
 @use "./components/game-hero" as *;
+@use "./components/game-content" as *;
+@use "./components/game-info" as *;
