@@ -7,12 +7,14 @@ import Footer from '@/components/base/Footer.astro';
 
 const { title = 'Название сайта', description = 'Описание сайта' } =
   Astro.props;
+
+const isGame = Astro.url.pathname === '/game';
 ---
 
 <html lang="ru" class="page">
   <Head title={title} description={description} />
 
-  <body class="page__body">
+  <body class={`page__body ${isGame ? 'page__body--game' : ''}`}>
     <div class="page__icons">
       <Icon name="playstation" aria-hidden="true" />
       <Icon name="pc" aria-hidden="true" />

@@ -1,0 +1,74 @@
+@use "../mixins/disable-mob-hover" as *;
+
+.game-hero {
+  position: relative;
+  height: 100vh;
+  min-height: 600px;
+  padding-bottom: 48px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(18, 18, 18, 0.4);
+    z-index: 1;
+  }
+
+  &__cover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .container {
+    height: 100%;
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    height: 100%;
+    z-index: 2;
+  }
+
+  &__inner {
+    max-width: 448px;
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 8px;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 120%;
+    color: #f0f0f0;
+  }
+
+  &__descr {
+    margin: 0;
+    margin-bottom: 16px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: #9d9d9d;
+  }
+
+  &__btns {
+    display: inline-flex;
+    gap: 16px;
+  }
+
+  &__btn {
+    color: #f0f0f0 !important;
+  }
+}

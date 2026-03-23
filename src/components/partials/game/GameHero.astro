@@ -1,0 +1,50 @@
+---
+import Breadcrumbs from '@/components/base/Breadcrumbs.astro';
+import Button from '@/components/base/Button.astro';
+
+const items = [
+  {
+    href: '/',
+    label: 'Главная',
+  },
+  {
+    href: '/games/',
+    label: 'Каталог',
+  },
+  {
+    href: '/game/',
+    label: 'Alan Wake 2',
+  },
+];
+---
+
+<section class="game-hero hero">
+  <video
+    src="/video-bg.mp4"
+    class="game-hero__cover"
+    muted
+    autoplay
+    loop
+    playsinline
+    preload="metadata"></video>
+  <div class="container">
+    <div class="content-wrapper game-hero__content">
+      <Breadcrumbs items={items} />
+      <div class="game-hero__inner">
+        <h1 class="game-hero__title">Alan Wake 2</h1>
+        <p class="game-hero__descr">
+          Помогите Алану Уэйку избавиться от удушающих объятий тьмы в
+          долгожданном продолжении культовой саги.
+        </p>
+        <div class="game-hero__btns">
+          <Button class="game-hero__btn" href="#content" variant="primary"
+            >Смотреть детали</Button
+          >
+          <Button class="game-hero__btn" variant="secondary">
+            Добавить в коллекцию</Button
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
