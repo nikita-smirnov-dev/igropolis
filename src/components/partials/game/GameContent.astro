@@ -1,11 +1,63 @@
 ---
 import GameInfo from '@/components/base/GameInfo.astro';
+import GameTabDescr from '@/components/base/GameTabDescr.astro';
+import { Icon } from 'astro-icon/components';
+import { gameNavItems } from '@/data/data';
 ---
 
 <div class="game-content section-offset">
   <div class="container">
     <div class="content-wrapper grid">
-      <div class="game-content__wrapper">content</div>
+      <div class="game-content__wrapper">
+        <nav
+          class="game-content__nav game-nav"
+          data-tabs
+          data-scroll-nav
+          aria-label="Навигация по игре"
+        >
+          <button
+            class="btn-reset game-nav__scroll-btn game-nav__scroll-btn--prev"
+            data-scroll-btn="left"
+            aria-label="Прокрутить влево"
+          >
+            <Icon name="angle-left" aria-hidden="true" />
+          </button>
+          <ul class="game-nav__list list-reset" data-scroll-list>
+            {
+              gameNavItems.map((item, index) => (
+                <li class="game-nav__item">
+                  <button
+                    class={`btn-reset game-nav__btn ${item.tab === 1 ? 'is-active' : ''}`}
+                    data-tab={item.tab}
+                    role="tab"
+                    aria-selected={item.tab === 1 ? 'true' : 'false'}
+                    tabindex={item.tab === 1 ? '0' : '-1'}
+                    id={`tab-${item.tab}`}
+                  >
+                    {item.title}
+                    <span class="game-nav__count">{item.count}</span>
+                  </button>
+                </li>
+              ))
+            }
+          </ul>
+          <button
+            class="btn-reset game-nav__scroll-btn game-nav__scroll-btn--next"
+            data-scroll-btn="right"
+            aria-label="Прокрутить вправо"
+          >
+            <Icon name="angle-right" aria-hidden="true" />
+          </button>
+        </nav>
+        <div
+          class="game-content__item is-active"
+          role="tabpanel"
+          aria-labelledby="tab-1"
+          data-target="1"
+        >
+          <GameTabDescr />
+        </div>
+      </div>
       <div class="game-content__info">
         <GameInfo class="game-info--sticky" />
       </div>

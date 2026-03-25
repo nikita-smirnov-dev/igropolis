@@ -18,4 +18,14 @@
   &__info {
     grid-column: 4 span;
   }
+
+  &__item {
+    display: none;
+    padding-top: var(--gap);
+    scroll-margin-top: calc(var(--header-height) + 40px);
+
+    &.is-active {
+      display: block;
+    }
+  }
 }

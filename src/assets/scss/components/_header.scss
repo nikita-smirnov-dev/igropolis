@@ -68,4 +68,8 @@
       background: #333;
     }
   }
+
+  &--scrolled {
+    background-color: var(--bg-primary) !important;
+  }
 }

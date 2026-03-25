@@ -15,6 +15,8 @@ import "@/assets/js/components/filter";
 import "@/assets/js/components/custom-select";
 import "@/assets/js/components/tooltip";
 import "@/assets/js/components/rating-choice";
+import "@/assets/js/components/header-scrolled";
+import "@/assets/js/components/tabs";
 
 import "@/assets/js/utils/modal";
 
