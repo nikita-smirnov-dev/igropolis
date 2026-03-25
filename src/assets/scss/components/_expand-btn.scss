@@ -25,4 +25,22 @@
     text-decoration-color: transparent;
     color: var(--accent-active);
   }
+
+  &--toggle {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    gap: 4px;
+
+    svg {
+      fill: currentcolor;
+      transition: rotate 0.3s;
+    }
+
+    &.expanded {
+      svg {
+        rotate: 180deg;
+      }
+    }
+  }
 }

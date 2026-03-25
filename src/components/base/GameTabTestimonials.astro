@@ -1,0 +1,28 @@
+---
+import { testimonials, users } from '@/data/data';
+import TitleBar from '@/components/base/TitleBar.astro';
+import TestimonialsCard from '@/components/base/TestimonialsCard.astro';
+import { formatDate } from '@/assets/helpers/format-date';
+
+const { visibleItems } = Astro.props;
+
+const testimonialsWithUsers = testimonials.map((item) => ({
+  ...item,
+  author: users.find((u) => u.id === item.authorId),
+}));
+---
+
+<div class="game-content__testimonials">
+  <TitleBar title="Отзывы" variant="mini">
+    <a href="#" class="title-bar__link">Все отзывы</a>
+  </TitleBar>
+  <ul class="list-reset game-content__testimonials-list">
+    {
+      testimonialsWithUsers.slice(0, visibleItems).map((item) => (
+        <li class="game-content__testimonials-item">
+          <TestimonialsCard {...item} />
+        </li>
+      ))
+    }
+  </ul>
+</div>

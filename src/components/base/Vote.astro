@@ -1,0 +1,24 @@
+---
+const { likes, dislikes, class: extraClass = '' } = Astro.props;
+import { Icon } from 'astro-icon/components';
+
+const classes = `vote ${extraClass}`;
+---
+
+<div class={classes}>
+  <button
+    class="btn-reset vote__btn vote__btn--dislike"
+    aria-label="Дизлайкнуть"
+    title="Дизлайкнуть"
+  >
+    <Icon name="dislikes" aria-hidden="true" />
+  </button>
+  <div class="vote__text">{likes - dislikes}</div>
+  <button
+    class="btn-reset vote__btn vote__btn--like"
+    aria-label="Лайкнуть"
+    title="Лайкнуть"
+  >
+    <Icon name="dislikes" aria-hidden="true" />
+  </button>
+</div>

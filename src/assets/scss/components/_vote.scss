@@ -1,0 +1,33 @@
+.vote {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  &__btn {
+    width: 20px;
+    height: 20px;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      fill: currentcolor;
+      object-fit: cover;
+    }
+
+    &--dislike {
+      color: var(--red-color);
+    }
+
+    &--like {
+      color: var(--green-color);
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--text-secondary);
+  }
+}

@@ -1,0 +1,22 @@
+---
+import { articles } from '@/data/data';
+import TitleBar from '@/components/base/TitleBar.astro';
+import ArticlesCard from '@/components/base/ArticlesCard.astro';
+
+const { visibleItems } = Astro.props;
+---
+
+<div class="game-content__articles">
+  <TitleBar title="Статьи" variant="mini">
+    <a href="#" class="title-bar__link">Все статьи</a>
+  </TitleBar>
+  <ul class="list-reset game-content__articles-list">
+    {
+      articles.slice(0, visibleItems).map((item) => (
+        <li class="game-content__articles-item">
+          <ArticlesCard {...item} class="articles-card--vertical" />
+        </li>
+      ))
+    }
+  </ul>
+</div>

@@ -3,6 +3,9 @@ import GameInfo from '@/components/base/GameInfo.astro';
 import GameTabDescr from '@/components/base/GameTabDescr.astro';
 import { Icon } from 'astro-icon/components';
 import { gameNavItems } from '@/data/data';
+import GameTabTestimonials from '@/components/base/GameTabTestimonials.astro';
+import GameTabArticles from '@/components/base/GameTabArticles.astro';
+import GameTabCollections from '@/components/base/GameTabCollections.astro';
 ---
 
 <div class="game-content section-offset">
@@ -56,6 +59,30 @@ import { gameNavItems } from '@/data/data';
           data-target="1"
         >
           <GameTabDescr />
+        </div>
+        <div
+          class="game-content__item"
+          role="tabpanel"
+          aria-labelledby="tab-2"
+          data-target="2"
+        >
+          <GameTabTestimonials visibleItems={6} />
+        </div>
+        <div
+          class="game-content__item"
+          role="tabpanel"
+          aria-labelledby="tab-3"
+          data-target="3"
+        >
+          <GameTabArticles visibleItems={6} />
+        </div>
+        <div
+          class="game-content__item"
+          role="tabpanel"
+          aria-labelledby="tab-4"
+          data-target="4"
+        >
+          <GameTabCollections visibleItems={6} />
         </div>
       </div>
       <div class="game-content__info">

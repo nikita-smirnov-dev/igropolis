@@ -1,3 +1,5 @@
+import { initExpandableText } from "./expandable-text";
+
 const initTabs = () => {
   const tabNavs = document.querySelectorAll("[data-tabs]");
 
@@ -24,6 +26,10 @@ const initTabs = () => {
         panel.classList.toggle("is-active", isActive);
 
         if (isActive) activePanel = panel;
+      });
+
+      requestAnimationFrame(() => {
+        initExpandableText();
       });
 
       tabBtn.focus();

@@ -1,1 +1,85 @@
-descr
+---
+import {
+  games,
+  testimonials,
+  users,
+  articles,
+  gameNavItems,
+  collections,
+} from '@/data/data.js';
+
+import { formatDate } from '@/assets/helpers/format-date';
+
+import GameTabTestimonials from '@/components/base/GameTabTestimonials.astro';
+import GameTabArticles from '@/components/base/GameTabArticles.astro';
+import GameTabCollections from '@/components/base/GameTabCollections.astro';
+
+const gameContent = games.find((item) => item.id === 9);
+---
+
+<p class="game-content__descr">
+  Концовка оригинальной игры оставила после себя больше вопросов, чем ответов.
+  Наконец-то фанаты смогут раскрыть животрепещущие тайны купив Alan Wake 2. Сэм
+  Лейк не просто рассказывает продолжение культового сюжета, но и стремительно
+  расширяет собственную фантастическую вселенную. Одним проектом он смог
+  объединить воедино все предыдущие творения Remedy и заложить уверенную основу
+  для дальнейшего развития глобального нарратива. Лучшем вам не знать ничего о
+  сценарии, только тогда получите истинное удовольствие.
+</p>
+<dl class="game-content__chars">
+  <div class="game-content__chars-item">
+    <dt class="game-content__chars-term">Жанр:</dt>
+    <dd class="game-content__chars-def">
+      <div class="game-content__chars-links">
+        {
+          gameContent?.genres.map((genre) => (
+            <a href={genre.url} class="game-content-chars-link">
+              {genre.name}
+            </a>
+          ))
+        }
+      </div>
+    </dd>
+  </div>
+  <div class="game-content__chars-item">
+    <dt class="game-content__chars-term">Локализация:</dt>
+    <dd class="game-content__chars-def">
+      {gameContent?.localization}
+    </dd>
+  </div>
+  <div class="game-content__chars-item">
+    <dt class="game-content__chars-term">Платформа:</dt>
+    <dd class="game-content__chars-def">
+      <span>{gameContent?.platforms.join(', ')}</span>
+    </dd>
+  </div>
+  <div class="game-content__chars-item">
+    <dt class="game-content__chars-term">Разработчик:</dt>
+    <dd class="game-content__chars-def">
+      <span>{gameContent?.developer}</span>
+    </dd>
+  </div>
+  <div class="game-content__chars-item">
+    <dt class="game-content__chars-term">Дата выхода:</dt>
+    <dd class="game-content__chars-def">
+      <span>{formatDate(gameContent?.releaseDate)}</span>
+    </dd>
+  </div>
+  <div class="game-content__chars-item">
+    <dt class="game-content__chars-term">Возраст:</dt>
+    <dd class="game-content__chars-def">
+      <span>{gameContent?.age}</span>
+    </dd>
+  </div>
+  <div class="game-content__chars-item">
+    <dt class="game-content__chars-term">Сайт:</dt>
+    <dd class="game-content__chars-def">
+      <a href={gameContent?.website} target="_blank">{gameContent?.website}</a>
+    </dd>
+  </div>
+</dl>
+<div class="game-content__inner">
+  <GameTabTestimonials visibleItems={3} />
+  <GameTabArticles visibleItems={3} />
+  <GameTabCollections visibleItems={3} />
+</div>

@@ -28,4 +28,122 @@
       display: block;
     }
   }
+
+  &__descr {
+    margin: 0;
+    margin-bottom: 16px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: var(--text-primary);
+  }
+
+  &__chars {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 32px;
+    width: 100%;
+    max-width: 446px;
+    gap: 16px;
+
+    &-item {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-term {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 140%;
+      color: var(--text-secondary);
+    }
+
+    &-def {
+      overflow: hidden;
+      margin: 0;
+      width: 100%;
+      max-width: 250px;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 140%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      color: var(--text-primary);
+
+      a[href] {
+        text-decoration: underline;
+        color: inherit;
+        transition:
+          color 0.3s,
+          text-decoration-color 0.3s;
+        text-decoration-skip-ink: none;
+        text-underline-offset: 3px;
+
+        &:focus-visible {
+          outline: none;
+          color: var(--accent);
+        }
+
+        @include hover {
+          text-decoration-color: transparent;
+          color: var(--accent);
+        }
+
+        &:active {
+          text-decoration-color: transparent;
+          color: var(--accent-active);
+        }
+      }
+    }
+
+    &-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+  }
+
+  &__testimonials {
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+
+  &__articles {
+    &-list {
+      --gap: 20px;
+      --elems: 3;
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--gap);
+    }
+
+    &-item {
+      width: calc((100% - ((var(--elems) - 1) * var(--gap))) / (var(--elems)));
+    }
+  }
+
+  &__collections {
+    &-list {
+      --gap: 20px;
+      --elems: 3;
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--gap);
+    }
+
+    &-item {
+      width: calc((100% - ((var(--elems) - 1) * var(--gap))) / (var(--elems)));
+    }
+  }
 }

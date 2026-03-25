@@ -1,0 +1,27 @@
+---
+import { collections, users } from '@/data/data';
+import TitleBar from '@/components/base/TitleBar.astro';
+import CollectionsCard from '@/components/base/CollectionsCard.astro';
+
+const collectionsWithAuthors = collections.map((item) => ({
+  ...item,
+  author: users.find((u) => u.id === item.authorId),
+}));
+
+const { visibleItems } = Astro.props;
+---
+
+<div class="game-content__collections">
+  <TitleBar title="Подборки" variant="mini">
+    <a href="#" class="title-bar__link">Все подборки</a>
+  </TitleBar>
+  <ul class="list-reset game-content__collections-list">
+    {
+      collectionsWithAuthors.slice(0, visibleItems).map((item) => (
+        <li class="game-content__collections-item">
+          <CollectionsCard {...item} class="collections-card--vertical" />
+        </li>
+      ))
+    }
+  </ul>
+</div>

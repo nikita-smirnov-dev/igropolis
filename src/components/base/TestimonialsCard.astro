@@ -1,0 +1,88 @@
+---
+// @ts-nocheck
+import { avatarsImages } from '@/data/images';
+import { Icon } from 'astro-icon/components';
+import { formatDate } from '@/assets/helpers/format-date';
+import Image from 'astro/components/Image.astro';
+import Button from '@/components/base/Button.astro';
+import Vote from '@/components/base/Vote.astro';
+import Rating from '@/components/base/Rating.astro';
+
+const {
+  title,
+  text,
+  author,
+  date,
+  likes,
+  dislikes,
+  shortTags,
+  rating,
+  disableExpand = false,
+} = Astro.props;
+
+const avatarImage = avatarsImages[`/src/assets${author.avatar}`]?.default;
+---
+
+<article
+  class={`testimonial-card ${disableExpand ? 'testimonial-card--expand' : ''}`}
+>
+  <div class="testimonial-card__left">
+    <h3 class="testimonial-card__title">{title}</h3>
+    <p
+      class="testimonial-card__descr"
+      {...!disableExpand && {
+        'data-descr': true,
+        'data-max-lines': '5',
+        'data-expand-action': 'toggle',
+      }}
+      set:html={text}
+    />
+    <div class="testimonial-card__bottom">
+      <div class="testimonial-card__author">
+        <Image
+          src={avatarImage}
+          alt={author.login}
+          class="testimonial-card__avatar"
+        />
+        <div class="testimonial-card__author-text">
+          <a href={author.profileUrl} class="testimonial-card__author-login"
+            >{author.login}</a
+          >
+          <time datetime={date} class="testimonial-card__author-date">
+            {formatDate(date)}
+          </time>
+        </div>
+      </div>
+      <Vote class="testimonial-card__vote" likes={likes} dislikes={dislikes} />
+    </div>
+  </div>
+  <div class="testimonial-card__right">
+    <ul class="list-reset testimonial-card__reactions">
+      {
+        shortTags.map((item) => (
+          <li class="testimonial-card__reactions-item">
+            <div class="testimonial-card__reactions-block">{item}</div>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="testimonial-card__rating">
+      <div class="testimonial-card__rating-value">{rating.toFixed(1)}</div>
+      <Rating rating={rating} />
+    </div>
+    <div class="testimonial-card__btns">
+      <Button href="#" variant="primary" class="testimonial-card__comment"
+        >Комментировать</Button
+      >
+      <Button
+        href="#"
+        variant="secondary"
+        class="testimonial-card__complain"
+        aria-label="Пожаловаться"
+        title="Пожаловаться"
+      >
+        <Icon name="alarm" aria-hidden="true" />
+      </Button>
+    </div>
+  </div>
+</article>

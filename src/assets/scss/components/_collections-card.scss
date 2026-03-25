@@ -151,4 +151,25 @@
     line-height: 140%;
     color: var(--text-secondary);
   }
+
+  &--vertical {
+    flex-direction: column;
+    border: 1px solid var(--bg-elevated);
+    min-height: 436px;
+
+    .collections-card__pic {
+      width: 100%;
+    }
+
+    .collections-card__text {
+      padding: 0;
+      width: 100%;
+    }
+
+    .collections-card__title {
+      margin-top: 16px;
+      margin-bottom: 12px;
+      font-size: 20px;
+    }
+  }
 }

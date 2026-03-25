@@ -1,0 +1,34 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const { rating = 0 } = Astro.props;
+const max = 5;
+const percentage = `${(rating / max) * 100}%`;
+
+let colorClass = '';
+
+if (rating >= 4) {
+  colorClass = 'rating--green';
+} else if (rating >= 2) {
+  colorClass = 'rating--yellow';
+} else {
+  colorClass = 'rating--red';
+}
+---
+
+<div class={`rating ${colorClass}`} style={`--fill: ${percentage}`}>
+  <div class="rating__base">
+    {
+      Array.from({ length: max }).map(() => (
+        <Icon name="star" aria-hidden="true" />
+      ))
+    }
+  </div>
+  <div class="rating__fill">
+    {
+      Array.from({ length: max }).map(() => (
+        <Icon name="star" aria-hidden="true" />
+      ))
+    }
+  </div>
+</div>
