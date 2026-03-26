@@ -17,4 +17,83 @@
       display: block;
     }
   }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 28px;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 120%;
+    color: var(--text-primary);
+  }
+
+  &__center {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+  }
+
+  &__games {
+    &-list {
+      --gap: 20px;
+      --elems: 3;
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--gap);
+    }
+
+    &-item {
+      width: calc((100% - ((var(--elems) - 1) * var(--gap))) / (var(--elems)));
+    }
+  }
+
+  &__collections {
+    &-list {
+      --gap: 20px;
+      --elems: 3;
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--gap);
+    }
+
+    &-item {
+      width: calc((100% - ((var(--elems) - 1) * var(--gap))) / (var(--elems)));
+    }
+  }
+
+  &__bookmarks {
+    &-list {
+      --gap: 20px;
+      --elems: 3;
+
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--gap);
+    }
+
+    &-item {
+      width: calc((100% - ((var(--elems) - 1) * var(--gap))) / (var(--elems)));
+    }
+  }
+
+  &__testimonials {
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap);
+    }
+  }
+
+  &__comments {
+    max-width: 882px;
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--gap);
+    }
+  }
 }

@@ -1,6 +1,10 @@
 ---
+import PersonalTabGames from '@/components/base/PersonalTabGames.astro';
 import { personalNavItems } from '@/data/data';
-import { Icon } from 'astro-icon/components';
+import PersonalTabCollections from '@/components/base/PersonalTabCollections.astro';
+import PersonalTabBookmarks from '@/components/base/PersonalTabBookmarks.astro';
+import PersonalTabTestimonials from '@/components/base/PersonalTabTestimonials.astro';
+import PersonalTabComments from '@/components/base/PersonalTabComments.astro';
 ---
 
 <section class="personal-content section-offset">
@@ -40,7 +44,39 @@ import { Icon } from 'astro-icon/components';
           aria-labelledby="tab-1"
           data-target="1"
         >
-          1
+          <PersonalTabGames visibleItems={6} />
+        </div>
+        <div
+          class="personal-content__item"
+          role="tabpanel"
+          aria-labelledby="tab-2"
+          data-target="2"
+        >
+          <PersonalTabCollections visibleItems={6} />
+        </div>
+        <div
+          class="personal-content__item"
+          role="tabpanel"
+          aria-labelledby="tab-3"
+          data-target="3"
+        >
+          <PersonalTabBookmarks visibleItems={6} />
+        </div>
+        <div
+          class="personal-content__item"
+          role="tabpanel"
+          aria-labelledby="tab-4"
+          data-target="4"
+        >
+          <PersonalTabTestimonials visibleItems={6} />
+        </div>
+        <div
+          class="personal-content__item"
+          role="tabpanel"
+          aria-labelledby="tab-5"
+          data-target="5"
+        >
+          <PersonalTabComments visibleItems={6} userId={3} />
         </div>
       </div>
     </div>

@@ -1,0 +1,123 @@
+@use "../mixins/disable-mob-hover.scss" as *;
+
+.comments-card {
+  position: relative;
+  border-radius: 16px;
+  padding: 20px;
+  background: var(--bg-surface);
+
+  &__author {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 16px;
+    gap: 8px;
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    &-login {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 120%;
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: color 0.3s;
+
+      @include hover {
+        color: var(--accent);
+      }
+
+      &:active {
+        color: var(--accent-active);
+      }
+    }
+
+    &-date {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 120%;
+      color: var(--text-secondary);
+    }
+  }
+
+  &__avatar {
+    display: block;
+    border-radius: 100%;
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+  }
+
+  &__title {
+    overflow: hidden;
+    margin: 0;
+    margin-bottom: 16px;
+    border-left: 1px solid var(--text-secondary);
+    padding-left: 8px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: var(--text-secondary);
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+
+    @include hover {
+      color: var(--accent);
+    }
+
+    &:active {
+      color: var(--accent-active);
+    }
+  }
+
+  &__descr {
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: var(--text-primary);
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  &__reply {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--text-secondary);
+    transition: color 0.3s;
+    gap: 8px;
+
+    svg {
+      display: block;
+      width: 16px;
+      height: 16px;
+      fill: currentcolor;
+      object-fit: cover;
+    }
+
+    @include hover {
+      color: var(--accent);
+    }
+
+    &:active {
+      color: var(--accent-active);
+    }
+  }
+}

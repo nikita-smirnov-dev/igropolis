@@ -1,0 +1,27 @@
+---
+//@ts-nocheck
+
+import { games } from '@/data/data';
+import GamesCard from '@/components/base/GamesCard.astro';
+import Button from '@/components/base/Button.astro';
+
+const { visibleItems } = Astro.props;
+---
+
+<div class="personal-content__games">
+  <h2 class="personal-content__title">Игры</h2>
+  <ul class="list-reset personal-content__games-list">
+    {
+      games.slice(0, visibleItems).map((item, index) => (
+        <li class="personal-content__games-item">
+          <GamesCard {...item} class="games-card--vertical" />
+        </li>
+      ))
+    }
+  </ul>
+  <div class="personal-content__center">
+    <Button variant="secondary" class="personal-content__more"
+      >Загрузить еще</Button
+    >
+  </div>
+</div>

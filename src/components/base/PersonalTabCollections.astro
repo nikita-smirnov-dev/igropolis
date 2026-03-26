@@ -1,0 +1,32 @@
+---
+//@ts-nocheck
+
+import { collections, users } from '@/data/data';
+import CollectionsCard from '@/components/base/CollectionsCard.astro';
+import Button from '@/components/base/Button.astro';
+
+const collectionsWithAuthors = collections.map((item) => ({
+  ...item,
+  author: users.find((u) => u.id === item.authorId),
+}));
+
+const { visibleItems } = Astro.props;
+---
+
+<div class="personal-content__collections">
+  <h2 class="personal-content__title">Подборки</h2>
+  <ul class="list-reset personal-content__collections-list">
+    {
+      collectionsWithAuthors.slice(0, visibleItems).map((item, index) => (
+        <li class="personal-content__collections-item">
+          <CollectionsCard {...item} class="collections-card--vertical" />
+        </li>
+      ))
+    }
+  </ul>
+  <div class="personal-content__center">
+    <Button variant="secondary" class="personal-content__more"
+      >Загрузить еще</Button
+    >
+  </div>
+</div>

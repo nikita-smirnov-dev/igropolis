@@ -1,0 +1,21 @@
+---
+//@ts-nocheck
+
+import { articles } from '@/data/data';
+import ArticlesCard from '@/components/base/ArticlesCard.astro';
+
+const { visibleItems } = Astro.props;
+---
+
+<div class="personal-content__bookmarks">
+  <h2 class="personal-content__title">Закладки</h2>
+  <ul class="list-reset personal-content__bookmarks-list">
+    {
+      articles.slice(0, visibleItems).map((item, index) => (
+        <li class="personal-content__bookmarks-item">
+          <ArticlesCard {...item} class="articles-card--vertical" />
+        </li>
+      ))
+    }
+  </ul>
+</div>

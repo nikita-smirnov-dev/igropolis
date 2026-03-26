@@ -1,0 +1,29 @@
+---
+// @ts-nocheck
+
+import { comments, users } from '@/data/data';
+import CommentsCard from '@/components/base/CommentsCard.astro';
+import { formatDate } from '@/assets/helpers/format-date';
+
+const { visibleItems, userId } = Astro.props;
+
+const commentsWithUsers = comments
+  .filter((item) => item.authorId === userId)
+  .map((item) => ({
+    ...item,
+    author: users.find((u) => u.id === item.authorId),
+  }));
+---
+
+<div class="personal-content__comments">
+  <h2 class="personal-content__title">Комментарии</h2>
+  <ul class="list-reset personal-content__comments-list">
+    {
+      commentsWithUsers.slice(0, visibleItems).map((item) => (
+        <li class="personal-content__comments-item">
+          <CommentsCard {...item} />
+        </li>
+      ))
+    }
+  </ul>
+</div>

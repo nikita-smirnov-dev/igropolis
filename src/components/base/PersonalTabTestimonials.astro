@@ -1,0 +1,33 @@
+---
+//@ts-nocheck
+
+import { testimonials, users } from '@/data/data';
+import TestimonialsCard from '@/components/base/TestimonialsCard.astro';
+import { formatDate } from '@/assets/helpers/format-date';
+import Button from '@/components/base/Button.astro';
+
+const { visibleItems } = Astro.props;
+
+const testimonialsWithUsers = testimonials.map((item) => ({
+  ...item,
+  author: users.find((u) => u.id === item.authorId),
+}));
+---
+
+<div class="personal-content__testimonials">
+  <h2 class="personal-content__title">Отзывы</h2>
+  <ul class="list-reset personal-content__testimonials-list">
+    {
+      testimonialsWithUsers.slice(0, visibleItems).map((item, index) => (
+        <li class="personal-content__testimonials-item">
+          <TestimonialsCard {...item} />
+        </li>
+      ))
+    }
+  </ul>
+  <div class="personal-content__center">
+    <Button variant="secondary" class="personal-content__more"
+      >Загрузить еще</Button
+    >
+  </div>
+</div>
