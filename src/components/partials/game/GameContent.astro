@@ -6,6 +6,11 @@ import { gameNavItems } from '@/data/data';
 import GameTabTestimonials from '@/components/base/GameTabTestimonials.astro';
 import GameTabArticles from '@/components/base/GameTabArticles.astro';
 import GameTabCollections from '@/components/base/GameTabCollections.astro';
+import GameTabHowLong from '@/components/base/GameTabHowLong.astro';
+import GameTabVideos from '@/components/base/GameTabVideos.astro';
+import GameTabGallery from '@/components/base/GameTabGallery.astro';
+import GameTabWalkthroughs from '@/components/base/GameTabWalkthroughs.astro';
+import GameTabAchieve from '@/components/base/GameTabAchieve.astro';
 ---
 
 <div class="game-content section-offset">
@@ -83,6 +88,46 @@ import GameTabCollections from '@/components/base/GameTabCollections.astro';
           data-target="4"
         >
           <GameTabCollections visibleItems={6} />
+        </div>
+        <div
+          class="game-content__item"
+          role="tabpanel"
+          aria-labelledby="tab-5"
+          data-target="5"
+        >
+          <GameTabHowLong />
+        </div>
+        <div
+          class="game-content__item"
+          role="tabpanel"
+          aria-labelledby="tab-6"
+          data-target="6"
+        >
+          <GameTabVideos />
+        </div>
+        <div
+          class="game-content__item"
+          role="tabpanel"
+          aria-labelledby="tab-7"
+          data-target="7"
+        >
+          <GameTabGallery />
+        </div>
+        <div
+          class="game-content__item"
+          role="tabpanel"
+          aria-labelledby="tab-8"
+          data-target="8"
+        >
+          <GameTabWalkthroughs />
+        </div>
+        <div
+          class="game-content__item"
+          role="tabpanel"
+          aria-labelledby="tab-9"
+          data-target="9"
+        >
+          <GameTabAchieve />
         </div>
       </div>
       <div class="game-content__info">

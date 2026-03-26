@@ -1,0 +1,55 @@
+---
+// @ts-nocheck
+import { Image } from 'astro:assets';
+import { walkthroughsImages, avatarsImages } from '@/data/images';
+import { Icon } from 'astro-icon/components';
+import { formatDate } from '@/assets/helpers/format-date';
+
+const {
+  cover,
+  url,
+  title,
+  date,
+  commentsCount,
+  author,
+  class: extraClass = '',
+} = Astro.props;
+
+const walkthroughImage = walkthroughsImages[`/src/assets${cover}`]?.default;
+const avatarImage = avatarsImages[`/src/assets${author.avatar}`]?.default;
+---
+
+<article class={`walkthroughs-card ${extraClass}`}>
+  <Image src={walkthroughImage} alt={title} class="walkthroughs-card__pic" />
+  <div class="walkthroughs-card__text">
+    <div class="walkthroughs-card__top">
+      <a href={author.profileUrl} class="walkthroughs-card__author">
+        <Image
+          src={avatarImage}
+          alt={author.login}
+          class="walkthroughs-card__author-pic"
+        />
+        {author.login}
+      </a>
+      <button
+        class="btn-reset walkthroughs-card__bookmark"
+        aria-label="Добавить в закладки"
+        title="Добавить в закладки"
+      >
+        <Icon name="bookmark" aria-hidden="true" />
+      </button>
+    </div>
+    <h3 class="walkthroughs-card__title">
+      <a href={url} class="walkthroughs-card__link">{title}</a>
+    </h3>
+    <div class="walkthroughs-card__bottom">
+      <time datetime={date} class="walkthroughs-card__date"
+        >{formatDate(date)}</time
+      >
+      <div class="walkthroughs-card__comments">
+        <Icon name="comments" aria-hidden="true" />
+        {commentsCount}
+      </div>
+    </div>
+  </div>
+</article>

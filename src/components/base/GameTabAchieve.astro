@@ -1,0 +1,57 @@
+---
+// @ts-nocheck
+import TitleBar from './TitleBar.astro';
+import Image from 'astro/components/Image.astro';
+
+import cover1 from '@/assets/img/achieve-1.png';
+import cover2 from '@/assets/img/achieve-2.png';
+import cover3 from '@/assets/img/achieve-3.png';
+import cover4 from '@/assets/img/achieve-4.png';
+
+const achieveItems = [
+  {
+    cover: cover1,
+    title: 'The Story Come True / Ожившая история',
+    description: 'Завершить прохождение Alan Wake 2.',
+  },
+  {
+    cover: cover2,
+    title: 'This is the Moment / Тот самый миг',
+    description: 'Избежать атаки врага, уклонившись в последний момент.',
+  },
+  {
+    cover: cover3,
+    title: 'Not the Last / Не последняя',
+    description: 'Взять первую страницу рукописи.',
+  },
+  {
+    cover: cover4,
+    title: 'Cut Short / Как отрезало',
+    description: 'Найти болторез.',
+  },
+];
+---
+
+<div class="game-content__achieve">
+  <TitleBar title="Достижения" variant="mini" />
+  <ul class="list-reset game-content__achieve-list">
+    {
+      achieveItems.map((item) => (
+        <li class="game-content__achieve-item">
+          <article class="game-content__achieve-block">
+            <Image
+              src={item.cover}
+              alt=""
+              aria-hidden="true"
+              class="game-content__achieve-cover"
+            />
+            <div class="game-content__achieve-text">
+              <h3 class="game-content__achieve-title">{item.title}</h3>
+              <p class="game-content__achieve-descr">{item.description}</p>
+            </div>
+          </article>
+        </li>
+      ))
+    }
+  </ul>
+</div>

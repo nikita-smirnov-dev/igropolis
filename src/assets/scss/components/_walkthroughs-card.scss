@@ -1,0 +1,235 @@
+/* stylelint-disable declaration-no-important */
+@use "../mixins/disable-mob-hover.scss" as *;
+
+.walkthroughs-card {
+  position: relative;
+  display: flex;
+  border-radius: 16px;
+  padding: 20px;
+  height: 100%;
+  background: var(--bg-surface);
+  gap: 20px;
+
+  &__pic {
+    display: block;
+    border-radius: 12px;
+    width: 240px;
+    height: 188px;
+    object-fit: cover;
+  }
+
+  &__text {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    width: 100%;
+  }
+
+  &__author {
+    position: relative;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: color 0.3s;
+    gap: 4px;
+
+    &-pic {
+      display: block;
+      border-radius: 100%;
+      width: 16px;
+      height: 16px;
+      object-fit: cover;
+    }
+
+    @include hover {
+      color: var(--accent);
+    }
+
+    &:active {
+      color: var(--accent-active);
+    }
+  }
+
+  &__bookmark {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 16px;
+    height: 16px;
+    color: var(--text-primary);
+    transition: color 0.3s;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      fill: currentcolor;
+      object-fit: cover;
+    }
+
+    @include hover {
+      color: var(--accent) !important;
+    }
+
+    &:active {
+      color: var(--accent-active) !important;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 12px;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 120%;
+    color: var(--text-primary);
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+    }
+
+    @include hover {
+      color: var(--accent) !important;
+    }
+
+    &:active {
+      color: var(--accent-active) !important;
+    }
+  }
+
+  &__descr {
+    display: none;
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: var(--text-secondary);
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    width: 100%;
+  }
+
+  &__date {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    color: var(--text-secondary);
+  }
+
+  &__comments {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--text-secondary);
+    gap: 4px;
+
+    svg {
+      position: relative;
+      top: -2px;
+      display: block;
+      width: 16px;
+      height: 16px;
+      fill: currentcolor;
+      object-fit: cover;
+    }
+  }
+
+  &--big {
+    padding: 0;
+
+    .walkthroughs-card__pic {
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      width: 100%;
+      height: 100%;
+    }
+
+    .walkthroughs-card__text {
+      position: relative;
+      z-index: 2;
+      justify-content: flex-end;
+      border-radius: inherit;
+      padding: var(--gap);
+      background: linear-gradient(0deg, #1e1e1e 0%, rgba(30, 30, 30, 0) 100%);
+    }
+
+    .walkthroughs-card__category {
+      color: #f0f0f0;
+    }
+
+    .walkthroughs-card__bookmark {
+      color: #f0f0f0;
+    }
+
+    .walkthroughs-card__title {
+      color: #f0f0f0;
+    }
+
+    .walkthroughs-card__descr {
+      display: block;
+      color: #9d9d9d;
+    }
+
+    .walkthroughs-card__bottom {
+      margin-top: 24px;
+    }
+
+    .walkthroughs-card__date {
+      color: #9d9d9d;
+    }
+
+    .walkthroughs-card__comments {
+      color: #9d9d9d;
+    }
+  }
+
+  &--vertical {
+    flex-direction: column;
+    border: 1px solid var(--bg-elevated);
+    min-height: 436px;
+
+    .walkthroughs-card__pic {
+      width: 100%;
+    }
+
+    .walkthroughs-card__text {
+      padding: 0;
+    }
+
+    .walkthroughs-card__title {
+      font-size: 20px;
+    }
+  }
+}

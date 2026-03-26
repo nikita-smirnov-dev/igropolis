@@ -1,0 +1,23 @@
+---
+import { walkthroughs, users } from '@/data/data';
+import TitleBar from './TitleBar.astro';
+import WalkthroughCard from '@/components/base/WalkthroughCard.astro';
+
+const walkthroughsWithAuthors = walkthroughs.map((item) => ({
+  ...item,
+  author: users.find((u) => u.id === item.authorId),
+}));
+---
+
+<div class="game-content__walkthroughs">
+  <TitleBar title="Прохождения" variant="mini" />
+  <ul class="list-reset game-content__walkthroughs-list">
+    {
+      walkthroughsWithAuthors.map((item, index) => (
+        <li class="game-content__walkthroughs-item">
+          <WalkthroughCard {...item} class="walkthroughs-card--vertical" />
+        </li>
+      ))
+    }
+  </ul>
+</div>

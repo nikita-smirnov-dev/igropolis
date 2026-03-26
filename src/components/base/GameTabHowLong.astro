@@ -1,0 +1,37 @@
+---
+import { Icon } from 'astro-icon/components';
+import TitleBar from '@/components/base/TitleBar.astro';
+---
+
+<div class="game-content__how-long">
+  <TitleBar title="Длительность" variant="mini" />
+  <ul class="list-reset game-content__how-long-list">
+    <li class="game-content__how-long-item">
+      <Icon
+        name="games"
+        aria-hidden="true"
+        class="game-content__how-long-icon"
+      />
+      <h3 class="game-content__how-long-title">Основная история</h3>
+      <div class="game-content__how-long-value">26 часов</div>
+    </li>
+    <li class="game-content__how-long-item">
+      <Icon
+        name="additional"
+        aria-hidden="true"
+        class="game-content__how-long-icon"
+      />
+      <h3 class="game-content__how-long-title">Дополнительные задания</h3>
+      <div class="game-content__how-long-value">16 часов</div>
+    </li>
+    <li class="game-content__how-long-item">
+      <Icon
+        name="full"
+        aria-hidden="true"
+        class="game-content__how-long-icon"
+      />
+      <h3 class="game-content__how-long-title">Полное прохождение</h3>
+      <div class="game-content__how-long-value">42 часов</div>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,35 @@
+---
+import TitleBar from './TitleBar.astro';
+import Image from 'astro/components/Image.astro';
+
+import cover1 from '@/assets/img/gallery-1.png';
+import cover2 from '@/assets/img/gallery-2.png';
+import cover3 from '@/assets/img/gallery-3.png';
+import cover4 from '@/assets/img/gallery-4.png';
+
+const galleryItems = [cover1, cover2, cover3, cover4];
+---
+
+<div class="game-content__gallery">
+  <TitleBar title="Галерея" variant="mini" />
+  <ul class="list-reset game-content__gallery-list">
+    {
+      galleryItems.map((item) => (
+        <li class="game-content__gallery-item">
+          <a
+            href={item.src}
+            data-fslightbox="gallery"
+            class="game-content__gallery-block"
+          >
+            <Image
+              src={item}
+              alt=""
+              aria-hidden="true"
+              class="game-content__gallery-cover"
+            />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>

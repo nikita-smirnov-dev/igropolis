@@ -19,5 +19,6 @@ import "@/assets/js/components/header-scrolled";
 import "@/assets/js/components/tabs";
 
 import "@/assets/js/utils/modal";
+import "fslightbox";
 
 getHeaderHeight();

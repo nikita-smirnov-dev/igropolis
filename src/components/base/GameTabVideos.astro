@@ -1,0 +1,51 @@
+---
+import TitleBar from './TitleBar.astro';
+import Image from 'astro/components/Image.astro';
+import { formatDate } from '@/assets/helpers/format-date';
+
+import cover1 from '@/assets/img/video-cover-1.jpg';
+import cover2 from '@/assets/img/video-cover-2.jpg';
+
+const videosItems = [
+  {
+    date: '2023-05-20',
+    title: 'О чем Alan Wake 2?',
+    cover: cover1,
+    link: 'https://youtube.com/',
+  },
+  {
+    date: '2023-05-20',
+    title: 'Как Сэм Лэйк выстроил свою вселенную?',
+    cover: cover2,
+    link: 'https://youtube.com/',
+  },
+];
+---
+
+<div class="game-content__videos">
+  <TitleBar title="Видео" variant="mini" />
+  <ul class="list-reset game-content__videos-list">
+    {
+      videosItems.map((item) => (
+        <li class="game-content__videos-item">
+          <a
+            href={item.link}
+            target="_blank"
+            class="game-content__videos-block"
+          >
+            <time datetime={item.date} class="game-content__videos-date">
+              {formatDate(item.date)}
+            </time>
+            <h3 class="game-content__videos-title">{item.title}</h3>
+            <Image
+              src={item.cover}
+              alt=""
+              aria-hidden="true"
+              class="game-content__videos-cover"
+            />
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</div>
