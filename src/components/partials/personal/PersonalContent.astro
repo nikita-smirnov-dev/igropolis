@@ -1,0 +1,48 @@
+---
+import { personalNavItems } from '@/data/data';
+import { Icon } from 'astro-icon/components';
+---
+
+<section class="personal-content section-offset">
+  <div class="container">
+    <div class="content-wrapper grid">
+      <div class="personal-content__aside">
+        <nav
+          class="personal-content__nav personal-nav personal-nav--sticky"
+          data-tabs
+          aria-label="Навигация по личному кабинету"
+        >
+          <ul class="list-reset personal-nav__list">
+            {
+              personalNavItems.map((item) => (
+                <li class="personal-nav__item">
+                  <button
+                    class={`btn-reset personal-nav__btn ${item.tab === 1 ? 'is-active' : ''}`}
+                    data-tab={item.tab}
+                    role="tab"
+                    aria-selected={item.tab === 1 ? 'true' : 'false'}
+                    tabindex={item.tab === 1 ? '0' : '-1'}
+                    id={`tab-${item.tab}`}
+                  >
+                    {item.title}
+                    <span class="personal-nav__count">{item.count}</span>
+                  </button>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
+      </div>
+      <div class="personal-content__wrapper">
+        <div
+          class="personal-content__item is-active"
+          role="tabpanel"
+          aria-labelledby="tab-1"
+          data-target="1"
+        >
+          1
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,69 @@
+@use "../mixins/disable-mob-hover.scss" as *;
+
+.personal-hero {
+  position: relative;
+  padding-top: calc(var(--header-height) + 80px);
+  padding-bottom: 60px;
+
+  &__content {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: var(--gap);
+    padding-bottom: var(--gap);
+    border-bottom: 1px solid var(--bg-elevated);
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+    margin: 0;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 120%;
+    color: var(--text-primary);
+  }
+
+  &__avatar {
+    display: block;
+    border-radius: 100%;
+    width: 68px;
+    height: 68px;
+    object-fit: cover;
+  }
+
+  &__links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+  }
+
+  &__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: color 0.3s;
+
+    svg {
+      display: block;
+      width: 20px;
+      height: 20px;
+      fill: currentcolor;
+    }
+
+    @include hover {
+      color: var(--accent);
+    }
+
+    &:active {
+      color: var(--accent-active);
+    }
+  }
+}

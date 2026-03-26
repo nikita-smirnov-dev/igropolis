@@ -1,0 +1,36 @@
+---
+// @ts-nocheck
+
+import avatar from '@/assets/img/avatar.png';
+import Image from 'astro/components/Image.astro';
+import { Icon } from 'astro-icon/components';
+---
+
+<section class="personal-hero">
+  <div class="container">
+    <div class="content-wrapper">
+      <div class="personal-hero__content">
+        <h1 class="personal-hero__title">
+          <Image
+            src={avatar}
+            alt=""
+            loading="eager"
+            aria-hidden="true"
+            class="personal-hero__avatar"
+          />
+          max.denaro
+        </h1>
+        <div class="personal-hero__links">
+          <a href="/personal/settings" class="personal-hero__link">
+            <Icon name="settings" aria-hidden="true" />
+            Настройки
+          </a>
+          <a href="#" class="personal-hero__link">
+            <Icon name="share" aria-hidden="true" />
+            Поделиться
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,20 @@
+.personal-content {
+  &__aside {
+    position: relative;
+    grid-column: 3 span;
+  }
+
+  &__wrapper {
+    position: relative;
+    grid-column: 9 span;
+  }
+
+  &__item {
+    display: none;
+    scroll-margin-top: calc(var(--header-height) + 80px);
+
+    &.is-active {
+      display: block;
+    }
+  }
+}

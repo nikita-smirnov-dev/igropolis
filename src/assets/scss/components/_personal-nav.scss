@@ -1,0 +1,59 @@
+@use "../mixins/breakpoint.scss" as *;
+@use "../mixins/disable-mob-hover.scss" as *;
+
+.personal-nav {
+  position: relative;
+  border-radius: 16px;
+  padding: 32px 0;
+  background: var(--bg-surface);
+
+  &__list {
+    @include desktop {
+      display: flex;
+      overflow-x: auto;
+      gap: 16px;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  &__btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 32px;
+    width: 100%;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 120%;
+    color: var(--text-secondary);
+    transition:
+      color 0.3s,
+      background 0.3s;
+
+    &.is-active {
+      color: var(--text-primary);
+      background: var(--bg-elevated);
+    }
+
+    @include hover {
+      color: var(--text-primary);
+      background: var(--bg-elevated);
+    }
+
+    &:active {
+      color: var(--accent);
+      background: var(--bg-elevated);
+    }
+  }
+
+  &--sticky {
+    position: sticky;
+    top: calc(var(--header-height) + var(--gap));
+  }
+}
