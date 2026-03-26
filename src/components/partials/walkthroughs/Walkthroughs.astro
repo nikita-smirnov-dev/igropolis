@@ -1,0 +1,34 @@
+---
+import { walkthroughs, users } from '@/data/data';
+
+import WalkthroughCard from '@/components/base/WalkthroughCard.astro';
+import Button from '@/components/base/Button.astro';
+
+const walkthroughsWithAuthors = walkthroughs.map((item) => ({
+  ...item,
+  author: users.find((u) => u.id === item.authorId),
+}));
+
+const visibleWalkthroughs = 8;
+---
+
+<section class="cards-content section-offset">
+  <div class="container">
+    <div class="content-wrapper">
+      <ul class="list-reset cards-content__list grid">
+        {
+          walkthroughsWithAuthors.slice(0, visibleWalkthroughs).map((item) => (
+            <li class="cards-content__item">
+              <WalkthroughCard {...item} class="walkthroughs-card--vertical" />
+            </li>
+          ))
+        }
+      </ul>
+      <div class="cards-content__center">
+        <Button variant="secondary" class="cards-content__more"
+          >Загрузить еще</Button
+        >
+      </div>
+    </div>
+  </div>
+</section>

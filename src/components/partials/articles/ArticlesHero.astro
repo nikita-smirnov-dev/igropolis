@@ -1,0 +1,17 @@
+---
+import Breadcrumbs from '@/components/base/Breadcrumbs.astro';
+
+const items = [
+  { href: '/', label: 'Главная' },
+  { href: '/articles/', label: 'Статьи' },
+];
+---
+
+<section class="articles-hero hero">
+  <div class="container">
+    <div class="content-wrapper">
+      <Breadcrumbs items={items} />
+      <h1 class="hero__title">Статьи</h1>
+    </div>
+  </div>
+</section>

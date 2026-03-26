@@ -1,0 +1,25 @@
+.cards-content {
+  &__top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: var(--gap);
+  }
+
+  &__item {
+    grid-column: 3 span;
+  }
+
+  &__center {
+    display: flex;
+    justify-content: center;
+    margin-top: 28px;
+  }
+}

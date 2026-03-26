@@ -1,0 +1,51 @@
+---
+import { collections, users } from '@/data/data';
+
+import CustomSelect from '@/components/base/CustomSelect.astro';
+import CollectionsCard from '@/components/base/CollectionsCard.astro';
+import Button from '@/components/base/Button.astro';
+
+const collectionsWithAuthors = collections.map((item) => ({
+  ...item,
+  author: users.find((u) => u.id === item.authorId),
+}));
+
+const sortOptions = [
+  { label: 'Самые свежие', value: 'recent' },
+  { label: 'Лучшие за неделю', value: 'week_best' },
+  { label: 'Лучшие за месяц', value: 'month_best' },
+  { label: 'Лучшие за все время', value: 'alltime_best' },
+];
+
+const visibleCollections = 8;
+---
+
+<section class="cards-content section-offset">
+  <div class="container">
+    <div class="content-wrapper">
+      <div class="cards-content__top">
+        <div class="cards-content__actions">
+          <CustomSelect
+            options={sortOptions}
+            id="1"
+            label="Сортировка подборок"
+          />
+        </div>
+      </div>
+      <ul class="list-reset cards-content__list grid">
+        {
+          collectionsWithAuthors.slice(0, visibleCollections).map((item) => (
+            <li class="cards-content__item">
+              <CollectionsCard {...item} class="collections-card--vertical" />
+            </li>
+          ))
+        }
+      </ul>
+      <div class="cards-content__center">
+        <Button variant="secondary" class="cards-content__more"
+          >Загрузить еще</Button
+        >
+      </div>
+    </div>
+  </div>
+</section>

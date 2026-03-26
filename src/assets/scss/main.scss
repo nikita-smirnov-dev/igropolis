@@ -47,6 +47,7 @@
 
 //cards
 
+@use "./components/cards-content" as *;
 @use "./components/games-card-mini" as *;
 @use "./components/collections-card-mini" as *;
 @use "./components/users-card-mini" as *;

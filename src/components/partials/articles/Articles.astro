@@ -1,0 +1,45 @@
+---
+import { articles } from '@/data/data';
+
+import CustomSelect from '@/components/base/CustomSelect.astro';
+import ArticlesCard from '@/components/base/ArticlesCard.astro';
+import Button from '@/components/base/Button.astro';
+
+const sortOptions = [
+  { label: 'Все', value: 'all' },
+  { label: 'Превью', value: 'preview' },
+  { label: 'Обзор', value: 'review' },
+];
+
+const visibleArticles = 8;
+---
+
+<section class="cards-content section-offset">
+  <div class="container">
+    <div class="content-wrapper">
+      <div class="cards-content__top">
+        <div class="cards-content__actions">
+          <CustomSelect
+            options={sortOptions}
+            id="1"
+            label="Сортировка статей"
+          />
+        </div>
+      </div>
+      <ul class="list-reset cards-content__list grid">
+        {
+          articles.slice(0, visibleArticles).map((item) => (
+            <li class="cards-content__item">
+              <ArticlesCard {...item} class="articles-card--vertical" />
+            </li>
+          ))
+        }
+      </ul>
+      <div class="cards-content__center">
+        <Button variant="secondary" class="cards-content__more"
+          >Загрузить еще</Button
+        >
+      </div>
+    </div>
+  </div>
+</section>
