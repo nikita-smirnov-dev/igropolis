@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components';
 
 import Button from '@/components/base/Button.astro';
+import RatingChoice from '@/components/base/RatingChoice.astro';
 ---
 
 <div class="graph-modal site-modal">
@@ -51,6 +52,156 @@ import Button from '@/components/base/Button.astro';
     <div class="graph-modal__content site-modal__content">
       <h2 class="site-modal__title">Полный отзыв</h2>
       <p class="site-modal__text" data-full-testimonial-text></p>
+    </div>
+  </div>
+  <div
+    class="graph-modal__container site-modal__container"
+    role="dialog"
+    aria-modal="true"
+    data-graph-target="add-status"
+  >
+    <button
+      class="btn-reset graph-modal__close js-modal-close site-modal__close"
+      aria-label="Закрыть модальное окно"
+      title="Закрыть модальное окно"
+    >
+      <Icon name="cross" aria-hidden="true" />
+    </button>
+    <div class="graph-modal__content site-modal__content">
+      <h2 class="site-modal__title">Выбрать статус</h2>
+      <ul class="list-reset site-modal__statuses-list">
+        <li class="site-modal__statuses-item">
+          <button
+            class="site-modal__statuses-btn site-modal__statuses-btn--active btn-reset"
+          >
+            <Icon name="status-playing" aria-hidden="true" />
+            Играю
+          </button>
+        </li>
+        <li class="site-modal__statuses-item">
+          <button class="site-modal__statuses-btn btn-reset">
+            <Icon name="status-will-play" aria-hidden="true" />
+            Буду играть
+          </button>
+        </li>
+        <li class="site-modal__statuses-item">
+          <button class="site-modal__statuses-btn btn-reset">
+            <Icon name="status-passed" aria-hidden="true" />
+            Пройдено
+          </button>
+        </li>
+        <li class="site-modal__statuses-item">
+          <button class="site-modal__statuses-btn btn-reset">
+            <Icon name="status-paused" aria-hidden="true" />
+            Заброшено
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <div
+    class="graph-modal__container site-modal__container site-modal__add-testimonial"
+    role="dialog"
+    aria-modal="true"
+    data-graph-target="add-testimonial"
+  >
+    <button
+      class="btn-reset graph-modal__close js-modal-close site-modal__close"
+      aria-label="Закрыть модальное окно"
+      title="Закрыть модальное окно"
+    >
+      <Icon name="cross" aria-hidden="true" />
+    </button>
+    <div class="graph-modal__content site-modal__content">
+      <h2 class="site-modal__title">Написать отзыв</h2>
+      <form
+        action="#"
+        method="POST"
+        class="site-modal__testimonial-form testimonial-form"
+        data-add-testimonial-form
+      >
+        <div class="testimonial-form__rating">
+          <div class="testimonial-form__rating-value" id="game2-score"></div>
+          <RatingChoice
+            initialRating={4.5}
+            class="testimonial-form__rating-block rating-choice--mini"
+            ratingDisplay="#game2-score"
+          />
+        </div>
+        <label class="testimonial-form__label">
+          <span class="sr-only">Введите заголовок отзыва</span>
+          <input
+            type="text"
+            name="testimonial-title"
+            placeholder="Заголовок"
+            data-testimonial-title-input
+            class="input-reset input testimonial-form__input"
+          />
+        </label>
+        <label class="testimonial-form__label">
+          <span class="sr-only">Введите описание отзыва</span>
+          <textarea
+            placeholder="Описание"
+            data-testimonial-descr-textarea
+            name="testimonial-descr"
+            class="input-reset textarea testimonial-form__textarea"></textarea>
+        </label>
+        <h3 class="testimonial-form__subtitle">
+          Выберите впечатления (опционально)
+        </h3>
+        <div class="testimonial-form__checks">
+          <label class="testimonial-form__check">
+            <input
+              type="checkbox"
+              name="impressions[]"
+              class="testimonial-form__check-input"
+            />
+            <span class="testimonial-form__check-text"> 🤯 Взрыв мозга </span>
+          </label>
+          <label class="testimonial-form__check">
+            <input
+              type="checkbox"
+              name="impressions[]"
+              class="testimonial-form__check-input"
+            />
+            <span class="testimonial-form__check-text"
+              >⏱ Пролетает незаметно</span
+            >
+          </label>
+          <label class="testimonial-form__check">
+            <input
+              type="checkbox"
+              name="impressions[]"
+              class="testimonial-form__check-input"
+            />
+            <span class="testimonial-form__check-text"
+              >♻ Хочется перепройти</span
+            >
+          </label>
+          <label class="testimonial-form__check">
+            <input
+              type="checkbox"
+              name="impressions[]"
+              class="testimonial-form__check-input"
+            />
+            <span class="testimonial-form__check-text">🎶 OST на репите</span>
+          </label>
+          <label class="testimonial-form__check">
+            <input
+              type="checkbox"
+              name="impressions[]"
+              class="testimonial-form__check-input"
+            />
+            <span class="testimonial-form__check-text"
+              >😂 Весело с друзьями</span
+            >
+          </label>
+        </div>
+        <Button class="testimonial-form__btn" type="submit" variant="primary"
+          >Опубликовать</Button
+        >
+      </form>
     </div>
   </div>
 </div>
