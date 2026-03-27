@@ -20,6 +20,7 @@ import "@/assets/js/components/tabs";
 import "@/assets/js/components/validate-add-testimonial-form";
 import "@/assets/js/components/validate-settings-form";
 import "@/assets/js/components/validate-password-form";
+import "@/assets/js/components/validate-comments-form";
 
 import "@/assets/js/utils/modal";
 import "fslightbox";

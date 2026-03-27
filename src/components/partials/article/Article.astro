@@ -1,0 +1,165 @@
+---
+import Breadcrumbs from '@/components/base/Breadcrumbs.astro';
+import { Icon } from 'astro-icon/components';
+import { formatDate } from '@/assets/helpers/format-date';
+import avatar from '@/assets/img/avatars/1.png';
+import Image from 'astro/components/Image.astro';
+import { comments, users } from '@/data/data';
+import CommentsCard from '@/components/base/CommentsCard.astro';
+import Button from '@/components/base/Button.astro';
+
+const commentsWithUsers = comments.map((item) => ({
+  ...item,
+  author: users.find((u) => u.id === item.authorId),
+}));
+
+const items = [
+  { href: '/', label: 'Главная' },
+  { href: '/articles/', label: 'Статьи' },
+  {
+    href: '/article-1/',
+    label: 'Hollow Knight: Silksong: Обзор игры, которую хочется полюбить',
+  },
+];
+---
+
+<section class="article-section">
+  <div class="container">
+    <div class="content-wrapper">
+      <Breadcrumbs items={items} />
+      <div class="article">
+        <div class="article__top">
+          <a href="#comments" class="article__comments">
+            <Icon name="comments" aria-hidden="true" />
+            54
+          </a>
+          <button
+            class="btn-reset article__bookmark"
+            aria-label="Добавить в закладки"
+            title="Добавить в закладки"
+          >
+            <Icon name="bookmark" aria-hidden="true" />
+          </button>
+          <a href="#" class="article__share">
+            <Icon name="share" aria-hidden="true" />
+            Поделиться
+          </a>
+        </div>
+        <h1 class="article__title">
+          Hollow Knight: Silksong: Обзор игры, которую хочется полюбить
+        </h1>
+        <div class="article__meta">
+          <a href="#" class="article__category">Превью</a>
+          <time datetime="2023-10-01" class="article__date"
+            >{formatDate('2023-10-01')}</time
+          >
+          <a href="#" class="article__author">
+            <Image src={avatar} alt="mariya.ivanova" />
+            mariya.ivanova
+          </a>
+        </div>
+        <div class="article__content">
+          <p>
+            С чего начинать обзор Hollow Knight: Silksong? Рассказывать о том,
+            что она была самой ожидаемой игрой в Steam? Это вроде бы всем уже
+            известно. Напоминать, что хайп вокруг неё генерировало все эти годы
+            сообщество, а не разработчики? Тоже не новость. Ожидания были столь
+            высоки, что на релизе игры обрушились почти все онлайн-сервисы на
+            платформах. Игру называли GTAVI от мира инди, из-за неё разработчики
+            спешно меняли даты выхода своих проектов, боясь остаться в тени
+            этого колосса. Казалось, даже обзоры не нужны — всё равно сиквел
+            будет изумительным, как и первая часть. Но на деле всё не так
+            просто.
+          </p>
+          <h2>Настоящая проверка</h2>
+          <p>
+            Изначально Silksong планировали сделать дополнением для Hollow
+            Knight, которое переносило бы игроков в совершенно новый регион
+            Фарлум и рассказывало историю Хорнет, защитницы руин Халлоунеста.
+            Однако масштабы дополнения росли с такой скоростью, что ещё в 2019
+            году разработчики передумали и решили сделать о Хорнет полноценную
+            игру. После проведённых в Silksong 40 часов понимаешь, что в формате
+            DLC такой объём контента действительно выглядел бы странно: локаций
+            неожиданно много, на новые виды противников натыкаешься регулярно, а
+            количество всевозможных секретов не поддаётся исчислению.
+          </p>
+          <img src="/img/article-image-1.png" alt="Персонаж игры Силксонг" />
+          <p>
+            В то же время игра ощущается как DLC в том плане, что она явно не
+            рассчитана на новичка. Ожидается, что перед Silksong человек не
+            только проходил основную «сюжетку» Hollow Knight, но и ознакомился в
+            той игре с побочным контентом. Silksong — не сиквел в привычном
+            понимании, где в новых декорациях вас заново всему обучают,
+            предлагают драться со слабыми противниками, а потом вы прокачиваете
+            персонажа и сложность начинает увеличиваться с каждым боссом. Тут
+            персонаж действительно поначалу хилый, а вот всё вокруг него
+            сбалансировано так, будто уже находишься чуть ли не в «эндгейме».
+          </p>
+          <h2>Еще один заголовок</h2>
+          <figure>
+            <img
+              src="/img/article-image-2.png"
+              alt="Персонаж Силксонга при перемещении по миру"
+            />
+            <figcaption>
+              Боссов на скриншотах нет, всё-таки в случае с такой игрой это
+              были бы спойлеры.
+            </figcaption>
+          </figure>
+          <ul>
+            <li>
+              Красные — вспомогательное оружие, вроде упомянутых выше кинжалов
+              и бомб.
+            </li>
+            <li>
+              Синие — «пассивки», в основном помогающие в бою, в том числе
+              ускоренное исцеление, наносящая урон вспышка при восполнении
+              здоровья и так далее.
+            </li>
+            <li>
+              Жёлтые — «пассивки», в основном делающие прохождение более
+              удобным, в том числе компас, отскок комбинацией кнопок
+              и увеличение числа выпадающих из врагов <a href="#">осколков</a>.
+            </li>
+          </ul>
+          <div class="note">
+            Кроме того, повсюду стоят камеры. Они могут поднять тревогу, на
+            которую слетятся множество врагов, бой с которыми грозит герою
+            неминуемой гибелью.
+          </div>
+        </div>
+        <div class="article__comments-block" id="comments">
+          <h3 class="article__comments-block-title">5 комментариев</h3>
+          <ul class="list-reset article__comments-block-list">
+            {
+              commentsWithUsers.map((item) => (
+                <li
+                  class={`article__comments-block-item ${item.parentId ? 'article__comments-block-item--padding' : ''}`}
+                >
+                  <CommentsCard {...item} />
+                </li>
+              ))
+            }
+          </ul>
+          <form
+            action="#"
+            class="article__comments-block-form comments-form"
+            data-comments-form
+          >
+            <label class="comments-form__label">
+              <span class="sr-only">Введите текст комментария</span>
+              <textarea
+                name="comments-text"
+                placeholder="Текст комментария"
+                data-comments-textarea
+                class="input-reset textarea comments-form__textarea"></textarea>
+            </label>
+            <Button variant="primary" type="submit" class="comments-form__btn"
+              >Отправить</Button
+            >
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

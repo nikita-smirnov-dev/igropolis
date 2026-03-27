@@ -1,0 +1,282 @@
+@use "../mixins/disable-mob-hover.scss" as *;
+
+.article {
+  position: relative;
+  margin: 0 auto;
+  padding-top: 60px;
+  width: 100%;
+  max-width: 753px;
+
+  &__top {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: var(--gap);
+    gap: var(--gap);
+  }
+
+  &__comments {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: color 0.3s;
+    gap: 8px;
+
+    svg {
+      display: block;
+      width: 20px;
+      height: 20px;
+      fill: currentcolor;
+      object-fit: cover;
+    }
+
+    @include hover {
+      color: var(--accent);
+    }
+
+    &:active {
+      color: var(--accent-active);
+    }
+  }
+
+  &__bookmark {
+    color: var(--text-secondary);
+    transition: color 0.3s;
+
+    svg {
+      display: block;
+      width: 20px;
+      height: 20px;
+      fill: currentcolor;
+      object-fit: cover;
+    }
+
+    @include hover {
+      color: var(--accent);
+    }
+
+    &:active {
+      color: var(--accent-active);
+    }
+  }
+
+  &__share {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: color 0.3s;
+    gap: 8px;
+
+    svg {
+      display: block;
+      width: 20px;
+      height: 20px;
+      fill: currentcolor;
+      object-fit: cover;
+    }
+
+    @include hover {
+      color: var(--accent);
+    }
+
+    &:active {
+      color: var(--accent-active);
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 12px;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 120%;
+    color: var(--text-primary);
+  }
+
+  &__meta {
+    display: flex;
+    align-items: center;
+    margin-bottom: 28px;
+    gap: 16px;
+  }
+
+  &__category {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    text-decoration: underline;
+    color: var(--text-primary);
+    transition:
+      color 0.3s,
+      text-decoration-color 0.3s;
+    text-decoration-skip-ink: none;
+
+    @include hover {
+      text-decoration-color: transparent;
+      color: var(--accent-hover);
+    }
+
+    &:active {
+      text-decoration-color: transparent;
+      color: var(--accent-active);
+    }
+  }
+
+  &__date {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--text-primary);
+  }
+
+  &__author {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: color 0.3s;
+    gap: 4px;
+
+    img {
+      display: block;
+      border-radius: 100%;
+      width: 20px;
+      height: 20px;
+      object-fit: cover;
+    }
+
+    @include hover {
+      color: var(--accent);
+    }
+
+    &:active {
+      color: var(--accent-active);
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    p {
+      margin: 0;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 140%;
+      color: var(--text-primary);
+    }
+
+    h2 {
+      margin: 0;
+      font-family: var(--second-family);
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 120%;
+      color: var(--text-primary);
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    figure {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      gap: 8px;
+    }
+
+    figcaption {
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 140%;
+      color: var(--text-secondary);
+    }
+
+    ul,
+    ol {
+      margin: 0;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 140%;
+      color: var(--text-primary);
+    }
+
+    a {
+      text-decoration: underline;
+      color: var(--accent);
+      transition:
+        color 0.3s,
+        text-decoration-color 0.3s;
+      text-decoration-skip-ink: none;
+
+      @include hover {
+        text-decoration-color: transparent;
+        color: var(--accent-hover);
+      }
+
+      &:active {
+        text-decoration-color: transparent;
+        color: var(--accent-active);
+      }
+    }
+
+    .note {
+      border-left: 2px solid var(--accent);
+      padding: 8px 0;
+      padding-left: 12px;
+      font-weight: 400;
+      font-style: italic;
+      font-size: 16px;
+      line-height: 140%;
+      color: var(--text-primary);
+    }
+  }
+
+  &__comments-block {
+    margin-top: var(--gap);
+
+    .comments-card__title {
+      display: none;
+    }
+
+    &-title {
+      margin: 0;
+      margin-bottom: 20px;
+      font-family: var(--second-family);
+      font-weight: 400;
+      font-size: 28px;
+      line-height: 120%;
+      color: var(--text-primary);
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    &-item {
+      &--padding {
+        padding-left: 28px;
+      }
+    }
+
+    &-form {
+      margin-top: 20px;
+    }
+  }
+}

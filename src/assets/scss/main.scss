@@ -73,3 +73,8 @@
 @use "./components/personal-nav" as *;
 @use "./components/personal-content" as *;
 @use "./components/settings" as *;
+
+// article
+@use "./components/article-section" as *;
+@use "./components/article" as *;
+@use "./components/comments-form" as *;
