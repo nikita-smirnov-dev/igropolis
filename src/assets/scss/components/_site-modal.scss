@@ -171,10 +171,20 @@
   &__input {
     border-radius: 12px;
     width: 100%;
+
+    @include mobile {
+      height: 40px;
+      font-size: 14px;
+    }
   }
 
   &__textarea {
     width: 100%;
+
+    @include mobile {
+      height: 127px;
+      font-size: 14px;
+    }
   }
 
   &__label {
@@ -212,6 +222,10 @@
       color: var(--text-primary);
       background: var(--bg-elevated);
       transition: background 0.3s;
+
+      @include mobile {
+        font-size: 12px;
+      }
     }
 
     &-input {

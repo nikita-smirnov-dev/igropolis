@@ -1,4 +1,5 @@
 @use "../mixins/disable-mob-hover" as *;
+@use "../mixins/breakpoint.scss" as *;
 
 .catalog {
   &__top {
@@ -6,6 +7,10 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 28px;
+
+    @include mobile {
+      margin-bottom: 24px;
+    }
   }
 
   &__filter-btn {
@@ -61,12 +66,36 @@
 
   &__item {
     grid-column: 3 span;
+
+    @include desktop {
+      grid-column: 4 span;
+    }
+
+    @include tablet {
+      grid-column: 6 span;
+    }
+
+    @include mobile {
+      grid-column: 4 span;
+    }
   }
 
   &__list {
     &--big {
       .catalog__item {
         grid-column: 4 span;
+
+        @include desktop {
+          grid-column: 6 span;
+        }
+
+        @include tablet {
+          grid-column: 12 span;
+        }
+
+        @include mobile {
+          grid-column: 4 span;
+        }
       }
     }
   }

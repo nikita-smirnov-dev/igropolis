@@ -1,5 +1,6 @@
 /* stylelint-disable color-function-alias-notation */
 @use "../mixins/disable-mob-hover.scss" as *;
+@use "../mixins/breakpoint.scss" as *;
 
 .toast {
   position: fixed;
@@ -99,5 +100,9 @@
     opacity: 1;
     transition-delay: 0.2s;
     translate: 0;
+  }
+
+  @include tablet {
+    right: var(--gap);
   }
 }

@@ -1,4 +1,5 @@
 @use "../mixins/disable-mob-hover" as *;
+@use "../mixins/breakpoint.scss" as *;
 
 .filters {
   position: fixed;
@@ -25,22 +26,39 @@
     justify-content: space-between;
     padding: 32px 24px;
     z-index: 2;
+
+    @include mobile {
+      padding: 16px 24px;
+    }
   }
 
   &__content {
     flex-grow: 1;
     min-height: 0;
     padding: 12px 24px;
+
+    @include mobile {
+      padding: 10px 16px;
+    }
   }
 
   &__bottom {
     position: relative;
     padding: 32px 24px;
     z-index: 2;
+
+    @include mobile {
+      padding: 24px 16px;
+    }
   }
 
   &__show {
     width: 100%;
+
+    @include mobile {
+      padding: 12px;
+      font-size: 16px;
+    }
   }
 
   &__title {
@@ -82,6 +100,11 @@
   &--open {
     visibility: visible;
     translate: 0;
+  }
+
+  @include mobile {
+    width: 100%;
+    height: 100dvh;
   }
 }
 

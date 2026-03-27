@@ -1,4 +1,5 @@
 @use "../mixins/disable-mob-hover" as *;
+@use "../mixins/breakpoint.scss" as *;
 
 .games-card {
   position: relative;
@@ -23,6 +24,10 @@
     flex-grow: 1;
     flex-direction: column;
     padding: 20px;
+
+    @include mobile {
+      padding: 16px;
+    }
   }
 
   &__top {
@@ -30,6 +35,10 @@
     align-items: center;
     justify-content: space-between;
     margin-bottom: 16px;
+
+    @include mobile {
+      margin-bottom: 20px;
+    }
   }
 
   .game-platforms {
@@ -97,6 +106,10 @@
 
   &__more {
     flex-grow: 1;
+
+    @include mobile {
+      min-height: 35px;
+    }
   }
 
   &__add {
@@ -106,5 +119,17 @@
     padding: 10px;
     border: 2px solid var(--accent);
     border-radius: 100px;
+
+    @include mobile {
+      padding: 0;
+      width: 35px;
+      height: 35px;
+
+      svg {
+        display: block;
+        width: 15px;
+        height: 15px;
+      }
+    }
   }
 }

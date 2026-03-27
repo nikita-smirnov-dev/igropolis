@@ -54,5 +54,15 @@
     align-items: flex-start;
     padding-bottom: 24px;
     gap: 8px;
+
+    &--mini {
+      flex-direction: row;
+      align-items: center;
+      padding-bottom: 20px;
+
+      .title-bar__title {
+        font-size: 20px;
+      }
+    }
   }
 }

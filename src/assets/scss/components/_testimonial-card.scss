@@ -1,4 +1,5 @@
 @use "../mixins/disable-mob-hover.scss" as *;
+@use "../mixins/breakpoint.scss" as *;
 
 .testimonial-card {
   position: relative;
@@ -22,6 +23,19 @@
       height: 100%;
       background-color: var(--bg-elevated);
     }
+
+    @include small-tablet {
+      width: 100%;
+
+      &::after {
+        left: 0;
+        right: auto;
+        top: auto;
+        bottom: -20px;
+        width: 100%;
+        height: 1px;
+      }
+    }
   }
 
   &__right {
@@ -30,6 +44,10 @@
     flex-shrink: 0;
     flex-direction: column;
     width: 288px;
+
+    @include small-tablet {
+      width: 100%;
+    }
   }
 
   &__title {
@@ -113,6 +131,10 @@
       color: var(--text-primary);
       background: var(--bg-elevated);
     }
+
+    @include mobile {
+      margin-bottom: 24px;
+    }
   }
 
   &__rating {
@@ -130,6 +152,10 @@
       line-height: 120%;
       color: var(--text-primary);
     }
+
+    @include mobile {
+      margin-bottom: 24px;
+    }
   }
 
   &__btns {
@@ -141,12 +167,27 @@
 
   &__comment {
     flex-grow: 1;
+
+    @include mobile {
+      min-height: 35px;
+    }
   }
 
   &__complain {
     padding: 4px;
     width: 46px;
     height: 46px;
+
+    @include mobile {
+      padding: 0;
+      width: 35px;
+      height: 35px;
+
+      svg {
+        width: 12px;
+        height: 12px;
+      }
+    }
   }
 
   &--disable-expand {
@@ -156,5 +197,13 @@
       -webkit-box-orient: unset;
       -webkit-line-clamp: unset;
     }
+  }
+
+  @include small-tablet {
+    flex-direction: column;
+  }
+
+  @include mobile {
+    padding: 16px;
   }
 }

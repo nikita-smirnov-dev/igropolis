@@ -1,4 +1,4 @@
-@use "../mixins/disable-mob-hover" as *;
+@use "../mixins/breakpoint.scss" as *;
 
 .hero {
   position: relative;
@@ -16,6 +16,11 @@
     font-size: 40px;
     line-height: 120%;
     color: var(--text-primary);
+
+    @include mobile {
+      margin-top: 28px;
+      font-size: 28px;
+    }
   }
 
   &__games-count {

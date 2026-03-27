@@ -23,6 +23,7 @@ import "@/assets/js/components/validate-password-form";
 import "@/assets/js/components/validate-comments-form";
 import "@/assets/js/components/toast";
 import "@/assets/js/components/burger";
+import "@/assets/js/components/nav-scroll";
 
 import "@/assets/js/utils/modal";
 import "fslightbox";

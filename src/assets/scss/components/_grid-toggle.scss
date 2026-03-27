@@ -1,4 +1,5 @@
 @use "../mixins/disable-mob-hover" as *;
+@use "../mixins/breakpoint.scss" as *;
 
 .grid-toggle {
   display: inline-flex;
@@ -31,5 +32,9 @@
       color: var(--text-primary);
       pointer-events: none;
     }
+  }
+
+  @include mobile {
+    display: none;
   }
 }

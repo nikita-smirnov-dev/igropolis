@@ -67,6 +67,35 @@
 
   &__scroll-btn {
     display: none;
+    align-items: flex-start;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    width: 36px;
+    height: 100%;
+    color: var(--text-secondary);
+    background-color: var(--bg-surface);
+    z-index: 5;
+
+    svg {
+      display: block;
+      width: 20px;
+      height: 20px;
+      fill: currentcolor;
+      object-fit: cover;
+    }
+
+    &--prev {
+      left: 0;
+    }
+
+    &--next {
+      right: 0;
+    }
+
+    &.is-visible {
+      display: flex;
+    }
   }
 
   &__count {

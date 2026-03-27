@@ -32,6 +32,15 @@ const initTabs = () => {
         initExpandableText();
       });
 
+      if (window.innerWidth <= 768 && activePanel) {
+        setTimeout(() => {
+          activePanel.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }, 150);
+      }
+
       tabBtn.focus();
     };
 
