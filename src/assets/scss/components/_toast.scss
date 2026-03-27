@@ -1,0 +1,103 @@
+/* stylelint-disable color-function-alias-notation */
+@use "../mixins/disable-mob-hover.scss" as *;
+
+.toast {
+  position: fixed;
+  right: 40px;
+  top: calc(var(--header-height) + var(--gap));
+  z-index: 100;
+  overflow: hidden;
+  border-radius: 12px;
+  padding: 12px;
+  width: 320px;
+  box-shadow: 4px 4px 20px 0 rgba(18, 18, 18, 0.25);
+  background: var(--bg-surface);
+  opacity: 1;
+  transition:
+    translate 0.3s,
+    opacity 0.3s;
+  translate: 130% 0;
+
+  &__title {
+    margin: 0;
+    margin-bottom: 8px;
+    padding-left: 24px;
+    font-family: var(--second-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 120%;
+    color: var(--text-primary);
+    background-position: left center;
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+  }
+
+  &__close {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+    width: 16px;
+    height: 16px;
+    color: var(--text-secondary);
+    transition: color 0.3s;
+
+    svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+      fill: currentcolor;
+      object-fit: cover;
+    }
+
+    @include hover {
+      color: var(--accent);
+    }
+
+    &:active {
+      color: var(--accent-active);
+    }
+  }
+
+  &__descr {
+    margin: 0;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    color: var(--text-secondary);
+  }
+
+  &__progress {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+  }
+
+  &__bar {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50%;
+    height: 2px;
+    background-color: var(--accent);
+  }
+
+  &--success {
+    .toast__title {
+      background-image: url("/img/success.svg");
+    }
+  }
+
+  &--error {
+    .toast__title {
+      background-image: url("/img/error.svg");
+    }
+  }
+
+  &--visible {
+    opacity: 1;
+    transition-delay: 0.2s;
+    translate: 0;
+  }
+}

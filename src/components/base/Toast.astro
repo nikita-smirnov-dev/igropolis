@@ -1,0 +1,21 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<div class="toast" data-toast-container>
+  <output role="status" id="toast" class="toast__inner">
+    <h3 class="toast__title" data-toast-title>Заголовок</h3>
+    <p class="toast__descr" data-toast-descr>Описание</p>
+    <div class="toast__progress">
+      <div class="toast__bar" data-toast-bar></div>
+    </div>
+  </output>
+  <button
+    class="btn-reset toast__close"
+    data-toast-close
+    aria-label="Закрыть уведомление"
+    title="Закрыть уведомление"
+  >
+    <Icon name="cross" aria-hidden="true" />
+  </button>
+</div>

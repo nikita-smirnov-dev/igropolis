@@ -28,6 +28,10 @@ const articleImage = articlesImages[`/src/assets${cover}`]?.default;
         class="articles-card__bookmark btn-reset"
         aria-label="Добавить в закладки"
         title="Добавить в закладки"
+        data-toast
+        data-toast-status="success"
+        data-type="bookmark"
+        data-toast-item={title}
       >
         <Icon name="bookmark" aria-hidden="true" />
       </button>

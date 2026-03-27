@@ -10,6 +10,7 @@
 @use "../../../node_modules/swiper//swiper-bundle.min.css" as *;
 
 // подключения компонентов страницы
+@use "./components/toast" as *;
 @use "./components/cookie" as *;
 @use "./components/back-to-top" as *;
 @use "./components/btn" as *;

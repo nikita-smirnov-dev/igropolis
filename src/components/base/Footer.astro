@@ -6,6 +6,7 @@ import Nav from '@/components/base/Nav.astro';
 import Social from '@/components/base/Social.astro';
 import BackToTop from '@/components/base/BackToTop.astro';
 import CookieBlock from '@/components/base/CookieBlock.astro';
+import Toast from '@/components/base/Toast.astro';
 
 const currentYear = new Date().getFullYear();
 const footerMenu = [...menu, ...secondMenu];
@@ -15,6 +16,7 @@ const footerMenu = [...menu, ...secondMenu];
 <CookieBlock />
 <BackToTop />
 <Modals />
+<Toast />
 <footer class="footer">
   <div class="container">
     <div class="footer__top">

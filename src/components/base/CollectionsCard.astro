@@ -54,6 +54,10 @@ const avatarImage = avatarsImages[`/src/assets${author.avatar}`]?.default;
         class="btn-reset collections-card__fav"
         aria-label="Добавить в избранное"
         title="Добавить в избранное"
+        data-toast
+        data-toast-status="success"
+        data-type="favorite"
+        data-toast-item={title}
       >
         <Icon name="fav" aria-hidden="true" />
       </button>

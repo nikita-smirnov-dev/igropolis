@@ -35,6 +35,10 @@ const avatarImage = avatarsImages[`/src/assets${author.avatar}`]?.default;
         class="btn-reset walkthroughs-card__bookmark"
         aria-label="Добавить в закладки"
         title="Добавить в закладки"
+        data-toast
+        data-toast-status="success"
+        data-type="bookmark"
+        data-toast-item={title}
       >
         <Icon name="bookmark" aria-hidden="true" />
       </button>
