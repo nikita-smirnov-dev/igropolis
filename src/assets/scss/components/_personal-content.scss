@@ -96,4 +96,14 @@
       gap: var(--gap);
     }
   }
+
+  &__subs {
+    max-width: 882px;
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
 }

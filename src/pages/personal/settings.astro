@@ -1,5 +1,11 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
+
+import PersonalHero from '@/components/partials/personal/PersonalHero.astro';
+import PersonalSettings from '@/components/partials/personal/PersonalSettings.astro';
 ---
 
-<BaseLayout title="Настройки | ИгроПолис"> Настройки </BaseLayout>
+<BaseLayout title="Настройки | ИгроПолис">
+  <PersonalHero />
+  <PersonalSettings />
+</BaseLayout>

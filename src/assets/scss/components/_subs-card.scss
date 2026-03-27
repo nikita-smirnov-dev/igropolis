@@ -1,0 +1,64 @@
+@use "../mixins/disable-mob-hover.scss" as *;
+
+.subs-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 16px;
+  padding: 20px;
+  background: var(--bg-surface);
+
+  &__author {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    &-login {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 120%;
+      text-decoration: none;
+      color: var(--text-primary);
+      transition: color 0.3s;
+
+      @include hover {
+        color: var(--accent);
+      }
+
+      &:active {
+        color: var(--accent-active);
+      }
+    }
+  }
+
+  &__avatar {
+    display: block;
+    border-radius: 100%;
+    width: 24px;
+    height: 24px;
+    object-fit: cover;
+  }
+
+  &__btn {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 120%;
+    text-decoration: underline;
+    color: var(--text-secondary);
+    transition:
+      color 0.3s,
+      text-decoration-color 0.3s;
+    text-decoration-skip-ink: none;
+    text-underline-offset: 3px;
+
+    @include hover {
+      text-decoration-color: transparent;
+      color: var(--accent);
+    }
+
+    &:active {
+      text-decoration-color: transparent;
+      color: var(--accent-active);
+    }
+  }
+}

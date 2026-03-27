@@ -55,6 +55,7 @@
 @use "./components/testimonials-main-card" as *;
 @use "./components/articles-card" as *;
 @use "./components/comments-card" as *;
+@use "./components/subs-card" as *;
 
 //game
 
@@ -71,3 +72,4 @@
 @use "./components/personal-hero" as *;
 @use "./components/personal-nav" as *;
 @use "./components/personal-content" as *;
+@use "./components/settings" as *;

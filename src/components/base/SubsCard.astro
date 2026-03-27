@@ -1,0 +1,19 @@
+---
+// @ts-nocheck
+import { avatarsImages } from '@/data/images';
+import Image from 'astro/components/Image.astro';
+
+const { author } = Astro.props;
+
+const avatarImage = avatarsImages[`/src/assets${author.avatar}`]?.default;
+---
+
+<article class="subs-card">
+  <div class="subs-card__author">
+    <Image src={avatarImage} alt={author.login} class="subs-card__avatar" />
+    <a href={author.profileUrl} class="subs-card__author-login"
+      >{author.login}</a
+    >
+  </div>
+  <button class="btn-reset subs-card__btn">Отписаться</button>
+</article>

@@ -5,6 +5,8 @@ import PersonalTabCollections from '@/components/base/PersonalTabCollections.ast
 import PersonalTabBookmarks from '@/components/base/PersonalTabBookmarks.astro';
 import PersonalTabTestimonials from '@/components/base/PersonalTabTestimonials.astro';
 import PersonalTabComments from '@/components/base/PersonalTabComments.astro';
+import PersonalTabSubscriptions from '@/components/base/PersonalTabSubscriptions.astro';
+import PersonalTabSubscribers from '@/components/base/PersonalTabSubscribers.astro';
 ---
 
 <section class="personal-content section-offset">
@@ -77,6 +79,22 @@ import PersonalTabComments from '@/components/base/PersonalTabComments.astro';
           data-target="5"
         >
           <PersonalTabComments visibleItems={6} userId={3} />
+        </div>
+        <div
+          class="personal-content__item"
+          role="tabpanel"
+          aria-labelledby="tab-6"
+          data-target="6"
+        >
+          <PersonalTabSubscriptions />
+        </div>
+        <div
+          class="personal-content__item"
+          role="tabpanel"
+          aria-labelledby="tab-7"
+          data-target="7"
+        >
+          <PersonalTabSubscribers />
         </div>
       </div>
     </div>

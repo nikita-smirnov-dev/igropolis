@@ -1,0 +1,41 @@
+---
+import Button from '@/components/base/Button.astro';
+---
+
+<div class="settings">
+  <h2 class="settings__title">Настройки</h2>
+  <form action="#" class="settings-form" data-settings-form>
+    <label class="settings-form__label">
+      <span class="sr-only">Введите Логин</span>
+      <input
+        type="text"
+        name="login"
+        placeholder="Логин"
+        data-user-login-input
+        class="input-reset input settings-form__input"
+      />
+    </label>
+    <label class="settings-form__label">
+      <span class="sr-only">Введите E-mail</span>
+      <input
+        type="email"
+        name="email"
+        placeholder="E-mail"
+        data-user-email-input
+        class="input-reset input settings-form__input"
+      />
+    </label>
+    <label class="settings-form__label settings-form__label--full">
+      <span class="sr-only">Введите информацию о себе</span>
+      <textarea
+        name="user-info"
+        placeholder="О себе"
+        data-user-info-textarea
+        class="input-reset textarea settings-form__textarea"></textarea>
+    </label>
+
+    <Button variant="primary" type="submit" class="settings-form__btn"
+      >Изменить</Button
+    >
+  </form>
+</div>

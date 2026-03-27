@@ -1,0 +1,22 @@
+---
+import CustomCheckbox from '@/components/base/CustomCheckbox.astro';
+---
+
+<div class="settings">
+  <h2 class="settings__title">Настройки</h2>
+  <ul class="list-reset settings__list">
+    <li class="settings__item">
+      <CustomCheckbox data-filter-checkbox id={1} text="Комментарии" />
+    </li>
+    <li class="settings__item">
+      <CustomCheckbox data-filter-checkbox id={2} text="Подписки" />
+    </li>
+    <li class="settings__item">
+      <CustomCheckbox
+        data-filter-checkbox
+        id={3}
+        text="Игры из моей библиотеки"
+      />
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,22 @@
+---
+// @ts-nocheck
+import { subscribers, users } from '@/data/data';
+import SubsCard from '@/components/base/SubsCard.astro';
+
+const subscribersWithAuthors = subscribers.map((sub) => ({
+  author: users.find((u) => u.id === sub.userId),
+}));
+---
+
+<div class="personal-content__subs">
+  <h2 class="personal-content__title">Подписчики</h2>
+  <ul class="list-reset personal-content__subs-list">
+    {
+      subscribersWithAuthors.map((item) => (
+        <li class="personal-content__subs-item">
+          <SubsCard {...item} />
+        </li>
+      ))
+    }
+  </ul>
+</div>
