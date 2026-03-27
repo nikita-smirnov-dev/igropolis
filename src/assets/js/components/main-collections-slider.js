@@ -11,7 +11,7 @@ const initMainCollectionsSlider = () => {
 
   new Swiper(slider, {
     modules: [Navigation],
-    slidesPerView: 2,
+    slidesPerView: 1,
     spaceBetween: gap,
     speed: 700,
     loop: true,
@@ -22,6 +22,11 @@ const initMainCollectionsSlider = () => {
     navigation: {
       nextEl: ".main-collections__slider-btn--next",
       prevEl: ".main-collections__slider-btn--prev",
+    },
+    breakpoints: {
+      576: {
+        slidesPerView: 2,
+      },
     },
   });
 };

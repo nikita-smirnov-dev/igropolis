@@ -1,4 +1,5 @@
 @use "../mixins/disable-mob-hover" as *;
+@use "../mixins/breakpoint.scss" as *;
 
 .back-to-top {
   position: fixed;
@@ -35,5 +36,10 @@
 
   &:active {
     background: var(--bg-elevated-active);
+  }
+
+  @include mobile {
+    right: 16px;
+    bottom: 16px;
   }
 }

@@ -1,4 +1,5 @@
 @use "../mixins/disable-mob-hover" as *;
+@use "../mixins/breakpoint.scss" as *;
 
 .testimonials-main-card {
   position: relative;
@@ -33,6 +34,10 @@
     &:active {
       text-decoration-color: transparent;
       color: var(--accent-active);
+    }
+
+    @include mobile {
+      font-size: 20px;
     }
   }
 
@@ -120,5 +125,14 @@
       height: 16px;
       fill: currentcolor;
     }
+  }
+
+  @include tablet {
+    min-height: 260px;
+  }
+
+  @include mobile {
+    padding: 16px 12px;
+    min-height: 221px;
   }
 }

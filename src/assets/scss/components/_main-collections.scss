@@ -1,8 +1,17 @@
 @use "../mixins/disable-mob-hover" as *;
+@use "../mixins/breakpoint.scss" as *;
 
 .main-collections {
   &__content {
     position: relative;
+
+    @include large {
+      padding-bottom: 80px;
+    }
+
+    @include mobile {
+      padding-bottom: 52px;
+    }
   }
 
   &__slider-btn {
@@ -22,10 +31,24 @@
 
     &--prev {
       left: -56px;
+      @include large {
+        left: calc(50% - 70px);
+      }
+
+      @include mobile {
+        left: calc(50% - 45px);
+      }
     }
 
     &--next {
       right: -56px;
+      @include large {
+        right: calc(50% - 70px);
+      }
+
+      @include mobile {
+        right: calc(50% - 45px);
+      }
     }
 
     @include hover {
@@ -34,6 +57,21 @@
 
     &:active {
       background: var(--bg-elevated-active);
+    }
+
+    @include large {
+      top: auto;
+      bottom: 0;
+      translate: 0;
+    }
+
+    @include mobile {
+      width: 36px;
+      height: 36px;
+
+      svg {
+        width: 6px;
+      }
     }
   }
 

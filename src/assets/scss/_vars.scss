@@ -33,6 +33,15 @@
 
   // gap
   --gap: 24px;
+
+  @include small-tablet {
+    --gap: 16px;
+    --container-offset: 20px;
+  }
+
+  @include mobile {
+    --container-offset: 16px;
+  }
 }
 
 [data-theme="light"] {

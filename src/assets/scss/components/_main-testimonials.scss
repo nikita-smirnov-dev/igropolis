@@ -1,5 +1,11 @@
+@use "../mixins/breakpoint.scss" as *;
+
 .main-testimonials {
   &__item {
     grid-column: 4 span;
+
+    @include desktop {
+      grid-column: 6 span;
+    }
   }
 }

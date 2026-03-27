@@ -1,3 +1,5 @@
+@use "../mixins/breakpoint.scss" as *;
+
 .footer {
   padding-top: var(--gap);
   border-top: 1px solid var(--bg-elevated);
@@ -7,6 +9,12 @@
     align-items: flex-start;
     justify-content: space-between;
     margin-bottom: 36px;
+
+    @include mobile {
+      flex-direction: column;
+      margin-bottom: 16px;
+      gap: 24px;
+    }
   }
 
   &__title {
@@ -16,6 +24,10 @@
     font-size: 16px;
     text-align: right;
     color: var(--text-secondary);
+
+    @include mobile {
+      text-align: left;
+    }
   }
 
   &__bottom {

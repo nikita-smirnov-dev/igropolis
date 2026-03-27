@@ -1,3 +1,5 @@
+@use "../mixins/breakpoint.scss" as *;
+
 .search {
   position: relative;
 
@@ -18,6 +20,10 @@
     &::placeholder {
       color: #9d9d9d;
       transition: color 0.3s;
+    }
+
+    @include tablet {
+      padding-right: 44px;
     }
   }
 
@@ -43,6 +49,10 @@
     color: #9d9d9d;
     transition: color 0.3s opacity 0.3s visibility 0.3s;
     pointer-events: none;
+
+    @include tablet {
+      display: none;
+    }
   }
 
   &__hotkey {

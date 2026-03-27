@@ -1,4 +1,5 @@
 @use "../mixins/disable-mob-hover" as *;
+@use "../mixins/breakpoint.scss" as *;
 
 .site-modal {
   .site-modal__container {
@@ -7,6 +8,11 @@
     padding: 40px;
     padding-bottom: 32px;
     background: var(--bg-surface);
+
+    @include mobile {
+      padding: 40px 16px;
+      max-width: 343px;
+    }
   }
 
   .site-modal__add-testimonial {
@@ -36,6 +42,11 @@
     &:active {
       color: var(--accent-active);
     }
+
+    @include mobile {
+      right: 12px;
+      top: 12px;
+    }
   }
 
   .site-modal__content {
@@ -52,6 +63,10 @@
     font-size: 32px;
     line-height: 120%;
     color: var(--text-primary);
+
+    @include mobile {
+      font-size: 24px;
+    }
   }
 
   &__form {
@@ -83,6 +98,11 @@
 
   &__btn {
     width: 100%;
+
+    @include mobile {
+      min-height: 46px;
+      font-size: 16px;
+    }
   }
 
   &__statuses {
