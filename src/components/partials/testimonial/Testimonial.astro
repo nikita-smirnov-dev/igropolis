@@ -1,0 +1,81 @@
+---
+import Breadcrumbs from '@/components/base/Breadcrumbs.astro';
+import CommentsCard from '@/components/base/CommentsCard.astro';
+import Button from '@/components/base/Button.astro';
+import GameInfo from '@/components/base/GameInfo.astro';
+import { testimonials, users, comments } from '@/data/data';
+import TestimonialsCard from '@/components/base/TestimonialsCard.astro';
+
+const testimonialWithUser = testimonials
+  .map((item) => ({
+    ...item,
+    author: users.find((u) => u.id === item.authorId),
+  }))
+  .find((item) => item.id === 1);
+
+const commentsWithUsers = comments.map((item) => ({
+  ...item,
+  author: users.find((u) => u.id === item.authorId),
+}));
+
+const items = [
+  { href: '/', label: 'Главная' },
+  { href: '/articles/', label: 'Статьи' },
+  {
+    href: '/game/',
+    label: 'Alan Wake 2',
+  },
+  {
+    href: '/testimonial/',
+    label: 'Отзыв',
+  },
+];
+---
+
+<section class="testimonial-section">
+  <div class="container">
+    <div class="content-wrapper">
+      <Breadcrumbs items={items} />
+      <div class="testimonial grid">
+        <div class="testimonial__wrapper">
+          <TestimonialsCard disableExpand="true" {...testimonialWithUser} />
+          <div class="testimonial__comments-block" id="comments">
+            <h3 class="testimonial__comments-block-title">5 комментариев</h3>
+            <ul class="list-reset testimonial__comments-block-list">
+              {
+                commentsWithUsers.map((item) => (
+                  <li
+                    class={`testimonial__comments-block-item ${item.parentId ? 'testimonial__comments-block-item--padding' : ''}`}
+                  >
+                    <CommentsCard {...item} />
+                  </li>
+                ))
+              }
+            </ul>
+            <form
+              action="#"
+              class="testimonial__comments-block-form comments-form"
+              data-comments-form
+            >
+              <label class="comments-form__label">
+                <span class="sr-only">Введите текст комментария</span>
+                <textarea
+                  name="comments-text"
+                  placeholder="Текст комментария"
+                  data-comments-textarea
+                  class="input-reset textarea comments-form__textarea"
+                ></textarea>
+              </label>
+              <Button variant="primary" type="submit" class="comments-form__btn"
+                >Отправить</Button
+              >
+            </form>
+          </div>
+        </div>
+        <div class="testimonial__info">
+          <GameInfo class="game-info--sticky" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
