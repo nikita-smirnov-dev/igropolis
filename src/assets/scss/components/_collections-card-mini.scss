@@ -3,14 +3,14 @@
 .collections-card-mini {
   position: relative;
   display: flex;
-  gap: 12px;
   align-items: flex-start;
   padding: 8px var(--gap);
+  gap: 12px;
 
   &__pic {
+    border-radius: 4px;
     width: 40px;
     height: 46px;
-    border-radius: 4px;
     object-fit: cover;
   }
 
@@ -51,11 +51,11 @@
 
   &__author {
     position: relative;
-    text-decoration: none;
+    z-index: 2;
     font-weight: 400;
     font-size: 12px;
     line-height: 120%;
-    z-index: 2;
+    text-decoration: none;
     color: #9d9d9d;
   }
 
@@ -63,10 +63,10 @@
     display: inline-flex;
     align-items: center;
     margin-left: 8px;
-    gap: 8px;
     font-weight: 400;
     font-size: 12px;
     line-height: 120%;
     color: #9d9d9d;
+    gap: 8px;
   }
 }

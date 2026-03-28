@@ -7,12 +7,12 @@
     align-items: center;
     margin: 0;
     padding: 16px var(--gap);
-    gap: 4px;
     font-family: var(--second-family);
     font-weight: 400;
     font-size: 20px;
     line-height: 120%;
     color: #f0f0f0;
+    gap: 4px;
   }
 
   &__quantity {

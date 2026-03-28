@@ -5,8 +5,8 @@
   --highlight: var(--green-color);
 
   display: inline-flex;
-  gap: 4px;
   cursor: pointer;
+  gap: 4px;
 
   &__star {
     position: relative;
@@ -25,9 +25,9 @@
     position: absolute;
     left: 0;
     top: 0;
+    overflow: hidden;
     width: 0%;
     height: 100%;
-    overflow: hidden;
   }
 
   &__star-fill {

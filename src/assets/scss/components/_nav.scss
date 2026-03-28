@@ -28,8 +28,7 @@
 
   &--footer {
     .nav__list {
-      flex-direction: column;
-      flex-wrap: wrap;
+      flex-flow: column wrap;
       align-items: flex-start;
       width: max-content;
       max-height: 126px;

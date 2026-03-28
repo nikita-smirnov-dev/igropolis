@@ -16,21 +16,22 @@
 
   &__slider-btn {
     position: absolute;
+    top: 50%;
+    z-index: 5;
     display: flex;
     align-items: center;
     justify-content: center;
-    top: 50%;
-    translate: 0 -50%;
     border-radius: 100%;
     width: 44px;
     height: 44px;
     color: var(--text-primary);
     background: var(--bg-elevated);
     transition: background 0.3s;
-    z-index: 5;
+    translate: 0 -50%;
 
     &--prev {
       left: -56px;
+
       @include large {
         left: calc(50% - 70px);
       }
@@ -42,6 +43,7 @@
 
     &--next {
       right: -56px;
+
       @include large {
         right: calc(50% - 70px);
       }

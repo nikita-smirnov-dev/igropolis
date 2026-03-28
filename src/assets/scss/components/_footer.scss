@@ -1,8 +1,8 @@
 @use "../mixins/breakpoint.scss" as *;
 
 .footer {
-  padding-top: var(--gap);
   border-top: 1px solid var(--bg-elevated);
+  padding-top: var(--gap);
 
   &__top {
     display: flex;

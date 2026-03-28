@@ -3,16 +3,16 @@
 .custom-checkbox {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
   cursor: pointer;
+  gap: 8px;
 
   &__input {
+    appearance: none;
     position: relative;
+    border: 1px solid var(--text-primary);
+    border-radius: 2px;
     width: 16px;
     height: 16px;
-    border-radius: 2px;
-    border: 1px solid var(--text-primary);
-    appearance: none;
     background: transparent;
 
     &::before {

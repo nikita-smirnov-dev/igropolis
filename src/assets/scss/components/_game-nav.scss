@@ -2,13 +2,13 @@
 
 .game-nav {
   position: relative;
-  border-bottom: 1px solid var(--bg-elevated);
   overflow: hidden;
+  border-bottom: 1px solid var(--bg-elevated);
 
   &__list {
     display: flex;
-    gap: 16px;
     overflow-x: auto;
+    gap: 16px;
     -ms-overflow-style: none;
     scrollbar-width: none;
 
@@ -21,7 +21,6 @@
     position: relative;
     display: inline-flex;
     align-items: flex-start;
-    gap: 2px;
     padding-bottom: 9px;
     font-weight: 400;
     font-size: 16px;
@@ -29,6 +28,7 @@
     white-space: nowrap;
     color: var(--text-secondary);
     transition: color 0.3s;
+    gap: 2px;
 
     &::after {
       content: "";
@@ -66,16 +66,16 @@
   }
 
   &__scroll-btn {
+    position: absolute;
+    top: 0;
+    z-index: 5;
     display: none;
     align-items: flex-start;
     justify-content: center;
-    position: absolute;
-    top: 0;
     width: 36px;
     height: 100%;
     color: var(--text-secondary);
     background-color: var(--bg-surface);
-    z-index: 5;
 
     svg {
       display: block;

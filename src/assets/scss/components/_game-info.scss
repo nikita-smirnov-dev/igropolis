@@ -8,9 +8,9 @@
 
   &__cover {
     display: block;
+    margin-bottom: var(--gap);
     height: auto;
     max-width: 100%;
-    margin-bottom: var(--gap);
     object-fit: cover;
   }
 
@@ -69,9 +69,9 @@
 
   &__add-game {
     flex-shrink: 0;
+    padding: 12px;
     width: 46px;
     height: 46px;
-    padding: 12px;
 
     @include mobile {
       padding: 0;

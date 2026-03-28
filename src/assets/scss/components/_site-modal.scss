@@ -3,10 +3,10 @@
 
 .site-modal {
   .site-modal__container {
-    max-width: 420px;
     border-radius: 16px;
     padding: 40px;
     padding-bottom: 32px;
+    max-width: 420px;
     background: var(--bg-surface);
 
     @include mobile {
@@ -142,6 +142,7 @@
       }
     }
   }
+
   &__testimonial-form {
     display: flex;
     flex-direction: column;

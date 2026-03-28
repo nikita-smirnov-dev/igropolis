@@ -3,14 +3,14 @@
 .games-card-mini {
   position: relative;
   display: flex;
-  gap: 12px;
   align-items: flex-start;
   padding: 8px var(--gap);
+  gap: 12px;
 
   &__pic {
+    border-radius: 4px;
     width: 40px;
     height: 46px;
-    border-radius: 4px;
     object-fit: cover;
   }
 

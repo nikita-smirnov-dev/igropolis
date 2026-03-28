@@ -5,20 +5,20 @@
   position: relative;
   display: flex;
   align-items: center;
-  gap: 20px;
+  border-radius: 16px;
   padding: 20px;
   height: 100%;
   box-sizing: border-box;
-  border-radius: 16px;
   background: var(--bg-surface);
+  gap: 20px;
 
   &__pic {
     display: block;
     border-radius: 12px;
     width: 320px;
     height: 197px;
-    object-fit: cover;
     background: var(--text-secondary);
+    object-fit: cover;
 
     @include large {
       width: 230px;
@@ -54,11 +54,11 @@
     &-item {
       display: inline-flex;
       align-items: center;
-      gap: 4px;
       font-weight: 400;
       font-size: 16px;
       line-height: 120%;
       color: var(--text-secondary);
+      gap: 4px;
 
       svg {
         display: block;
@@ -71,14 +71,14 @@
 
   &__fav {
     position: relative;
+    z-index: 2;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 8px;
     border-radius: 16px;
+    padding: 8px;
     color: var(--text-secondary);
     background: var(--bg-elevated);
-    z-index: 2;
     transition: background 0.3s;
 
     svg {
@@ -99,16 +99,16 @@
 
   &__author {
     position: relative;
+    z-index: 2;
     display: inline-flex;
     align-items: center;
-    gap: 4px;
     font-weight: 400;
     font-size: 16px;
     line-height: 120%;
     text-decoration: none;
     color: var(--text-secondary);
     transition: color 0.3s;
-    z-index: 2;
+    gap: 4px;
 
     &-pic {
       display: block;

@@ -2,25 +2,25 @@
 
 .cookie {
   position: fixed;
+  left: 50%;
+  bottom: 40px;
+  z-index: 10000;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: var(--gap);
+  border-radius: 16px;
+  padding: 24px;
   width: 100%;
   max-width: 1530px;
-  padding: 24px;
-  left: 50%;
-  bottom: 40px;
-  translate: -50% 0;
-  border-radius: 16px;
-  z-index: 10000;
-  box-shadow: 4px 4px 20px 0 rgba(18, 18, 18, 0.25);
+  box-shadow: 4px 4px 20px 0 rgb(18, 18, 18, 0.25);
   background: var(--bg-surface);
+  opacity: 0;
+  visibility: hidden;
   transition:
     opacity 0.3s,
     visibility 0.3s;
-  opacity: 0;
-  visibility: hidden;
+  gap: var(--gap);
+  translate: -50% 0;
 
   &__text {
     margin: 0;

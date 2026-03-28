@@ -10,9 +10,9 @@
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-    gap: var(--gap);
-    padding-bottom: var(--gap);
     border-bottom: 1px solid var(--bg-elevated);
+    padding-bottom: var(--gap);
+    gap: var(--gap);
 
     @include tablet {
       flex-direction: column;
@@ -24,13 +24,13 @@
   &__title {
     display: flex;
     align-items: center;
-    gap: var(--gap);
     margin: 0;
     font-family: var(--second-family);
     font-weight: 400;
     font-size: 40px;
     line-height: 120%;
     color: var(--text-primary);
+    gap: var(--gap);
 
     @include mobile {
       font-size: 24px;
@@ -59,13 +59,13 @@
   &__link {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
     font-weight: 400;
     font-size: 16px;
     line-height: 120%;
     text-decoration: none;
     color: var(--text-secondary);
     transition: color 0.3s;
+    gap: 8px;
 
     svg {
       display: block;

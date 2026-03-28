@@ -3,10 +3,10 @@
 
 .game-content {
   position: relative;
-  margin-top: -24px;
-  padding-top: 80px;
-  border-radius: 16px 16px 0 0;
   z-index: 2;
+  margin-top: -24px;
+  border-radius: 16px 16px 0 0;
+  padding-top: 80px;
   background: var(--bg-primary);
 
   &__mobile-menu {
@@ -239,12 +239,12 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 16px;
       border: 1px solid var(--bg-elevated);
       border-radius: 16px;
       padding: 24px;
-      min-height: 153px;
       width: calc((100% - ((var(--elems) - 1) * var(--gap))) / (var(--elems)));
+      min-height: 153px;
+      gap: 16px;
     }
 
     &-icon {
@@ -311,7 +311,7 @@
         inset: 0;
         z-index: 1;
         border-radius: 16px;
-        background: rgba(18, 18, 18, 0.4);
+        background: rgb(18, 18, 18, 0.4);
       }
     }
 

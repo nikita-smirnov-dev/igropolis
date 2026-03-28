@@ -4,11 +4,11 @@
 .articles-card {
   position: relative;
   display: flex;
-  gap: 20px;
-  height: 100%;
   border-radius: 16px;
   padding: 20px;
+  height: 100%;
   background: var(--bg-surface);
+  gap: 20px;
 
   &__pic {
     display: block;
@@ -39,22 +39,22 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
     margin-bottom: 12px;
+    width: 100%;
   }
 
   &__category {
     position: relative;
+    z-index: 2;
     font-weight: 400;
     font-size: 14px;
     line-height: 120%;
     text-decoration: underline;
     color: var(--text-primary);
-    text-decoration-skip-ink: none;
-    z-index: 2;
     transition:
       color 0.3s,
       text-decoration-color 0.3s;
+    text-decoration-skip-ink: none;
     text-underline-offset: 3px;
 
     @include hover {
@@ -69,12 +69,12 @@
 
   &__bookmark {
     position: relative;
+    z-index: 2;
     display: block;
     width: 16px;
     height: 16px;
     color: var(--text-primary);
     transition: color 0.3s;
-    z-index: 2;
 
     svg {
       display: block;
@@ -140,8 +140,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
     margin-top: auto;
+    width: 100%;
   }
 
   &__date {
@@ -154,11 +154,11 @@
   &__comments {
     display: inline-flex;
     align-items: center;
-    gap: 4px;
     font-weight: 400;
     font-size: 16px;
     line-height: 120%;
     color: var(--text-secondary);
+    gap: 4px;
 
     svg {
       position: relative;
@@ -184,11 +184,11 @@
 
     .articles-card__text {
       position: relative;
-      justify-content: flex-end;
-      padding: var(--gap);
-      border-radius: inherit;
       z-index: 2;
-      background: linear-gradient(0deg, #1e1e1e 0%, rgba(30, 30, 30, 0) 100%);
+      justify-content: flex-end;
+      border-radius: inherit;
+      padding: var(--gap);
+      background: linear-gradient(0deg, #1e1e1e 0%, rgb(30, 30, 30, 0) 100%);
     }
 
     .articles-card__category {

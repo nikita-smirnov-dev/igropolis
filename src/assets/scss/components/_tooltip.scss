@@ -7,15 +7,15 @@
 
   &__elem {
     position: absolute;
-    max-width: 155px;
-    width: max-content;
+    z-index: 2;
     border-radius: 8px;
     padding: 8px 12px;
+    width: max-content;
+    max-width: 155px;
     font-weight: 400;
     font-size: 12px;
     line-height: 120%;
     color: var(--text-primary);
-    z-index: 2;
     background: var(--bg-elevated);
 
     &--hidden {
@@ -26,9 +26,9 @@
     &::before {
       content: "";
       position: absolute;
+      z-index: -1;
       width: 21px;
       height: 19px;
-      z-index: -1;
       background-image: url("/img/triangle.svg");
       background-position: center;
       background-size: cover;
