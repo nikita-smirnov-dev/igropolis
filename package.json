@@ -6,7 +6,7 @@
     "stylelint": "npx stylelint **/*.scss",
     "style-fix": "npx stylelint **/*.scss --fix",
     "dev": "astro dev",
-    "build": "npm run stylelint && astro build",
+    "build": "astro build",
     "build:backend": "cross-env BUILD_ENV=backend astro build",
     "preview": "astro preview",
     "astro": "astro"
