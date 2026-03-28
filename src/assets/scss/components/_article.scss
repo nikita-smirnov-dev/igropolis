@@ -1,4 +1,5 @@
 @use "../mixins/disable-mob-hover.scss" as *;
+@use "../mixins/breakpoint.scss" as *;
 
 .article {
   position: relative;
@@ -99,6 +100,10 @@
     font-size: 40px;
     line-height: 120%;
     color: var(--text-primary);
+
+    @include mobile {
+      font-size: 32px;
+    }
   }
 
   &__meta {
@@ -185,6 +190,10 @@
       font-size: 28px;
       line-height: 120%;
       color: var(--text-primary);
+
+      @include mobile {
+        font-size: 20px;
+      }
     }
 
     img {
@@ -213,6 +222,10 @@
       font-size: 16px;
       line-height: 140%;
       color: var(--text-primary);
+
+      @include mobile {
+        padding-left: 20px;
+      }
     }
 
     a {
@@ -261,6 +274,10 @@
       font-size: 28px;
       line-height: 120%;
       color: var(--text-primary);
+
+      @include mobile {
+        font-size: 20px;
+      }
     }
 
     &-list {
@@ -272,11 +289,23 @@
     &-item {
       &--padding {
         padding-left: 28px;
+
+        @include mobile {
+          padding-left: 20px;
+        }
       }
     }
 
     &-form {
       margin-top: 20px;
+
+      @include mobile {
+        margin-top: 24px;
+      }
     }
+  }
+
+  @include mobile {
+    padding-top: 32px;
   }
 }

@@ -1,5 +1,11 @@
+@use "../mixins/breakpoint.scss" as *;
+
 .testimonial-section {
   position: relative;
   padding-top: calc(var(--header-height) + var(--gap));
   padding-bottom: 80px;
+
+  @include mobile {
+    padding-bottom: 60px;
+  }
 }

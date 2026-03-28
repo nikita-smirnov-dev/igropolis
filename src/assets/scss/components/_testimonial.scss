@@ -1,12 +1,31 @@
+@use "../mixins/breakpoint.scss" as *;
+
 .testimonial {
   padding-top: 40px;
 
   &__wrapper {
     grid-column: 8 span;
+
+    @include desktop {
+      grid-column: 12 span;
+    }
+
+    @include mobile {
+      grid-column: 4 span;
+    }
   }
 
   &__info {
     grid-column: 4 span;
+
+    @include desktop {
+      order: -1;
+      grid-column: 12 span;
+    }
+
+    @include mobile {
+      grid-column: 4 span;
+    }
   }
 
   &__comments-block {
@@ -26,22 +45,42 @@
       font-size: 28px;
       line-height: 120%;
       color: var(--text-primary);
+
+      @include mobile {
+        font-size: 20px;
+      }
     }
 
     &-list {
       display: flex;
       flex-direction: column;
       gap: 20px;
+
+      @include mobile {
+        gap: 16px;
+      }
     }
 
     &-item {
       &--padding {
         padding-left: 28px;
+
+        @include mobile {
+          padding-left: 20px;
+        }
       }
     }
 
     &-form {
       margin-top: 20px;
     }
+
+    @include mobile {
+      margin-top: 24px;
+    }
+  }
+
+  @include mobile {
+    padding-top: 32px;
   }
 }

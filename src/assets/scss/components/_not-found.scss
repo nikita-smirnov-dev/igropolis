@@ -1,4 +1,5 @@
 @use "../mixins/disable-mob-hover.scss" as *;
+@use "../mixins/breakpoint.scss" as *;
 
 .not-found {
   position: relative;
@@ -22,6 +23,10 @@
     font-size: 140px;
     line-height: 120%;
     color: var(--text-primary);
+
+    @include tablet {
+      font-size: 100px;
+    }
   }
 
   &__title {
@@ -31,6 +36,10 @@
     font-size: 40px;
     line-height: 140%;
     color: var(--text-primary);
+
+    @include tablet {
+      font-size: 32px;
+    }
   }
 
   &__descr {
@@ -57,5 +66,14 @@
         color: var(--accent-active);
       }
     }
+
+    @include tablet {
+      font-size: 20px;
+    }
+  }
+
+  @include mobile {
+    padding-top: calc(var(--header-height) + 32px);
+    padding-bottom: 100px;
   }
 }
