@@ -1,12 +1,39 @@
+@use "../mixins/breakpoint.scss" as *;
+
 .personal-content {
   &__aside {
     position: relative;
     grid-column: 3 span;
+
+    @include desktop {
+      display: none;
+    }
   }
 
   &__wrapper {
     position: relative;
     grid-column: 9 span;
+
+    @include desktop {
+      grid-column: 12 span;
+    }
+
+    @include mobile {
+      grid-column: 4 span;
+    }
+  }
+
+  &__mobile-menu {
+    display: none;
+
+    @include desktop {
+      display: block;
+      grid-column: 12 span;
+    }
+
+    @include mobile {
+      grid-column: 4 span;
+    }
   }
 
   &__item {
@@ -26,6 +53,11 @@
     font-size: 32px;
     line-height: 120%;
     color: var(--text-primary);
+
+    @include mobile {
+      margin-bottom: 20px;
+      font-size: 24px;
+    }
   }
 
   &__center {
@@ -42,6 +74,14 @@
       display: flex;
       flex-wrap: wrap;
       gap: var(--gap);
+
+      @include tablet {
+        --elems: 2;
+      }
+
+      @include mobile {
+        --elems: 1;
+      }
     }
 
     &-item {
@@ -57,6 +97,14 @@
       display: flex;
       flex-wrap: wrap;
       gap: var(--gap);
+
+      @include tablet {
+        --elems: 2;
+      }
+
+      @include mobile {
+        --elems: 1;
+      }
     }
 
     &-item {
@@ -72,6 +120,14 @@
       display: flex;
       flex-wrap: wrap;
       gap: var(--gap);
+
+      @include tablet {
+        --elems: 2;
+      }
+
+      @include mobile {
+        --elems: 1;
+      }
     }
 
     &-item {

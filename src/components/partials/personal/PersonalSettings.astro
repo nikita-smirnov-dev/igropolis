@@ -1,4 +1,6 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 import { personalSettingsItems } from '@/data/data';
 import SettingsForm from '@/components/base/SettingsForm.astro';
 import SettingsPassword from '@/components/base/SettingsPassword.astro';
@@ -8,6 +10,47 @@ import SettingsNotifications from '@/components/base/SettingsNotifications.astro
 <section class="personal-content section-offset">
   <div class="container">
     <div class="content-wrapper grid">
+      <div class="personal-content__mobile-menu">
+        <nav
+          class="personal-content__nav personal-nav"
+          data-tabs
+          data-scroll-nav
+          aria-label="Навигация по настройкам"
+        >
+          <button
+            class="btn-reset personal-nav__scroll-btn personal-nav__scroll-btn--prev"
+            data-scroll-btn="left"
+            aria-label="Прокрутить влево"
+          >
+            <Icon name="angle-left" aria-hidden="true" />
+          </button>
+          <ul class="list-reset personal-nav__list" data-scroll-list>
+            {
+              personalSettingsItems.map((item) => (
+                <li class="personal-nav__item">
+                  <button
+                    class={`btn-reset personal-nav__btn ${item.tab === 1 ? 'is-active' : ''}`}
+                    data-tab={item.tab}
+                    role="tab"
+                    aria-selected={item.tab === 1 ? 'true' : 'false'}
+                    tabindex={item.tab === 1 ? '0' : '-1'}
+                    id={`tab-${item.tab}`}
+                  >
+                    {item.title}
+                  </button>
+                </li>
+              ))
+            }
+          </ul>
+          <button
+            class="btn-reset personal-nav__scroll-btn personal-nav__scroll-btn--next"
+            data-scroll-btn="right"
+            aria-label="Прокрутить вправо"
+          >
+            <Icon name="angle-right" aria-hidden="true" />
+          </button>
+        </nav>
+      </div>
       <div class="personal-content__aside">
         <nav
           class="personal-content__nav personal-nav personal-nav--sticky"

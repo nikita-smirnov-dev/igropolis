@@ -1,3 +1,5 @@
+@use "../mixins/breakpoint.scss" as *;
+
 .cards-content {
   &__top {
     display: flex;
@@ -15,6 +17,18 @@
 
   &__item {
     grid-column: 3 span;
+
+    @include desktop {
+      grid-column: 4 span;
+    }
+
+    @include tablet {
+      grid-column: 6 span;
+    }
+
+    @include mobile {
+      grid-column: 4 span;
+    }
   }
 
   &__center {
